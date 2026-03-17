@@ -1,0 +1,106 @@
+body{
+      padding-top: 70px;
+    background-color: #3d81c9c0;
+
+}
+h1,p{
+    margin: 50px;
+text-align: center;
+
+}
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #333;
+  color: white;
+  padding: 15px;
+  z-index: 1000;
+  
+}
+/* ! ------------------------------test----------------------------------------- */
+/* الحاوية التي تضم كل البطاقات */
+.cards-wrapper {
+    display: flex;          /* تفعيل النظام المرن */
+    flex-wrap: wrap;        /* السماح للبطاقات بالنزول لسطر جديد إذا ضاق المكان */
+    gap: 100px;              /* المسافة بين البطاقات (يمكنك تغيير الرقم لزيادة البعد) */
+    justify-content: center;
+    padding: 20px;
+}
+
+/* !--------------------------------container------------------------------------ */
+ .card-container {
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            max-width: 380px;
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            flex-shrink: 0;  
+        }
+        .card-content {
+            padding: 40px 30px;
+            text-align: center;
+        }
+        /* ! ---------------------------------Cared  ------------------------------------ */
+
+        /* ! ---------------------------------------card img-------------------------------------------------------------- */
+        .card img{
+            
+            width: 100%;
+            border-radius: 10px;
+        }
+        /* !---------------------------------------card h3 ----------------------------------------- */
+        .service-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
+        }
+        /* ! --------------------------------------card p ---------------------------------------- */
+        .card p {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+            /* ! ---------------------------------card button ------------------------------------ */
+            .card button{
+                padding: 10px 15px;
+                border: none;
+                background-color: #007bff;
+                color: white;
+                border-radius: 8px;
+                cursor: pointer;
+            }
+            /* ! ---------------------------------button Hover--------------------------------- */
+            .card button :hover{
+                background: #0056b3;
+            }
+            /* ! ----------------------------------Tag------------------------------------------*/
+        .tags-container {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        .tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #e3f2fd;
+            color: #0099ff;
+            padding: 8px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            border: 1px solid #b3e5fc;
+        }
+        .tag-icon {
+            font-size: 14px;
+        }
