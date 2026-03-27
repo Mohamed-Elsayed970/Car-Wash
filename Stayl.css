@@ -19,6 +19,13 @@ body {
 
     margin-top: 100px;
 }
+div div div  a{
+    text-decoration: none;
+     
+}
+a:hover{
+     transform: translateY(-3px);
+}
 
 h2 {
     font-size: 40px;
@@ -80,34 +87,36 @@ p {
     flex-shrink: 0;
 }
 
-.card-content {
+
+.card-content  {
     padding: 40px 30px;
     text-align: center;
+    
 }
 
 /* ! ---------------------------------Cared  ------------------------------------ */
 .glass-card {
-    /* 1. خلفية بيضاء شفافة (السر في الرقم 0.2) */
+    
     background: rgba(255, 255, 255, 0.2);
     text-align: center;
 
-    /* 2. تأثير التغبيش (Blur) لما خلف الزجاج */
+    
     backdrop-filter: blur(15px);
 
-    /* 3. حدود خفيفة جداً لتعطي إيحاء بحافة الزجاج */
+    
     border: 1px solid rgba(255, 255, 255, 0.3);
 
-    /* 4. حواف مستديرة ناعمة */
+    
     border-radius: 20px;
 
-    /* 5. ظل خفيف ليعطي عمق للبطاقة */
+    
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
 
-    /* تنسيقات إضافية للبطاقة */
+    
     padding: 25px;
     width: 250px;
     color: #fff;
-    /* لون النص (يفضل الأبيض على الخلفيات الملونة) */
+    
 }
 
 /* ! ---------------------------------------card img-------------------------------------------------------------- */
@@ -145,10 +154,6 @@ p {
     cursor: pointer;
 }
 
-/* ! ---------------------------------button Hover--------------------------------- */
-.card button :hover {
-    background: #0056b3;
-}
 
 /* ! ----------------------------------Tag------------------------------------------*/
 .tags-container {
@@ -177,7 +182,8 @@ p {
     font-size: 14px;
 }
 
-.tilt-btn {
+.tilt-btn  {
+    text-emphasis: none;
     padding: 15px 30px;
     border-radius: 12px;
     background: linear-gradient(45deg, #fe4f4f 0%, #09c1c7 100%);
@@ -187,6 +193,7 @@ p {
     transition: transform 0.3s ease;
     transform-style: preserve-3d;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    
 }
 .glass-card-in {
   background: rgba(255, 255, 255, 0.05);
