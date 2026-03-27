@@ -26,6 +26,11 @@ div div div  a{
 a:hover{
      transform: translateY(-3px);
 }
+.col{
+    transform: translateX(-80px);
+    opacity: 0;
+    animation: slideln 0.5s forwards;
+}
 
 h2 {
     font-size: 40px;
