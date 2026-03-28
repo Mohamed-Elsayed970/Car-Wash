@@ -31,6 +31,12 @@ a:hover{
     opacity: 0;
     animation: slideln 0.5s forwards;
 }
+@keyframes slideln {
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
 
 h2 {
     font-size: 40px;
@@ -41,7 +47,7 @@ section {
 }
 
 h1 {
-        text-align: center;
+    text-align: center;
     font-weight: 700;
     letter-spacing: 1px;
 }
@@ -71,11 +77,8 @@ p {
 /* الحاوية التي تضم كل البطاقات */
 .cards-wrapper {
     display: flex;
-    /* تفعيل النظام المرن */
     flex-wrap: wrap;
-    /* السماح للبطاقات بالنزول لسطر جديد إذا ضاق المكان */
-    gap: 100px;
-    /* المسافة بين البطاقات (يمكنك تغيير الرقم لزيادة البعد) */
+    gap: 200px;
     justify-content: center;
     padding: 20px;
 }
@@ -150,14 +153,14 @@ p {
 }
 
 /* ! ---------------------------------card button ------------------------------------ */
-.card button {
+/* .card button {
     padding: 10px 15px;
     border: none;
     background-color: #007bff;
     color: white;
     border-radius: 8px;
     cursor: pointer;
-}
+} */
 
 
 /* ! ----------------------------------Tag------------------------------------------*/
