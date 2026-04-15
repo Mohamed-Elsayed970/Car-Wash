@@ -2,78 +2,120 @@
 <html lang="en">
 
 <head>
-    <link rel="stylesheet" href="../Stayl/Stayl.css">
-    <script src="Script.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Car-Wash</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ShineHub Car Wash</title>
+    <meta name="description"
+        content="Modern car wash management website with login, registration, services, booking, and bilingual support." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="../Stayl/style.css" />
 </head>
 
 <body>
-    <header>
-        <!-- !the is Header Pages -->
-        <table class="navbar">
-            <tr align="center">
-                <td>
-                    <i class="fa-solid fa-car">Car Wash</i>
+    <div class="site-shell">
+        <header class="header">
+            <div class="container nav-bar">
+                <a href="home.html" class="brand">
+                    <span class="brand-mark">S</span>
+                    <div>
+                        <strong>ShineHub</strong>
+                        <small data-i18n="brandTag">Car Wash & Detailing</small>
+                    </div>
+                </a>
 
-                </td>
-                <td>
-                    <a href="home.html" class="tilt-btn" style="color: black; text-decoration: none;">الرئيسية</a>
-                </td>
-                <td>
-                    <a href="services.html" class="tilt-btn" style="color: black; text-decoration: none;">خدماتنا</a>
-                </td>
-                <td>
-                    <a href="buy.html" class="tilt-btn" style="color: black; text-decoration: none;">احجز الان</a>
-                </td>
-                <td>
+                <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
 
-                </td>
-            </tr>
-        </table>
+                <nav class="nav" id="mainNav">
+                    <a href="home.html" data-i18n="navHome">Home</a>
+                    <a href="About.html" data-i18n="navAbout">About</a>
+                    <a href="services.html" data-i18n="navServices">Services</a>
+                    <a href="booking.html" data-i18n="navBooking">Booking</a>
+                    <a href="auth.html" data-i18n="navLogin">Login</a>
+                    <a href="contact.html" data-i18n="navContact">Contact</a>
+                </nav>
 
-    </header>
-    <!-- ! The is Main Pages -->
-    <main>
-        <section id="home">
-            <!-- ! The is Home Pags -->
-            <h1>كار واش برو</h1>
-            <p>نعتني بسيارتك كانها سيارتنا - افضل خدمات غسيل السيارات</p>
-            <img style="display: block; margin: auto;" src="../Img/Untitled.png" alt="img">
-
-            
-            <div class="cards-wrapper col">
-                <div class="glass-card">
-                    <h2>+15</h2>
-                    <p style="color: rgb(37, 108, 189);">نوع خدمه</p>
-                </div>
-
-                <div class="glass-card">
-                    <h2>4.9</h2>
-                    <p style="color: rgb(37, 108, 189);">تقيم العملاء</p>
-                </div>
-
-                <div class="glass-card">
-                    <h2>+8</h2>
-                    <p style="color: rgb(37, 108, 189);">سنوات خبرة</p>
-                </div>
-
-                <div class="glass-card">
-                    <h2>+5</h2>
-                    <p style="color: rgb(37, 108, 189);">عميل سعيد</p>
+                <div class="header-actions">
+                    <button class="lang-toggle" id="languageToggle" type="button">AR</button>
+                    <a href="booking.html" class="btn btn-primary" data-i18n="bookNow">Book Now</a>
                 </div>
             </div>
+        </header>
 
-        </section>
-        <footer>
-            <!-- ! The is Footer Pages -->
+        <main>
+            <section class="hero section" id="home">
+                <div class="container hero-grid">
+                    <div class="hero-content">
+                        <span class="eyebrow" data-i18n="heroEyebrow">Fast, Clean, Professional</span>
+                        <h1 data-i18n="heroTitle">Give your car the shine it deserves</h1>
+                        <p data-i18n="heroText">
+                            ShineHub helps customers explore services, create accounts, and book car wash appointments
+                            in minutes.
+                        </p>
+                        <div class="hero-actions">
+                            <a href="services.html" class="btn btn-primary" data-i18n="exploreServices">Explore Services</a>
+                            <a href="auth.html" class="btn btn-secondary" data-i18n="createAccount">Create Account</a>
+                        </div>
+                        <div class="hero-stats">
+                            <article>
+                                <strong>12+</strong>
+                                <span data-i18n="statYears">Years Experience</span>
+                            </article>
+                            <article>
+                                <strong>5k+</strong>
+                                <span data-i18n="statCustomers">Happy Customers</span>
+                            </article>
+                            <article>
+                                <strong>20+</strong>
+                                <span data-i18n="statServices">Service Options</span>
+                            </article>
+                        </div>
+                    </div>
 
-        </footer>
-    </main>
+                    <div class="hero-card glass-card">
+                        <div class="hero-badge">
+                            <span class="badge-dot"></span>
+                            <span data-i18n="heroCardBadge">Open today from 8:00 AM to 11:00 PM</span>
+                        </div>
+                        <h3 data-i18n="heroCardTitle">Easy online booking</h3>
+                        <ul class="feature-list">
+                            <li data-i18n="heroFeature1">Choose a service package</li>
+                            <li data-i18n="heroFeature2">Pick your preferred date and time</li>
+                            <li data-i18n="heroFeature3">Track confirmations instantly</li>
+                        </ul>
+                        <div class="mini-card-row">
+                            <div class="mini-card">
+                                <span data-i18n="miniCard1Label">Most booked</span>
+                                <strong data-i18n="miniCard1Value">Premium Wash</strong>
+                            </div>
+                            <div class="mini-card">
+                                <span data-i18n="miniCard2Label">Starting from</span>
+                                <strong>$15</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
 
+    <footer class="footer">
+        <div class="container footer-content">
+            <p>© <span id="currentYear"></span> ShineHub. <span data-i18n="footerText">All rights reserved. Clean cars,
+                    happy customers.</span></p>
+        </div>
+    </footer>
+    </div>
+    <div class="toast" id="toast"></div>
+
+    <script src="../Script/script.js"></script>
 </body>
 
 </html>

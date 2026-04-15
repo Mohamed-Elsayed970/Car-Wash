@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ShineHub Car Wash</title>
+    <meta name="description"
+        content="Modern car wash management website with login, registration, services, booking, and bilingual support." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="../Stayl/style.css" />
+</head>
+
+<body>
+    <div class="site-shell">
+        <header class="header">
+            <div class="container nav-bar">
+                <a href="#home" class="brand">
+                    <span class="brand-mark">S</span>
+                    <div>
+                        <strong>ShineHub</strong>
+                        <small data-i18n="brandTag">Car Wash & Detailing</small>
+                    </div>
+                </a>
+
+                <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <nav class="nav" id="mainNav">
+                    <a href="home.html" data-i18n="navHome">Home</a>
+                    <a href="About.html" data-i18n="navAbout">About</a>
+                    <a href="services.html" data-i18n="navServices">Services</a>
+                    <a href="booking.html" data-i18n="navBooking">Booking</a>
+                    <a href="auth.html" data-i18n="navLogin">Login</a>
+                    <a href="contact.html" data-i18n="navContact">Contact</a>
+                </nav>
+
+                <div class="header-actions">
+                    <button class="lang-toggle" id="languageToggle" type="button">AR</button>
+                    <a href="booking.html" class="btn btn-primary" data-i18n="bookNow">Book Now</a>
+                </div>
+            </div>
+        </header>
+        <section class="section" id="booking">
+            <div class="container booking-grid">
+                <div>
+                    <div class="section-heading left">
+                        <span class="eyebrow" data-i18n="bookingEyebrow">Booking</span>
+                        <h2 data-i18n="bookingTitle">Schedule your next wash in a few steps</h2>
+                        <p data-i18n="bookingText">Fill in the form below to request an appointment. Logged-in users can
+                            enjoy faster booking and booking history in future updates.</p>
+                    </div>
+
+                    <div class="booking-highlights">
+                        <article>
+                            <h3 data-i18n="bookingPoint1Title">Simple</h3>
+                            <p data-i18n="bookingPoint1Text">Pick a service, date, and time in one place.</p>
+                        </article>
+                        <article>
+                            <h3 data-i18n="bookingPoint2Title">Flexible</h3>
+                            <p data-i18n="bookingPoint2Text">Suitable for standard washes, detailing, and premium
+                                packages.
+                            </p>
+                        </article>
+                        <article>
+                            <h3 data-i18n="bookingPoint3Title">Reliable</h3>
+                            <p data-i18n="bookingPoint3Text">Receive clear success and error feedback after every
+                                action.
+                            </p>
+                        </article>
+                    </div>
+                </div>
+
+                <form class="form-card" id="bookingForm">
+                    <input type="hidden" name="action" value="book_service" />
+                    <h3 data-i18n="bookingFormTitle">Book an Appointment</h3>
+                    <div class="form-grid">
+                        <label>
+                            <span data-i18n="fullNameLabel">Full Name</span>
+                            <input type="text" name="full_name" required data-i18n-placeholder="fullNamePlaceholder"
+                                placeholder="Enter your full name" />
+                        </label>
+                        <label>
+                            <span data-i18n="emailLabel">Email Address</span>
+                            <input type="email" name="email" required data-i18n-placeholder="emailPlaceholder"
+                                placeholder="Enter your email" />
+                        </label>
+                        <label>
+                            <span data-i18n="phoneLabel">Phone Number</span>
+                            <input type="tel" name="phone" required data-i18n-placeholder="phonePlaceholder"
+                                placeholder="Enter your phone number" />
+                        </label>
+                        <label>
+                            <span data-i18n="carModelLabel">Car Model</span>
+                            <input type="text" name="car_model" required data-i18n-placeholder="carModelPlaceholder"
+                                placeholder="Example: Toyota Corolla" />
+                        </label>
+                        <label>
+                            <span data-i18n="serviceLabel">Service</span>
+                            <select name="service_id" id="bookingServiceSelect" required>
+                                <option value="" data-i18n="chooseService">Choose a service</option>
+                                <option value="1">Exterior Wash</option>
+                                <option value="2">Interior Cleaning</option>
+                                <option value="3">Polishing</option>
+                                <option value="4">Protection Coating</option>
+                                <option value="5">Deep Cleaning</option>
+                            </select>
+                        </label>
+                        <label>
+                            <span data-i18n="dateLabel">Preferred Date</span>
+                            <input type="date" name="booking_date" required />
+                        </label>
+                        <label>
+                            <span data-i18n="timeLabel">Preferred Time</span>
+                            <input type="time" name="booking_time" required />
+                        </label>
+                        <label class="full-width">
+                            <span data-i18n="notesLabel">Notes</span>
+                            <textarea name="notes" rows="4" data-i18n-placeholder="notesPlaceholder"
+                                placeholder="Any extra requests or vehicle notes"></textarea>
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block" data-i18n="submitBooking">Submit
+                        Booking</button>
+                </form>
+            </div>
+        </section>
+
+
+
+
+
+
+
+        <footer class="footer">
+            <div class="container footer-content">
+                <p>© <span id="currentYear"></span> ShineHub. <span data-i18n="footerText">All rights reserved. Clean
+                        cars,
+                        happy customers.</span></p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="../Script/script.js"></script>
+</body>
+
+</html>

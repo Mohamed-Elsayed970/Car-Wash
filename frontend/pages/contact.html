@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ShineHub Car Wash</title>
+    <meta name="description"
+        content="Modern car wash management website with login, registration, services, booking, and bilingual support." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="../Stayl/style.css" />
+</head>
+
+<body>
+    <div class="site-shell">
+        <header class="header">
+            <div class="container nav-bar">
+                <a href="#home" class="brand">
+                    <span class="brand-mark">S</span>
+                    <div>
+                        <strong>ShineHub</strong>
+                        <small data-i18n="brandTag">Car Wash & Detailing</small>
+                    </div>
+                </a>
+
+                <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <nav class="nav" id="mainNav">
+                    <a href="home.html" data-i18n="navHome">Home</a>
+                    <a href="About.html" data-i18n="navAbout">About</a>
+                    <a href="services.html" data-i18n="navServices">Services</a>
+                    <a href="booking.html" data-i18n="navBooking">Booking</a>
+                    <a href="auth.html" data-i18n="navLogin">Login</a>
+                    <a href="contact.html" data-i18n="navContact">Contact</a>
+                </nav>
+
+                <div class="header-actions">
+                    <button class="lang-toggle" id="languageToggle" type="button">AR</button>
+                    <a href="booking.html" class="btn btn-primary" data-i18n="bookNow">Book Now</a>
+                </div>
+            </div>
+        </header>
+
+    <div class="testimonials-contact-grid">
+        <article class="glass-card testimonial-card">
+            <h3 data-i18n="testimonialTitle">Customer Reviews</h3>
+            <div class="testimonial-list">
+                <blockquote>
+                    <p data-i18n="review1">“Very clean finish, friendly staff, and the booking process was super easy.”
+                    </p>
+                    <footer>— Ahmed K.</footer>
+                </blockquote>
+                <blockquote>
+                    <p data-i18n="review2">“I booked online in less than two minutes and the polishing result was
+                        excellent.”</p>
+                    <footer>— Sarah M.</footer>
+                </blockquote>
+            </div>
+        </article>
+
+        <article class="glass-card contact-card" id="contact">
+            <h3 data-i18n="contactTitle">Contact Information</h3>
+            <ul class="contact-list">
+                <li><strong data-i18n="contactAddressLabel">Address:</strong> <span data-i18n="contactAddressValue">12
+                        Nile Street, Cairo, Egypt</span></li>
+                <li><strong data-i18n="contactPhoneLabel">Phone:</strong> +20 100 123 4567</li>
+                <li><strong data-i18n="contactEmailLabel">Email:</strong> info@shinehubwash.com</li>
+                <li><strong data-i18n="contactHoursLabel">Hours:</strong> <span data-i18n="contactHoursValue">Daily,
+                        8:00 AM to 11:00 PM</span></li>
+            </ul>
+        </article>
+    </div>
+    </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <p>© <span id="currentYear"></span> ShineHub. <span data-i18n="footerText">All rights reserved. Clean cars,
+                    happy customers.</span></p>
+        </div>
+    </footer>
+    </div>
+
+    <script src="../Script/script.js"></script>
+</body>
+
+</html>

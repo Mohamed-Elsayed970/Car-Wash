@@ -33,7 +33,7 @@ html {
 body {
     margin: 0;
     font-family: "Inter", "Cairo", sans-serif;
-    background: linear-gradient(180deg, #081220 0%, #0f2036 35%, #eef4fb 35%, #eef4fb 100%);
+    background: linear-gradient(180deg, #081220 0%, #0f2036 35%, #002c5f 35%, #61a3ee 100%);
     color: var(--text);
 }
 

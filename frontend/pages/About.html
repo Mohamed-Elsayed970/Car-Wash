@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ShineHub Car Wash</title>
+    <meta name="description"
+        content="Modern car wash management website with login, registration, services, booking, and bilingual support." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="../Stayl/style.css" />
+</head>
+
+<body>
+    <div class="site-shell">
+        <header class="header">
+            <div class="container nav-bar">
+                <a href="#home" class="brand">
+                    <span class="brand-mark">S</span>
+                    <div>
+                        <strong>ShineHub</strong>
+                        <small data-i18n="brandTag">Car Wash & Detailing</small>
+                    </div>
+                </a>
+
+                <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <nav class="nav" id="mainNav">
+                    <a href="home.html" data-i18n="navHome">Home</a>
+                    <a href="About.html" data-i18n="navAbout">About</a>
+                    <a href="services.html" data-i18n="navServices">Services</a>
+                    <a href="booking.html" data-i18n="navBooking">Booking</a>
+                    <a href="auth.html" data-i18n="navLogin">Login</a>
+                    <a href="contact.html" data-i18n="navContact">Contact</a>
+                </nav>
+
+                <div class="header-actions">
+                    <button class="lang-toggle" id="languageToggle" type="button">AR</button>
+                    <a href="booking.html" class="btn btn-primary" data-i18n="bookNow">Book Now</a>
+                </div>
+            </div>
+        </header>
+        <section class="section" id="about">
+            <div class="container">
+                <div class="section-heading">
+                    <span class="eyebrow" data-i18n="aboutEyebrow">About Us</span>
+                    <h2 data-i18n="aboutTitle">A trusted car wash built on quality and care</h2>
+                    <p data-i18n="aboutText">
+                        ShineHub is a customer-focused car wash dedicated to keeping vehicles clean, protected, and
+                        road-ready with reliable service and modern equipment.
+                    </p>
+                </div>
+
+                <div class="about-grid">
+                    <article class="info-card">
+                        <h3 data-i18n="visionTitle">Our Vision</h3>
+                        <p data-i18n="visionText">To become the most trusted local destination for smart, eco-aware, and
+                            detail-driven car care.</p>
+                    </article>
+                    <article class="info-card">
+                        <h3 data-i18n="missionTitle">Our Mission</h3>
+                        <p data-i18n="missionText">To deliver fast service, consistent results, and a smooth digital
+                            booking experience for every customer.</p>
+                    </article>
+                    <article class="info-card">
+                        <h3 data-i18n="goalsTitle">Future Goals</h3>
+                        <p data-i18n="goalsText">To expand mobile detailing, loyalty rewards, and advanced paint
+                            protection services across more branches.</p>
+                    </article>
+                </div>
+
+                <div class="team-gallery-grid">
+                    <article class="team-card glass-card">
+                        <h3 data-i18n="teamTitle">Our Team</h3>
+                        <p data-i18n="teamText">Experienced washers, detailers, and support staff work together to give
+                            every vehicle premium attention.</p>
+                        <div class="team-members">
+                            <span data-i18n="teamMember1">Detailing Specialists</span>
+                            <span data-i18n="teamMember2">Interior Cleaning Crew</span>
+                            <span data-i18n="teamMember3">Customer Support</span>
+                        </div>
+                    </article>
+
+                    <div class="gallery-grid">
+                        <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80"
+                            alt="Car wash exterior" />
+                        <img src="https://images.unsplash.com/photo-1489824904134-891ab64532f1?auto=format&fit=crop&w=800&q=80"
+                            alt="Car detailing work" />
+                        <img src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=800&q=80"
+                            alt="Interior cleaning service" />
+                        <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=800&q=80"
+                            alt="Shiny car after washing" />
+                    </div>
+                </div>
+
+                <div class="testimonials-contact-grid">
+                    <article class="glass-card testimonial-card">
+                        <h3 data-i18n="testimonialTitle">Customer Reviews</h3>
+                        <div class="testimonial-list">
+                            <blockquote>
+                                <p data-i18n="review1">“Very clean finish, friendly staff, and the booking process was
+                                    super easy.”</p>
+                                <footer>— Ahmed K.</footer>
+                            </blockquote>
+                            <blockquote>
+                                <p data-i18n="review2">“I booked online in less than two minutes and the polishing
+                                    result was excellent.”</p>
+                                <footer>— Sarah M.</footer>
+                            </blockquote>
+                        </div>
+                    </article>
+
+
+
+
+
+
+
+
+
+
+                    <footer class="footer">
+                        <div class="container footer-content">
+                            <p>© <span id="currentYear"></span> ShineHub. <span data-i18n="footerText">All rights
+                                    reserved. Clean cars, happy customers.</span></p>
+                        </div>
+                    </footer>
+                </div>
+
+    <script src="../Script/script.js"></script>
+</body>
+
+</html>

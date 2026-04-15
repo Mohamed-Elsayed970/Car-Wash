@@ -2,98 +2,132 @@
 <html lang="en">
 
 <head>
-    <link rel="stylesheet" href="../Stayl/Stayl.css">
-    <script src="Script.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Car-Wash</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ShineHub Car Wash</title>
+    <meta name="description"
+        content="Modern car wash management website with login, registration, services, booking, and bilingual support." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="../Stayl/style.css" />
 </head>
 
 <body>
-    <header>
-        <!-- !the is Header Pages -->
-        <table class="navbar">
-            <tr align="center">
-                <td>
-                    <i class="fa-solid fa-car">Car Wash</i>
+    <div class="site-shell">
+        <header class="header">
+            <div class="container nav-bar">
+                <a href="home.html" class="brand">
+                    <span class="brand-mark">S</span>
+                    <div>
+                        <strong>ShineHub</strong>
+                        <small data-i18n="brandTag">Car Wash & Detailing</small>
+                    </div>
+                </a>
 
-                </td>
-                <td>
-                    <a href="home.html" class="tilt-btn" style="color: black; text-decoration: none;">الرئيسية</a>
-                </td>
-                <td>
-                    <a href="services.html" class="tilt-btn" style="color: black; text-decoration: none;">خدماتنا</a>
-                </td>
-                <td>
-                    <a href="buy.html" class="tilt-btn" style="color: black; text-decoration: none;">احجز الان</a>
-                </td>
-                <td>
+                <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
 
-                </td>
-            </tr>
-        </table>
+                <nav class="nav" id="mainNav">
+                    <a href="home.html" data-i18n="navHome">Home</a>
+                    <a href="About.html" data-i18n="navAbout">About</a>
+                    <a href="services.html" data-i18n="navServices">Services</a>
+                    <a href="booking.html" data-i18n="navBooking">Booking</a>
+                    <a href="auth.html" data-i18n="navLogin">Login</a>
+                    <a href="contact.html" data-i18n="navContact">Contact</a>
+                </nav>
 
-    </header>
-    <section id="services">
-        <!-- ! The is Section 2 -->
-        <h1>اختر الخدمة المناسبه لك</h1>
-        <p>نقدم مجموعة متنوعة من خدمات غسيل و تنظيف السيارات باعلي جودة وافضل الاسعار</p>
-
-        <div class="cards-wrapper">
-            <div class="card-container">
-                <div class="card-content">
-                    <h3 class="service-title">غسيل شامل (داخلي + خارجي)</h3>
-                    <p>الباقة الكاملة - غسيل داخلي و خارجي مع تلميع و تعقيم وتعطير شامل لسيارتك</p>
-                    <a href="buy.html" class="tilt-btn">احجز الان</a>
-
+                <div class="header-actions">
+                    <button class="lang-toggle" id="languageToggle" type="button">AR</button>
+                    <a href="booking.html" class="btn btn-primary" data-i18n="bookNow">Book Now</a>
                 </div>
             </div>
-            <div class="card-container">
-                <div class="card-content ">
-                    <h3 class="service-title">غسيل خارجي</h3>
-                    <p>غسيل خارجي بالماء و الصابون المخصص مع تجفيف يدوي و تلميع الاطارات والزجاج</p>
-                    <a href="buy.html" class="tilt-btn">احجز الان</a>
+        </header>
+        <section class="section alt-section" id="services">
+            <div class="container">
+                <div class="section-heading">
+                    <span class="eyebrow" data-i18n="servicesEyebrow">Services</span>
+                    <h2 data-i18n="servicesTitle">Clear packages, fair prices, professional results</h2>
+                    <p data-i18n="servicesText">Choose from our most requested services. Each option is shown with
+                        pricing
+                        and a short description.</p>
                 </div>
-            </div>
-            <div class="card-container">
-                <div class="card-content">
-                    <h3 class="service-title">غسيل داخلي شامل </h3>
-                    <p>تنظيف عميق للمقاعد و لارضيات و التابلوه و جميع الاسطح الداخلية مع تعقيم كامل و تعطير</p>
-                    <a href="buy.html" class="tilt-btn">احجز الان</a>
-                </div>
-            </div>
-            <div class="card-container">
-                <div class="card-content">
-                    <h3 class="service-title">غسيل المحرك</h3>
-                    <p>تنظيف المحرك بعنايه فائقة لازالة الاوساخ و الزيوت المتراكمه مع حماية الاجزاء الكهربائية</p>
-                    <a href="buy.html" class="tilt-btn">احجز الان</a>
-                </div>
-            </div>
-            <div class="card-container">
-                <div class="card-content">
-                    <h3 class="service-title">بوليش و تلميع</h3>
-                    <p>ازالة الهدوش السطحية و تلميع البودي بالكامل لاعادة لمعان سيارتك كا لجديدة</p>
-                    <a href="buy.html" class="tilt-btn">احجز الان</a>
-                </div>
-            </div>
-            <div class="card-container">
-                <div class="card-content">
-                    <h3 class="service-title">غسيل بالبخار</h3>
-                    <p>تقنية البخار الحديثة لتنظيف عميق بدون مواد كيميائية ضارة - صديق للبيئة و فعال</p>
-                    <a href="buy.html" class="tilt-btn">احجز الان</a>
-                </div>
-            </div>
 
-        </div>
-    </section>
-    <footer>
-        <!-- ! The is Footer Pages -->
+                <div class="service-grid" id="serviceGrid">
+                    <article class="service-card">
+                        <div class="service-card-top">
+                            <span class="service-tag" data-i18n="serviceTagPopular">Popular</span>
+                            <h3>Exterior Wash</h3>
+                        </div>
+                        <p>Quick foam wash, rinse, and dry for a fresh exterior finish.</p>
+                        <strong class="price">$15</strong>
+                        <button class="btn btn-secondary service-book-btn" data-service="Exterior Wash" type="button"
+                            data-i18n="bookThisService">Book This Service</button>
+                    </article>
+                    <article class="service-card">
+                        <div class="service-card-top">
+                            <span class="service-tag" data-i18n="serviceTagBest">Best Value</span>
+                            <h3>Interior Cleaning</h3>
+                        </div>
+                        <p>Vacuuming, dashboard care, floor mat treatment, and dust removal.</p>
+                        <strong class="price">$20</strong>
+                        <button class="btn btn-secondary service-book-btn" data-service="Interior Cleaning"
+                            type="button" data-i18n="bookThisService">Book This Service</button>
+                    </article>
+                    <article class="service-card">
+                        <div class="service-card-top">
+                            <span class="service-tag" data-i18n="serviceTagShine">Premium</span>
+                            <h3>Polishing</h3>
+                        </div>
+                        <p>Paint polishing that restores shine and improves the overall look.</p>
+                        <strong class="price">$35</strong>
+                        <button class="btn btn-secondary service-book-btn" data-service="Polishing" type="button"
+                            data-i18n="bookThisService">Book This Service</button>
+                    </article>
+                    <article class="service-card">
+                        <div class="service-card-top">
+                            <span class="service-tag" data-i18n="serviceTagProtect">Protection</span>
+                            <h3>Protection Coating</h3>
+                        </div>
+                        <p>Protective layer against dust, light dirt, and weather exposure.</p>
+                        <strong class="price">$45</strong>
+                        <button class="btn btn-secondary service-book-btn" data-service="Protection Coating"
+                            type="button" data-i18n="bookThisService">Book This Service</button>
+                    </article>
+                    <article class="service-card">
+                        <div class="service-card-top">
+                            <span class="service-tag" data-i18n="serviceTagDeep">Deep Care</span>
+                            <h3>Deep Cleaning</h3>
+                        </div>
+                        <p>Complete interior and exterior cleaning for vehicles that need full care.</p>
+                        <strong class="price">$60</strong>
+                        <button class="btn btn-secondary service-book-btn" data-service="Deep Cleaning" type="button"
+                            data-i18n="bookThisService">Book This Service</button>
+                    </article>
+                </div>
+            </div>
+        </section>
 
-    </footer>
-    </main>
 
+
+
+
+
+        <footer class="footer">
+            <div class="container footer-content">
+                <p>© <span id="currentYear"></span> ShineHub. <span data-i18n="footerText">All rights reserved. Clean
+                        cars,
+                        happy customers.</span></p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="../Script/script.js"></script>
 </body>
 
 </html>
