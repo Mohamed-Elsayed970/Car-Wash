@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ShineHub Car Wash</title>
+    <meta name="description" content="Modern car wash management website with login, registration, services, booking, and bilingual support." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="site-shell">
+        <header class="header">
+            <div class="container nav-bar">
+                <a href="#home" class="brand">
+                    <span class="brand-mark">S</span>
+                    <div>
+                        <strong>ShineHub</strong>
+                        <small data-i18n="brandTag">Car Wash & Detailing</small>
+                    </div>
+                </a>
+
+                <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <nav class="nav" id="mainNav">
+                    <a href="#home" data-i18n="navHome">Home</a>
+                    <a href="#about" data-i18n="navAbout">About</a>
+                    <a href="#services" data-i18n="navServices">Services</a>
+                    <a href="#booking" data-i18n="navBooking">Booking</a>
+                    <a href="#auth" data-i18n="navLogin">Login</a>
+                    <a href="#contact" data-i18n="navContact">Contact</a>
+                </nav>
+
+                <div class="header-actions">
+                    <button class="lang-toggle" id="languageToggle" type="button">AR</button>
+                    <a href="#booking" class="btn btn-primary" data-i18n="bookNow">Book Now</a>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <section class="hero section" id="home">
+                <div class="container hero-grid">
+                    <div class="hero-content">
+                        <span class="eyebrow" data-i18n="heroEyebrow">Fast, Clean, Professional</span>
+                        <h1 data-i18n="heroTitle">Give your car the shine it deserves</h1>
+                        <p data-i18n="heroText">
+                            ShineHub helps customers explore services, create accounts, and book car wash appointments in minutes.
+                        </p>
+                        <div class="hero-actions">
+                            <a href="#services" class="btn btn-primary" data-i18n="exploreServices">Explore Services</a>
+                            <a href="#auth" class="btn btn-secondary" data-i18n="createAccount">Create Account</a>
+                        </div>
+                        <div class="hero-stats">
+                            <article>
+                                <strong>12+</strong>
+                                <span data-i18n="statYears">Years Experience</span>
+                            </article>
+                            <article>
+                                <strong>5k+</strong>
+                                <span data-i18n="statCustomers">Happy Customers</span>
+                            </article>
+                            <article>
+                                <strong>20+</strong>
+                                <span data-i18n="statServices">Service Options</span>
+                            </article>
+                        </div>
+                    </div>
+
+                    <div class="hero-card glass-card">
+                        <div class="hero-badge">
+                            <span class="badge-dot"></span>
+                            <span data-i18n="heroCardBadge">Open today from 8:00 AM to 11:00 PM</span>
+                        </div>
+                        <h3 data-i18n="heroCardTitle">Easy online booking</h3>
+                        <ul class="feature-list">
+                            <li data-i18n="heroFeature1">Choose a service package</li>
+                            <li data-i18n="heroFeature2">Pick your preferred date and time</li>
+                            <li data-i18n="heroFeature3">Track confirmations instantly</li>
+                        </ul>
+                        <div class="mini-card-row">
+                            <div class="mini-card">
+                                <span data-i18n="miniCard1Label">Most booked</span>
+                                <strong data-i18n="miniCard1Value">Premium Wash</strong>
+                            </div>
+                            <div class="mini-card">
+                                <span data-i18n="miniCard2Label">Starting from</span>
+                                <strong>$15</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section" id="about">
+                <div class="container">
+                    <div class="section-heading">
+                        <span class="eyebrow" data-i18n="aboutEyebrow">About Us</span>
+                        <h2 data-i18n="aboutTitle">A trusted car wash built on quality and care</h2>
+                        <p data-i18n="aboutText">
+                            ShineHub is a customer-focused car wash dedicated to keeping vehicles clean, protected, and road-ready with reliable service and modern equipment.
+                        </p>
+                    </div>
+
+                    <div class="about-grid">
+                        <article class="info-card">
+                            <h3 data-i18n="visionTitle">Our Vision</h3>
+                            <p data-i18n="visionText">To become the most trusted local destination for smart, eco-aware, and detail-driven car care.</p>
+                        </article>
+                        <article class="info-card">
+                            <h3 data-i18n="missionTitle">Our Mission</h3>
+                            <p data-i18n="missionText">To deliver fast service, consistent results, and a smooth digital booking experience for every customer.</p>
+                        </article>
+                        <article class="info-card">
+                            <h3 data-i18n="goalsTitle">Future Goals</h3>
+                            <p data-i18n="goalsText">To expand mobile detailing, loyalty rewards, and advanced paint protection services across more branches.</p>
+                        </article>
+                    </div>
+
+                    <div class="team-gallery-grid">
+                        <article class="team-card glass-card">
+                            <h3 data-i18n="teamTitle">Our Team</h3>
+                            <p data-i18n="teamText">Experienced washers, detailers, and support staff work together to give every vehicle premium attention.</p>
+                            <div class="team-members">
+                                <span data-i18n="teamMember1">Detailing Specialists</span>
+                                <span data-i18n="teamMember2">Interior Cleaning Crew</span>
+                                <span data-i18n="teamMember3">Customer Support</span>
+                            </div>
+                        </article>
+
+                        <div class="gallery-grid">
+                            <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80" alt="Car wash exterior" />
+                            <img src="https://images.unsplash.com/photo-1489824904134-891ab64532f1?auto=format&fit=crop&w=800&q=80" alt="Car detailing work" />
+                            <img src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=800&q=80" alt="Interior cleaning service" />
+                            <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=800&q=80" alt="Shiny car after washing" />
+                        </div>
+                    </div>
+
+                    <div class="testimonials-contact-grid">
+                        <article class="glass-card testimonial-card">
+                            <h3 data-i18n="testimonialTitle">Customer Reviews</h3>
+                            <div class="testimonial-list">
+                                <blockquote>
+                                    <p data-i18n="review1">“Very clean finish, friendly staff, and the booking process was super easy.”</p>
+                                    <footer>— Ahmed K.</footer>
+                                </blockquote>
+                                <blockquote>
+                                    <p data-i18n="review2">“I booked online in less than two minutes and the polishing result was excellent.”</p>
+                                    <footer>— Sarah M.</footer>
+                                </blockquote>
+                            </div>
+                        </article>
+
+                        <article class="glass-card contact-card" id="contact">
+                            <h3 data-i18n="contactTitle">Contact Information</h3>
+                            <ul class="contact-list">
+                                <li><strong data-i18n="contactAddressLabel">Address:</strong> <span data-i18n="contactAddressValue">12 Nile Street, Cairo, Egypt</span></li>
+                                <li><strong data-i18n="contactPhoneLabel">Phone:</strong> +20 100 123 4567</li>
+                                <li><strong data-i18n="contactEmailLabel">Email:</strong> info@shinehubwash.com</li>
+                                <li><strong data-i18n="contactHoursLabel">Hours:</strong> <span data-i18n="contactHoursValue">Daily, 8:00 AM to 11:00 PM</span></li>
+                            </ul>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section alt-section" id="services">
+                <div class="container">
+                    <div class="section-heading">
+                        <span class="eyebrow" data-i18n="servicesEyebrow">Services</span>
+                        <h2 data-i18n="servicesTitle">Clear packages, fair prices, professional results</h2>
+                        <p data-i18n="servicesText">Choose from our most requested services. Each option is shown with pricing and a short description.</p>
+                    </div>
+
+                    <div class="service-grid" id="serviceGrid">
+                        <article class="service-card">
+                            <div class="service-card-top">
+                                <span class="service-tag" data-i18n="serviceTagPopular">Popular</span>
+                                <h3>Exterior Wash</h3>
+                            </div>
+                            <p>Quick foam wash, rinse, and dry for a fresh exterior finish.</p>
+                            <strong class="price">$15</strong>
+                            <button class="btn btn-secondary service-book-btn" data-service="Exterior Wash" type="button" data-i18n="bookThisService">Book This Service</button>
+                        </article>
+                        <article class="service-card">
+                            <div class="service-card-top">
+                                <span class="service-tag" data-i18n="serviceTagBest">Best Value</span>
+                                <h3>Interior Cleaning</h3>
+                            </div>
+                            <p>Vacuuming, dashboard care, floor mat treatment, and dust removal.</p>
+                            <strong class="price">$20</strong>
+                            <button class="btn btn-secondary service-book-btn" data-service="Interior Cleaning" type="button" data-i18n="bookThisService">Book This Service</button>
+                        </article>
+                        <article class="service-card">
+                            <div class="service-card-top">
+                                <span class="service-tag" data-i18n="serviceTagShine">Premium</span>
+                                <h3>Polishing</h3>
+                            </div>
+                            <p>Paint polishing that restores shine and improves the overall look.</p>
+                            <strong class="price">$35</strong>
+                            <button class="btn btn-secondary service-book-btn" data-service="Polishing" type="button" data-i18n="bookThisService">Book This Service</button>
+                        </article>
+                        <article class="service-card">
+                            <div class="service-card-top">
+                                <span class="service-tag" data-i18n="serviceTagProtect">Protection</span>
+                                <h3>Protection Coating</h3>
+                            </div>
+                            <p>Protective layer against dust, light dirt, and weather exposure.</p>
+                            <strong class="price">$45</strong>
+                            <button class="btn btn-secondary service-book-btn" data-service="Protection Coating" type="button" data-i18n="bookThisService">Book This Service</button>
+                        </article>
+                        <article class="service-card">
+                            <div class="service-card-top">
+                                <span class="service-tag" data-i18n="serviceTagDeep">Deep Care</span>
+                                <h3>Deep Cleaning</h3>
+                            </div>
+                            <p>Complete interior and exterior cleaning for vehicles that need full care.</p>
+                            <strong class="price">$60</strong>
+                            <button class="btn btn-secondary service-book-btn" data-service="Deep Cleaning" type="button" data-i18n="bookThisService">Book This Service</button>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section" id="booking">
+                <div class="container booking-grid">
+                    <div>
+                        <div class="section-heading left">
+                            <span class="eyebrow" data-i18n="bookingEyebrow">Booking</span>
+                            <h2 data-i18n="bookingTitle">Schedule your next wash in a few steps</h2>
+                            <p data-i18n="bookingText">Fill in the form below to request an appointment. Logged-in users can enjoy faster booking and booking history in future updates.</p>
+                        </div>
+
+                        <div class="booking-highlights">
+                            <article>
+                                <h3 data-i18n="bookingPoint1Title">Simple</h3>
+                                <p data-i18n="bookingPoint1Text">Pick a service, date, and time in one place.</p>
+                            </article>
+                            <article>
+                                <h3 data-i18n="bookingPoint2Title">Flexible</h3>
+                                <p data-i18n="bookingPoint2Text">Suitable for standard washes, detailing, and premium packages.</p>
+                            </article>
+                            <article>
+                                <h3 data-i18n="bookingPoint3Title">Reliable</h3>
+                                <p data-i18n="bookingPoint3Text">Receive clear success and error feedback after every action.</p>
+                            </article>
+                        </div>
+                    </div>
+
+                    <form class="form-card" id="bookingForm">
+                        <input type="hidden" name="action" value="book_service" />
+                        <h3 data-i18n="bookingFormTitle">Book an Appointment</h3>
+                        <div class="form-grid">
+                            <label>
+                                <span data-i18n="fullNameLabel">Full Name</span>
+                                <input type="text" name="full_name" required data-i18n-placeholder="fullNamePlaceholder" placeholder="Enter your full name" />
+                            </label>
+                            <label>
+                                <span data-i18n="emailLabel">Email Address</span>
+                                <input type="email" name="email" required data-i18n-placeholder="emailPlaceholder" placeholder="Enter your email" />
+                            </label>
+                            <label>
+                                <span data-i18n="phoneLabel">Phone Number</span>
+                                <input type="tel" name="phone" required data-i18n-placeholder="phonePlaceholder" placeholder="Enter your phone number" />
+                            </label>
+                            <label>
+                                <span data-i18n="carModelLabel">Car Model</span>
+                                <input type="text" name="car_model" required data-i18n-placeholder="carModelPlaceholder" placeholder="Example: Toyota Corolla" />
+                            </label>
+                            <label>
+                                <span data-i18n="serviceLabel">Service</span>
+                                <select name="service_id" id="bookingServiceSelect" required>
+                                    <option value="" data-i18n="chooseService">Choose a service</option>
+                                    <option value="1">Exterior Wash</option>
+                                    <option value="2">Interior Cleaning</option>
+                                    <option value="3">Polishing</option>
+                                    <option value="4">Protection Coating</option>
+                                    <option value="5">Deep Cleaning</option>
+                                </select>
+                            </label>
+                            <label>
+                                <span data-i18n="dateLabel">Preferred Date</span>
+                                <input type="date" name="booking_date" required />
+                            </label>
+                            <label>
+                                <span data-i18n="timeLabel">Preferred Time</span>
+                                <input type="time" name="booking_time" required />
+                            </label>
+                            <label class="full-width">
+                                <span data-i18n="notesLabel">Notes</span>
+                                <textarea name="notes" rows="4" data-i18n-placeholder="notesPlaceholder" placeholder="Any extra requests or vehicle notes"></textarea>
+                            </label>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block" data-i18n="submitBooking">Submit Booking</button>
+                    </form>
+                </div>
+            </section>
+
+            <section class="section alt-section" id="auth">
+                <div class="container auth-grid">
+                    <div class="section-heading left">
+                        <span class="eyebrow" data-i18n="authEyebrow">Account Access</span>
+                        <h2 data-i18n="authTitle">Login or create your account</h2>
+                        <p data-i18n="authText">Use your account to manage future bookings and enjoy a faster checkout experience.</p>
+                        <div class="social-box">
+                            <span data-i18n="socialLabel">Optional social sign-in</span>
+                            <div class="social-buttons">
+                                <button type="button" class="social-btn">Google</button>
+                                <button type="button" class="social-btn">Facebook</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="auth-card">
+                        <div class="tabs">
+                            <button type="button" class="tab-btn active" data-tab="login" data-i18n="loginTab">Login</button>
+                            <button type="button" class="tab-btn" data-tab="register" data-i18n="registerTab">Register</button>
+                        </div>
+
+                        <form id="loginForm" class="auth-form active">
+                            <input type="hidden" name="action" value="login" />
+                            <label>
+                                <span data-i18n="loginIdentityLabel">Username or Email</span>
+                                <input type="text" name="identity" required data-i18n-placeholder="loginIdentityPlaceholder" placeholder="Enter username or email" />
+                            </label>
+                            <label>
+                                <span data-i18n="passwordLabel">Password</span>
+                                <input type="password" name="password" required data-i18n-placeholder="passwordPlaceholder" placeholder="Enter your password" />
+                            </label>
+                            <div class="form-inline">
+                                <a href="mailto:info@shinehubwash.com?subject=Password%20Recovery" class="text-link" data-i18n="forgotPassword">Forgot your password?</a>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block" data-i18n="loginBtn">Login</button>
+                        </form>
+
+                        <form id="registerForm" class="auth-form">
+                            <input type="hidden" name="action" value="register" />
+                            <label>
+                                <span data-i18n="fullNameLabel">Full Name</span>
+                                <input type="text" name="full_name" required data-i18n-placeholder="fullNamePlaceholder" placeholder="Enter your full name" />
+                            </label>
+                            <label>
+                                <span data-i18n="emailLabel">Email Address</span>
+                                <input type="email" name="email" required data-i18n-placeholder="emailPlaceholder" placeholder="Enter your email" />
+                            </label>
+                            <label>
+                                <span data-i18n="phoneLabel">Phone Number</span>
+                                <input type="tel" name="phone" required data-i18n-placeholder="phonePlaceholder" placeholder="Enter your phone number" />
+                            </label>
+                            <label>
+                                <span data-i18n="passwordLabel">Password</span>
+                                <input type="password" name="password" required minlength="6" data-i18n-placeholder="passwordPlaceholder" placeholder="Enter your password" />
+                            </label>
+                            <label>
+                                <span data-i18n="confirmPasswordLabel">Confirm Password</span>
+                                <input type="password" name="confirm_password" required minlength="6" data-i18n-placeholder="confirmPasswordPlaceholder" placeholder="Re-enter your password" />
+                            </label>
+                            <button type="submit" class="btn btn-primary btn-block" data-i18n="registerBtn">Create Account</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <div class="toast" id="toast"></div>
+
+        <footer class="footer">
+            <div class="container footer-content">
+                <p>© <span id="currentYear"></span> ShineHub. <span data-i18n="footerText">All rights reserved. Clean cars, happy customers.</span></p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
