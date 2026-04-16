@@ -1,6 +1,6 @@
 :root {
-    --bg: #07111f;
-    --bg-soft: #0b1728;
+    --bg: #00356B;
+    --bg-soft: #00356B;
     --card: rgba(10, 28, 49, 0.82);
     --card-strong: #10233c;
     --surface: #eef4fb;
@@ -9,7 +9,7 @@
     --muted: #93a7bf;
     --line: rgba(255, 255, 255, 0.08);
     --primary: #1a8cff;
-    --primary-dark: #1167c3;
+    --primary-dark: #007BA7;
     --accent: #4dd1ff;
     --success: #2db57c;
     --danger: #e14c4c;
@@ -33,7 +33,13 @@ html {
 body {
     margin: 0;
     font-family: "Inter", "Cairo", sans-serif;
-    background: linear-gradient(180deg, #081220 0%, #0f2036 35%, #002c5f 35%, #61a3ee 100%);
+        background: linear-gradient(
+        135deg,
+        #081220,
+        #0f2036,
+        #00356B,
+        #61a3ee
+    );
     color: var(--text);
 }
 
@@ -75,7 +81,13 @@ textarea {
 }
 
 .alt-section {
-    background: #ffffff;
+            background: linear-gradient(
+        135deg,
+        #081220,
+        #0f2036,
+        #00356B,
+        #61a3ee
+    );
 }
 
 .header {
@@ -85,8 +97,8 @@ textarea {
     backdrop-filter: blur(14px);
     background: rgba(7, 17, 31, 0.75);
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    
 }
-
 .nav-bar {
     display: flex;
     align-items: center;
@@ -238,6 +250,7 @@ textarea {
 .section-heading h2 {
     margin: 0.35rem 0 1rem;
     line-height: 1.1;
+    color: #F0F8FF;
 }
 
 .hero-content h1 {
@@ -250,10 +263,18 @@ textarea {
     color: #d0def0;
     line-height: 1.8;
     max-width: 64ch;
+    
+}
+.section-heading p {
+    color: #d0def0;
+    line-height: 1.8;
+    max-width: 64ch;
+    
 }
 
 .section-heading p {
-    color: #4f627c;
+    
+    color: #F0F8FF;
 }
 
 .section-heading.left {
@@ -423,7 +444,7 @@ body.rtl .feature-list li::before {
 .contact-list li,
 .testimonial-list p,
 .team-card p {
-    color: #5c708d;
+    color: #86b0fd;
     line-height: 1.75;
 }
 
@@ -483,15 +504,21 @@ body.rtl .feature-list li::before {
     display: inline-flex;
     padding: 0.4rem 0.8rem;
     border-radius: 999px;
-    background: rgba(26, 140, 255, 0.1);
-    color: var(--primary-dark);
+            background: linear-gradient(
+        135deg,
+        #081220,
+        #1560BD,
+        #2B4593,
+        #0059CF
+    );
+    color: #AFDBF5;
     font-size: 0.8rem;
     font-weight: 700;
 }
 
 .price {
     font-size: 1.6rem;
-    color: var(--primary-dark);
+    color: #2454FF;
 }
 
 .booking-highlights {
@@ -644,6 +671,13 @@ textarea:focus {
     background: #081220;
     color: #d3e0f1;
     padding: 1.25rem 0;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    
+
 }
 
 .footer-content {
@@ -651,6 +685,7 @@ textarea:focus {
 }
 
 @media (max-width: 992px) {
+
     .hero-grid,
     .booking-grid,
     .auth-grid,
