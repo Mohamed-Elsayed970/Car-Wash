@@ -1,24 +1,31 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
+    <!-- Document meta -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ShineHub Car Wash</title>
     <meta name="description"
         content="Modern car wash management website with login, registration, services, booking, and bilingual support." />
+    <!-- Google Fonts  -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
         href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap"
         rel="stylesheet" />
+    <!-- stylesheet -->
     <link rel="stylesheet" href="../Stayl/style.css" />
 </head>
 
 <body>
+    <!-- Main container for the entire site -->
     <div class="site-shell">
+        <!-- Header  -->
         <header class="header">
             <div class="container nav-bar">
+                <!-- Brand logo and name -->
                 <a href="home.html" class="brand">
                     <span class="brand-mark">S</span>
                     <div>
@@ -27,12 +34,14 @@
                     </div>
                 </a>
 
+                <!-- Mobile toggle button -->
                 <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
                     <span></span>
                     <span></span>
                     <span></span>
                 </button>
 
+                <!-- Main links -->
                 <nav class="nav" id="mainNav">
                     <a href="home.html" data-i18n="navHome">Home</a>
                     <a href="About.html" data-i18n="navAbout">About</a>
@@ -42,70 +51,81 @@
                     <a href="contact.html" data-i18n="navContact">Contact</a>
                 </nav>
 
+                <!--language button -->
                 <div class="header-actions">
                     <button class="lang-toggle" id="languageToggle" type="button">AR</button>
                     <a href="booking.html" class="btn btn-primary" data-i18n="bookNow">Book Now</a>
                 </div>
             </div>
         </header>
+        <!-- Services section -->
         <section class="section alt-section" id="services">
             <div class="container">
+                <!-- Section heading and description -->
                 <div class="section-heading">
                     <span class="eyebrow" data-i18n="servicesEyebrow">Services</span>
                     <h2 data-i18n="servicesTitle">Clear packages, fair prices, professional results</h2>
-                    <p data-i18n="servicesText" style="margin-left: 250px;">Choose from our most requested services. Each option is shown with
+                    <!-- NOTE: The inline style 'margin-left: 250px;' might cause layout issues on smaller screens. Consider using CSS classes for responsive design. -->
+                    <p data-i18n="servicesText" style="margin-left: 250px;">Choose from our most requested services.
+                        Each option is shown with
                         pricing
                         and a short description.</p>
                 </div>
-
+                <!-- Grid for service cards -->
                 <div class="service-grid" id="serviceGrid">
+                    <!-- Service Card: Exterior Wash -->
                     <article class="service-card">
                         <div class="service-card-top">
                             <span class="service-tag" data-i18n="serviceTagPopular">Popular</span>
                             <h3>Exterior Wash</h3>
                         </div>
                         <p>Quick foam wash, rinse, and dry for a fresh exterior finish.</p>
-                        <strong class="price">$15</strong>
+                        <strong class="price">15 EGP</strong>
                         <button class="btn btn-secondary service-book-btn" data-service="Exterior Wash" type="button"
                             data-i18n="bookThisService">Book This Service</button>
                     </article>
+                    <!-- Service Card: Interior Cleaning -->
                     <article class="service-card">
                         <div class="service-card-top">
                             <span class="service-tag" data-i18n="serviceTagBest">Best Value</span>
                             <h3>Interior Cleaning</h3>
                         </div>
                         <p>Vacuuming, dashboard care, floor mat treatment, and dust removal.</p>
-                        <strong class="price">$20</strong>
+                        <strong class="price">20 EGP</strong>
                         <button class="btn btn-secondary service-book-btn" data-service="Interior Cleaning"
                             type="button" data-i18n="bookThisService">Book This Service</button>
                     </article>
+                    <!-- Service Card: Polishing -->
                     <article class="service-card">
                         <div class="service-card-top">
                             <span class="service-tag" data-i18n="serviceTagShine">Premium</span>
                             <h3>Polishing</h3>
                         </div>
                         <p>Paint polishing that restores shine and improves the overall look.</p>
-                        <strong class="price">$35</strong>
+                        <strong class="price">35 EGP</strong>
                         <button class="btn btn-secondary service-book-btn" data-service="Polishing" type="button"
                             data-i18n="bookThisService">Book This Service</button>
                     </article>
+                    <!-- Service Card: Protection Coating -->
                     <article class="service-card">
                         <div class="service-card-top">
                             <span class="service-tag" data-i18n="serviceTagProtect">Protection</span>
                             <h3>Protection Coating</h3>
                         </div>
                         <p>Protective layer against dust, light dirt, and weather exposure.</p>
-                        <strong class="price">$45</strong>
+                        <strong class="price">45 EGP</strong>
                         <button class="btn btn-secondary service-book-btn" data-service="Protection Coating"
                             type="button" data-i18n="bookThisService">Book This Service</button>
                     </article>
+
+                    <!-- Service Card: Deep Cleaning -->
                     <article class="service-card">
                         <div class="service-card-top">
                             <span class="service-tag" data-i18n="serviceTagDeep">Deep Care</span>
                             <h3>Deep Cleaning</h3>
                         </div>
                         <p>Complete interior and exterior cleaning for vehicles that need full care.</p>
-                        <strong class="price">$60</strong>
+                        <strong class="price">60 EGP</strong>
                         <button class="btn btn-secondary service-book-btn" data-service="Deep Cleaning" type="button"
                             data-i18n="bookThisService">Book This Service</button>
                     </article>
@@ -118,16 +138,20 @@
 
 
 
+        <!-- Footer section -->
         <footer class="footer">
             <div class="container footer-content">
-                <p>© <span id="currentYear"></span> ShineHub. <span data-i18n="footerText">All rights reserved. Clean
+                <p>© <span id="currentYear"></span> ShineHub. <span data-i18n="footerText">All rights
+                        reserved. Clean
                         cars,
                         happy customers.</span></p>
             </div>
         </footer>
     </div>
 
+    <!-- Link to external JavaScript file -->
     <script src="../Script/script.js"></script>
 </body>
+<!-- gioo تعالي شوف الهنااااا اننا زهقتتتتتتتت -->
 
 </html>
