@@ -2,21 +2,27 @@
 <html lang="en">
 
 <head>
+    <!-- Essential Meta Information -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ShineHub Car Wash</title>
+    <title>ShineHub Car Wash - Login & Register</title>
     <meta name="description"
-        content="Modern car wash management website with login, registration, services, booking, and bilingual support." />
+        content="Direct login and registration for ShineHub Car Wash customers." />
+
+    <!-- External Font Imports -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
         href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap"
         rel="stylesheet" />
+
+    <!-- Main Stylesheet -->
     <link rel="stylesheet" href="../Stayl/style.css" />
 </head>
 
 <body>
     <div class="site-shell">
+        <!-- Header Section: Branding and Navigation -->
         <header class="header">
             <div class="container nav-bar">
                 <a href="#home" class="brand">
@@ -48,22 +54,18 @@
                 </div>
             </div>
         </header>
+
+        <!-- Main Authentication Area -->
         <section class="section alt-section" id="auth">
             <div class="container auth-grid">
+                <!-- Section Introduction -->
                 <div class="section-heading left">
                     <span class="eyebrow" data-i18n="authEyebrow">Account Access</span>
-                    <h2 data-i18n="authTitle">Login or create your account</h2>
-                    <p data-i18n="authText">Use your account to manage future bookings and enjoy a faster checkout
-                        experience.</p>
-                    <div class="social-box">
-                        <span data-i18n="socialLabel">Optional social sign-in</span>
-                        <div class="social-buttons">
-                            <button type="button" class="social-btn">Google</button>
-                            <button type="button" class="social-btn">Facebook</button>
-                        </div>
-                    </div>
+                    <h2 data-i18n="authTitle">Manage your bookings</h2>
+                    <p data-i18n="authText">Log in or create a new account to keep track of your car wash history and book services faster.</p>
                 </div>
 
+                <!-- Authentication Card: Login and Registration Tabs -->
                 <div class="auth-card">
                     <div class="tabs">
                         <button type="button" class="tab-btn active" data-tab="login"
@@ -72,6 +74,7 @@
                             data-i18n="registerTab">Register</button>
                     </div>
 
+                    <!-- Simplified Login Form (Social options and Forgot Password removed) -->
                     <form id="loginForm" class="auth-form active">
                         <input type="hidden" name="action" value="login" />
                         <label>
@@ -84,13 +87,10 @@
                             <input type="password" name="password" required data-i18n-placeholder="passwordPlaceholder"
                                 placeholder="Enter your password" />
                         </label>
-                        <div class="form-inline">
-                            <a href="mailto:info@shinehubwash.com?subject=Password%20Recovery" class="text-link"
-                                data-i18n="forgotPassword">Forgot your password?</a>
-                        </div>
                         <button type="submit" class="btn btn-primary btn-block" data-i18n="loginBtn">Login</button>
                     </form>
 
+                    Comprehensive Registration Form
                     <form id="registerForm" class="auth-form">
                         <input type="hidden" name="action" value="register" />
                         <label>
@@ -126,19 +126,15 @@
             </div>
         </section>
 
-
-
-
-
-
+        <!-- Footer Section -->
         <footer class="footer">
             <div class="container footer-content">
                 <p>© <span id="currentYear"></span> ShineHub. <span data-i18n="footerText">All rights reserved. Clean
-                        cars,
-                        happy customers.</span></p>
+                        cars, happy customers.</span></p>
             </div>
         </footer>
     </div>
+
 
     <script src="../Script/script.js"></script>
 </body>
