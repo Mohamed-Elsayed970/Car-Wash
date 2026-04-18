@@ -1,4 +1,3 @@
-/* --- Configuration & Data --- */
 
 /**
  * Translation Dictionary: Contains all text strings for English and Arabic.
@@ -45,8 +44,8 @@ const translations = {
         teamMember2: "Interior Cleaning Crew",
         teamMember3: "Customer Support",
         testimonialTitle: "Customer Reviews",
-        review1: "“Very clean finish, friendly staff, and the booking process was super easy.”",
-        review2: "“I booked online in less than two minutes and the polishing result was excellent.”",
+        review1: ""Very clean finish, friendly staff, and the booking process was super easy."",
+        review2: ""I booked online in less than two minutes and the polishing result was excellent."",
         contactTitle: "Contact Information",
         contactAddressLabel: "Address:",
         contactAddressValue: "12 Nile Street, Cairo, Egypt",
@@ -145,8 +144,8 @@ const translations = {
         teamMember2: "فريق التنظيف الداخلي",
         teamMember3: "خدمة العملاء",
         testimonialTitle: "آراء العملاء",
-        review1: "“نتيجة نظافة ممتازة وطاقم ودود وعملية الحجز كانت سهلة جدًا.”",
-        review2: "“حجزت أونلاين في أقل من دقيقتين وكانت نتيجة التلميع رائعة.”",
+        review1: ""نتيجة نظافة ممتازة وطاقم ودود وعملية الحجز كانت سهلة جدًا."",
+        review2: ""حجزت أونلاين في أقل من دقيقتين وكانت نتيجة التلميع رائعة."",
         contactTitle: "معلومات التواصل",
         contactAddressLabel: "العنوان:",
         contactAddressValue: "12 شارع النيل، القاهرة، مصر",
@@ -245,6 +244,7 @@ if (currentYear) {
  * @param {string} type - The type of notification (success or error).
  */
 function showToast(message, type = "success") {
+    if (!toast) return;
     toast.textContent = message;
     toast.className = `toast ${type} show`;
     
@@ -276,6 +276,7 @@ function activateTab(tabName) {
 /**
  * Switches the UI between English and Arabic.
  * Updates document direction, text content, and placeholders.
+ * Persists the language preference to localStorage so it applies across all pages.
  * @param {string} lang - The language code (en or ar).
  */
 function setLanguage(lang) {
@@ -286,7 +287,11 @@ function setLanguage(lang) {
     document.documentElement.lang = lang;
     document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
     document.body.classList.toggle("rtl", lang === "ar");
-    languageToggle.textContent = lang === "ar" ? "EN" : "AR";
+    
+    // Update language toggle button text
+    if (languageToggle) {
+        languageToggle.textContent = lang === "ar" ? "EN" : "AR";
+    }
 
     // Update all elements with data-i18n attribute
     document.querySelectorAll("[data-i18n]").forEach((element) => {
@@ -314,6 +319,7 @@ function setLanguage(lang) {
         });
     }
 
+    // Persist language preference to localStorage for cross-page persistence
     localStorage.setItem("shinehub-language", lang);
 }
 
@@ -350,6 +356,7 @@ async function submitForm(form) {
 /**
  * Loads available services from the backend and populates the UI.
  * Dynamically creates service cards and updates the booking dropdown.
+ * Uses the persisted language preference from localStorage.
  */
 async function loadServices() {
     try {
@@ -360,6 +367,7 @@ async function loadServices() {
             return;
         }
 
+        // Retrieve the persisted language preference from localStorage
         const currentLanguage = localStorage.getItem("shinehub-language") || "en";
         const grid = document.getElementById("serviceGrid");
         if (grid) {
@@ -405,20 +413,25 @@ async function loadServices() {
 
 /**
  * Handle language toggle click.
+ * Switches between English and Arabic, and reloads services with the new language.
  */
-languageToggle?.addEventListener("click", () => {
-    const current = localStorage.getItem("shinehub-language") || "en";
-    const next = current === "en" ? "ar" : "en";
-    setLanguage(next);
-    loadServices();
-});
+if (languageToggle) {
+    languageToggle.addEventListener("click", () => {
+        const current = localStorage.getItem("shinehub-language") || "en";
+        const next = current === "en" ? "ar" : "en";
+        setLanguage(next);
+        loadServices();
+    });
+}
 
 /**
  * Handle mobile menu toggle click.
  */
-menuToggle?.addEventListener("click", () => {
-    mainNav.classList.toggle("open");
-});
+if (menuToggle) {
+    menuToggle.addEventListener("click", () => {
+        mainNav.classList.toggle("open");
+    });
+}
 
 /**
  * Handle tab button clicks for authentication forms.
@@ -467,8 +480,12 @@ document.addEventListener("click", (event) => {
 
 /**
  * Initialize the application state on load.
+ * Retrieves the persisted language preference from localStorage and applies it to all pages.
+ * This ensures that the language selection is maintained across page navigation.
  */
-const preferredLanguage = localStorage.getItem("shinehub-language") || "en";
-setLanguage(preferredLanguage);
-loadServices();
-activateTab("login");
+document.addEventListener("DOMContentLoaded", () => {
+    const preferredLanguage = localStorage.getItem("shinehub-language") || "en";
+    setLanguage(preferredLanguage);
+    loadServices();
+    activateTab("login");
+});
