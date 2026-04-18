@@ -1,4 +1,9 @@
-//  Translation Dictionary: Contains all text strings for English and Arabic
+/* --- Configuration & Data --- */
+
+/**
+ * Translation Dictionary: Contains all text strings for English and Arabic.
+ * Used for multi-language support across the UI.
+ */
 const translations = {
     en: {
         brandTag: "Car Wash & Detailing",
@@ -121,7 +126,7 @@ const translations = {
         heroCardTitle: "حجز إلكتروني سهل",
         heroFeature1: "اختر باقة الخدمة المناسبة",
         heroFeature2: "حدد التاريخ والوقت المناسبين",
-        heroFeature3: "تابع التأكيدات فورًا",
+        heroFeature3: "احصل على تأكيدات فورية",
         miniCard1Label: "الأكثر طلبًا",
         miniCard1Value: "الغسيل المميز",
         miniCard2Label: "تبدأ من",
@@ -201,7 +206,11 @@ const translations = {
         confirmPasswordPlaceholder: "أعد إدخال كلمة المرور"
     }
 };
-// . Service Labels: Mapping service IDs to bilingual names
+
+/**
+ * Service Labels: Mapping service IDs to bilingual names.
+ * Used for populating dropdowns and service cards.
+ */
 const serviceLabels = {
     1: { en: "Exterior Wash", ar: "غسيل خارجي" },
     2: { en: "Interior Cleaning", ar: "تنظيف داخلي" },
@@ -210,7 +219,8 @@ const serviceLabels = {
     5: { en: "Deep Cleaning", ar: "تنظيف عميق" }
 };
 
-// DOM Element Selection
+/* --- DOM Element Selection --- */
+
 const languageToggle = document.getElementById("languageToggle");
 const toast = document.getElementById("toast");
 const menuToggle = document.getElementById("menuToggle");
@@ -218,55 +228,39 @@ const mainNav = document.getElementById("mainNav");
 const currentYear = document.getElementById("currentYear");
 const bookingServiceSelect = document.getElementById("bookingServiceSelect");
 
-// Set the current year in the footer
-if(currentYear){
+/* --- Initialization --- */
 
+/**
+ * Set the current year in the footer automatically.
+ */
+if (currentYear) {
     currentYear.textContent = new Date().getFullYear();
 }
-// Helper: Show notification messages (Toast)
+
+/* --- UI Helpers --- */
+
+/**
+ * Show notification messages (Toast) to the user.
+ * @param {string} message - The message to display.
+ * @param {string} type - The type of notification (success or error).
+ */
 function showToast(message, type = "success") {
     toast.textContent = message;
     toast.className = `toast ${type} show`;
-    clearTimeout(showToast.timer);
-    showToast.timer = setTimeout(() => {
+    
+    if (showToast.timeout) {
+        clearTimeout(showToast.timeout);
+    }
+    
+    showToast.timeout = setTimeout(() => {
         toast.className = "toast";
     }, 3200);
 }
-// Language Logic: Switches UI between English and Arabic
-function setLanguage(lang) {
-    const dictionary = translations[lang];
-    if (!dictionary) return;
-    
-// Update document metadata and direction
-    document.documentElement.lang = lang;
-    document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
-    document.body.classList.toggle("rtl", lang === "ar");
-    languageToggle.textContent = lang === "ar" ? "EN" : "AR";
 
-    document.querySelectorAll("[data-i18n]").forEach((element) => {
-        const key = element.dataset.i18n;
-        if (dictionary[key]) {
-            element.textContent = dictionary[key];
-        }
-    });
-
-    document.querySelectorAll("[data-i18n-placeholder]").forEach((element) => {
-        const key = element.dataset.i18nPlaceholder;
-        if (dictionary[key]) {
-            element.placeholder = dictionary[key];
-        }
-    });
-
-    Array.from(bookingServiceSelect.options).forEach((option) => {
-        const label = serviceLabels[option.value];
-        if (label) {
-            option.textContent = label[lang];
-        }
-    });
-
-    localStorage.setItem("shinehub-language", lang);
-}
-
+/**
+ * Switches the active tab in the authentication section.
+ * @param {string} tabName - The name of the tab to activate (login or register).
+ */
 function activateTab(tabName) {
     document.querySelectorAll(".tab-btn").forEach((button) => {
         button.classList.toggle("active", button.dataset.tab === tabName);
@@ -277,6 +271,59 @@ function activateTab(tabName) {
     });
 }
 
+/* --- Language & Localization --- */
+
+/**
+ * Switches the UI between English and Arabic.
+ * Updates document direction, text content, and placeholders.
+ * @param {string} lang - The language code (en or ar).
+ */
+function setLanguage(lang) {
+    const dictionary = translations[lang];
+    if (!dictionary) return;
+    
+    // Update document metadata and direction
+    document.documentElement.lang = lang;
+    document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+    document.body.classList.toggle("rtl", lang === "ar");
+    languageToggle.textContent = lang === "ar" ? "EN" : "AR";
+
+    // Update all elements with data-i18n attribute
+    document.querySelectorAll("[data-i18n]").forEach((element) => {
+        const key = element.dataset.i18n;
+        if (dictionary[key]) {
+            element.textContent = dictionary[key];
+        }
+    });
+
+    // Update all elements with data-i18n-placeholder attribute
+    document.querySelectorAll("[data-i18n-placeholder]").forEach((element) => {
+        const key = element.dataset.i18nPlaceholder;
+        if (dictionary[key]) {
+            element.placeholder = dictionary[key];
+        }
+    });
+
+    // Update service selection options
+    if (bookingServiceSelect) {
+        Array.from(bookingServiceSelect.options).forEach((option) => {
+            const label = serviceLabels[option.value];
+            if (label) {
+                option.textContent = label[lang];
+            }
+        });
+    }
+
+    localStorage.setItem("shinehub-language", lang);
+}
+
+/* --- Data Fetching & Form Submission --- */
+
+/**
+ * Submits form data to the backend via fetch API.
+ * Handles response and provides user feedback via toast.
+ * @param {HTMLFormElement} form - The form element to submit.
+ */
 async function submitForm(form) {
     const formData = new FormData(form);
 
@@ -290,13 +337,9 @@ async function submitForm(form) {
         showToast(result.message, result.status === "success" ? "success" : "error");
 
         if (result.status === "success") {
+            form.reset();
             if (form.id === "registerForm") {
-                form.reset();
                 activateTab("login");
-            } else if (form.id === "loginForm") {
-                form.reset();
-            } else {
-                form.reset();
             }
         }
     } catch (error) {
@@ -304,6 +347,10 @@ async function submitForm(form) {
     }
 }
 
+/**
+ * Loads available services from the backend and populates the UI.
+ * Dynamically creates service cards and updates the booking dropdown.
+ */
 async function loadServices() {
     try {
         const response = await fetch("../backend/process.php?action=services");
@@ -315,64 +362,74 @@ async function loadServices() {
 
         const currentLanguage = localStorage.getItem("shinehub-language") || "en";
         const grid = document.getElementById("serviceGrid");
-        grid.innerHTML = "";
+        if (grid) {
+            grid.innerHTML = "";
+            const defaultTags = ["serviceTagPopular", "serviceTagBest", "serviceTagShine", "serviceTagProtect", "serviceTagDeep"];
 
-        const defaultTags = ["serviceTagPopular", "serviceTagBest", "serviceTagShine", "serviceTagProtect", "serviceTagDeep"];
+            result.data.forEach((service, index) => {
+                const article = document.createElement("article");
+                article.className = "service-card";
+                const serviceName = currentLanguage === "ar" ? service.service_name_ar : service.service_name_en;
+                const serviceDescription = currentLanguage === "ar" ? service.description_ar : service.description_en;
+                const tagKey = defaultTags[index] || "serviceTagPopular";
+                const tagText = translations[currentLanguage][tagKey] || translations.en[tagKey];
 
-        result.data.forEach((service, index) => {
-            const article = document.createElement("article");
-            article.className = "service-card";
-            const serviceName = currentLanguage === "ar" ? service.service_name_ar : service.service_name_en;
-            const serviceDescription = currentLanguage === "ar" ? service.description_ar : service.description_en;
-            const tagKey = defaultTags[index] || "serviceTagPopular";
-            const tagText = translations[currentLanguage][tagKey] || translations.en[tagKey];
+                article.innerHTML = `
+                    <div class="service-card-top">
+                        <span class="service-tag">${tagText}</span>
+                        <h3>${serviceName}</h3>
+                    </div>
+                    <p>${serviceDescription}</p>
+                    <strong class="price">$${Number(service.price).toFixed(0)}</strong>
+                    <button class="btn btn-secondary service-book-btn" data-service-id="${service.id}" type="button">${translations[currentLanguage].bookThisService}</button>
+                `;
+                grid.appendChild(article);
+            });
+        }
 
-            article.innerHTML = `
-                <div class="service-card-top">
-                    <span class="service-tag">${tagText}</span>
-                    <h3>${serviceName}</h3>
-                </div>
-                <p>${serviceDescription}</p>
-                <strong class="price">$${Number(service.price).toFixed(0)}</strong>
-                <button class="btn btn-secondary service-book-btn" data-service-id="${service.id}" type="button">${translations[currentLanguage].bookThisService}</button>
-            `;
-            grid.appendChild(article);
-        });
-        document.addEventListener("click", function (e) {
-            if (e.target.classList.contains("service-book-btn")) {
-                const id = e.target.dataset.serviceId;
-                console.log("Clicked ID:", id);
-                window.location.href = `../Pages/booking.html?id=${id}`;
-            }
-        });
-
-        bookingServiceSelect.innerHTML = `<option value="">${translations[currentLanguage].chooseService}</option>`;
-        result.data.forEach((service) => {
-            const option = document.createElement("option");
-            option.value = service.id;
-            option.textContent = currentLanguage === "ar" ? service.service_name_ar : service.service_name_en;
-            bookingServiceSelect.appendChild(option);
-        });
+        if (bookingServiceSelect) {
+            bookingServiceSelect.innerHTML = `<option value="">${translations[currentLanguage].chooseService}</option>`;
+            result.data.forEach((service) => {
+                const option = document.createElement("option");
+                option.value = service.id;
+                option.textContent = currentLanguage === "ar" ? service.service_name_ar : service.service_name_en;
+                bookingServiceSelect.appendChild(option);
+            });
+        }
     } catch (error) {
         console.warn("Services could not be loaded from PHP. Using static fallback.");
     }
 }
 
-languageToggle.addEventListener("click", () => {
+/* --- Event Listeners --- */
+
+/**
+ * Handle language toggle click.
+ */
+languageToggle?.addEventListener("click", () => {
     const current = localStorage.getItem("shinehub-language") || "en";
     const next = current === "en" ? "ar" : "en";
     setLanguage(next);
     loadServices();
 });
 
+/**
+ * Handle mobile menu toggle click.
+ */
 menuToggle?.addEventListener("click", () => {
     mainNav.classList.toggle("open");
 });
 
+/**
+ * Handle tab button clicks for authentication forms.
+ */
 document.querySelectorAll(".tab-btn").forEach((button) => {
     button.addEventListener("click", () => activateTab(button.dataset.tab));
 });
 
+/**
+ * Handle form submissions for booking, login, and registration.
+ */
 document.querySelectorAll("#bookingForm, #loginForm, #registerForm").forEach((form) => {
     form.addEventListener("submit", (event) => {
         event.preventDefault();
@@ -380,27 +437,37 @@ document.querySelectorAll("#bookingForm, #loginForm, #registerForm").forEach((fo
     });
 });
 
+/**
+ * Global click listener for dynamic elements and navigation behavior.
+ */
 document.addEventListener("click", (event) => {
+    // Handle "Book This Service" button clicks
     if (event.target.classList.contains("service-book-btn")) {
         const serviceId = event.target.dataset.serviceId;
-        if (serviceId) {
+        if (serviceId && bookingServiceSelect) {
             bookingServiceSelect.value = serviceId;
         }
 
-        const serviceName = event.target.dataset.service;
-        if (serviceName) {
-            const option = Array.from(bookingServiceSelect.options).find((item) => item.text === serviceName);
-            if (option) bookingServiceSelect.value = option.value;
+        const bookingSection = document.getElementById("booking");
+        if (bookingSection) {
+            bookingSection.scrollIntoView({ behavior: "smooth" });
+        } else {
+            // If not on the same page, redirect to booking page
+            window.location.href = `../pages/booking.html?id=${serviceId}`;
         }
-
-        document.getElementById("booking").scrollIntoView({ behavior: "smooth" });
     }
 
+    // Close mobile menu when a navigation link is clicked
     if (event.target.closest(".nav a")) {
         mainNav.classList.remove("open");
     }
 });
 
+/* --- App Startup --- */
+
+/**
+ * Initialize the application state on load.
+ */
 const preferredLanguage = localStorage.getItem("shinehub-language") || "en";
 setLanguage(preferredLanguage);
 loadServices();
