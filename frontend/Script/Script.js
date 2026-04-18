@@ -1,3 +1,4 @@
+//  Translation Dictionary: Contains all text strings for English and Arabic
 const translations = {
     en: {
         brandTag: "Car Wash & Detailing",
@@ -200,7 +201,7 @@ const translations = {
         confirmPasswordPlaceholder: "أعد إدخال كلمة المرور"
     }
 };
-
+// . Service Labels: Mapping service IDs to bilingual names
 const serviceLabels = {
     1: { en: "Exterior Wash", ar: "غسيل خارجي" },
     2: { en: "Interior Cleaning", ar: "تنظيف داخلي" },
@@ -209,6 +210,7 @@ const serviceLabels = {
     5: { en: "Deep Cleaning", ar: "تنظيف عميق" }
 };
 
+// DOM Element Selection
 const languageToggle = document.getElementById("languageToggle");
 const toast = document.getElementById("toast");
 const menuToggle = document.getElementById("menuToggle");
@@ -216,8 +218,12 @@ const mainNav = document.getElementById("mainNav");
 const currentYear = document.getElementById("currentYear");
 const bookingServiceSelect = document.getElementById("bookingServiceSelect");
 
-currentYear.textContent = new Date().getFullYear();
+// Set the current year in the footer
+if(currentYear){
 
+    currentYear.textContent = new Date().getFullYear();
+}
+// Helper: Show notification messages (Toast)
 function showToast(message, type = "success") {
     toast.textContent = message;
     toast.className = `toast ${type} show`;
@@ -226,11 +232,12 @@ function showToast(message, type = "success") {
         toast.className = "toast";
     }, 3200);
 }
-
+// Language Logic: Switches UI between English and Arabic
 function setLanguage(lang) {
     const dictionary = translations[lang];
     if (!dictionary) return;
-
+    
+// Update document metadata and direction
     document.documentElement.lang = lang;
     document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
     document.body.classList.toggle("rtl", lang === "ar");
