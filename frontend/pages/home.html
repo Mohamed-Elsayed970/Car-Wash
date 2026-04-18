@@ -2,30 +2,29 @@
 <html lang="en">
 
 <head>
-    <!-- (Meta Information) -->
+    <!-- Document Metadata -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ShineHub Car Wash</title>
-    <meta name="description"
-        content="Modern car wash management website with login, registration, services, booking, and bilingual support." />
+    <meta name="description" content="Modern car wash management website with login, registration, services, booking, and bilingual support." />
+    
+    <!-- Main Stylesheet -->
     <link rel="stylesheet" href="../Stayl/style.css" />
 
-    <!-- (Google Fonts)  -->
-
+    <!-- Google Fonts Integration -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 </head>
 
 <body>
-    <!-- (Site Shell)  -->
+    <!-- Main Site Wrapper -->
     <div class="site-shell">
-        <!-- header and menu  -->
+        
+        <!-- Header & Navigation Section -->
         <header class="header">
-            <!-- (Brand/Logo)  -->
             <div class="container nav-bar">
+                <!-- Brand Identity / Logo -->
                 <a href="home.html" class="brand">
                     <span class="brand-mark">S</span>
                     <div>
@@ -33,12 +32,15 @@
                         <small data-i18n="brandTag">Car Wash & Detailing</small>
                     </div>
                 </a>
+
+                <!-- Mobile Menu Toggle Button -->
                 <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
                     <span></span>
                     <span></span>
                     <span></span>
                 </button>
-                <!-- (Mobile Menu Toggle) -->
+
+                <!-- Main Navigation Links -->
                 <nav class="nav" id="mainNav">
                     <a href="home.html" data-i18n="navHome">Home</a>
                     <a href="About.html" data-i18n="navAbout">About</a>
@@ -47,32 +49,36 @@
                     <a href="auth.html" data-i18n="navLogin">Login</a>
                     <a href="contact.html" data-i18n="navContact">Contact</a>
                 </nav>
-                <!-- Header Actions lang -->
+
+                <!-- Header Action Buttons (Language & Booking) -->
                 <div class="header-actions">
                     <button class="lang-toggle" id="languageToggle" type="button">AR</button>
                     <a href="booking.html" class="btn btn-primary" data-i18n="bookNow">Book Now</a>
                 </div>
             </div>
         </header>
-        <!-- (Main Content) -->
+
+        <!-- Main Page Content -->
         <main>
-            <!-- (Hero main Section) -->
+            <!-- Hero Section: Introduction and Call to Action -->
             <section class="hero section" id="home">
                 <div class="container hero-grid">
+                    
+                    <!-- Hero Text Content -->
                     <div class="hero-content">
                         <span class="eyebrow" data-i18n="heroEyebrow">Fast, Clean, Professional</span>
                         <h1 data-i18n="heroTitle">Give your car the shine it deserves</h1>
                         <p data-i18n="heroText">
-                            ShineHub helps customers explore services, create accounts, and book car wash appointments
-                            in minutes.
+                            ShineHub helps customers explore services, create accounts, and book car wash appointments in minutes.
                         </p>
-                        <!-- actions -->
+                        
+                        <!-- Hero Action Buttons -->
                         <div class="hero-actions">
-                            <a href="services.html" class="btn btn-primary" data-i18n="exploreServices">Explore
-                                Services</a>
+                            <a href="services.html" class="btn btn-primary" data-i18n="exploreServices">Explore Services</a>
                             <a href="auth.html" class="btn btn-secondary" data-i18n="createAccount">Create Account</a>
                         </div>
-                        <!-- card stats -->
+
+                        <!-- Business Statistics -->
                         <div class="hero-stats">
                             <article>
                                 <strong>12+</strong>
@@ -88,19 +94,25 @@
                             </article>
                         </div>
                     </div>
-                    <!-- stats for us  -->
+
+                    <!-- Hero Feature Card: Quick Info and Highlights -->
                     <div class="hero-card glass-card">
+                        <!-- Status Badge -->
                         <div class="hero-badge">
                             <span class="badge-dot"></span>
                             <span data-i18n="heroCardBadge">Open today from 8:00 AM to 11:00 PM</span>
                         </div>
+                        
                         <h3 data-i18n="heroCardTitle">Easy online booking</h3>
+                        
+                        <!-- Feature List -->
                         <ul class="feature-list">
                             <li data-i18n="heroFeature1">Choose a service package</li>
                             <li data-i18n="heroFeature2">Pick your preferred date and time</li>
                             <li data-i18n="heroFeature3">Track confirmations instantly</li>
                         </ul>
-                        <!-- mini cards  -->
+
+                        <!-- Mini Information Cards -->
                         <div class="mini-card-row">
                             <div class="mini-card">
                                 <span data-i18n="miniCard1Label">Most booked</span>
@@ -113,21 +125,22 @@
                         </div>
                     </div>
                 </div>
-
             </section>
         </main>
-<!-- footer  -->
-<footer class="footer">
-<div class="container footer-content">
-    <p>© <span id="currentYear"></span> ShineHub. <span data-i18n="footerText">All rights reserved. Clean cars,
-                    happy customers.</span></p>
-</div>
-</footer>
-<!-- unimprotant naw -->
- <div class="toast" id="toast"></div>
-<script src="../Script/Script.js"></script>
 
+        <!-- Footer Section -->
+        <footer class="footer">
+            <div class="container footer-content">
+                <p>© <span id="currentYear"></span> ShineHub. <span data-i18n="footerText">All rights reserved. Clean cars, happy customers.</span></p>
+            </div>
+        </footer>
+
+        <!-- Notification Toast Container -->
+        <div class="toast" id="toast"></div>
+    </div>
+
+    <!-- Main JavaScript Logic -->
+    <script src="../Script/Script.js"></script>
 </body>
-<!-- gioo -->
 
 </html>
