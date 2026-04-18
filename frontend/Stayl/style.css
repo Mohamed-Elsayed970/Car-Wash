@@ -1,3 +1,6 @@
+/* --- Root Variables & Global Reset --- */
+
+/* Root theme variables for colors, shadows, and spacing */
 :root {
     --bg: #00356B;
     --bg-soft: #00356B;
@@ -22,14 +25,17 @@
     --transition: 0.25s ease;
 }
 
+/* Global box-sizing reset */
 * {
     box-sizing: border-box;
 }
 
+/* Smooth scrolling for the entire document */
 html {
     scroll-behavior: smooth;
 }
 
+/* Base body styling with default font and background gradient */
 body {
     margin: 0;
     font-family: "Inter", "Cairo", sans-serif;
@@ -43,46 +49,36 @@ body {
     color: var(--text);
 }
 
+/* RTL support for Arabic typography */
 body.rtl {
     font-family: "Cairo", "Inter", sans-serif;
 }
 
+/* Responsive image handling */
 img {
     max-width: 100%;
     display: block;
 }
 
-button {
-    font: inherit;
-    cursor: pointer;
-}
+/* --- Layout & Containers --- */
 
-input {
-    font: inherit;
-}
-
-select {
-    font: inherit;
-}
-
-textarea {
-    font: inherit;
-    resize: vertical;
-}
-
+/* Main site wrapper to ensure full viewport height */
 .site-shell {
     min-height: 100vh;
 }
 
+/* Standard centered container with responsive width */
 .container {
     width: var(--container);
     margin: 0 auto;
 }
 
+/* General section padding for vertical spacing */
 .section {
     padding: 5rem 0;
 }
 
+/* Alternative section background with a consistent gradient */
 .alt-section {
     background: linear-gradient(
         135deg,
@@ -93,6 +89,9 @@ textarea {
     );
 }
 
+/* --- Header & Navigation --- */
+
+/* Sticky header with blur effect and dark background */
 .header {
     position: sticky;
     top: 0;
@@ -102,6 +101,7 @@ textarea {
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
+/* Navigation bar layout using flexbox */
 .nav-bar {
     display: flex;
     align-items: center;
@@ -110,6 +110,7 @@ textarea {
     min-height: 78px;
 }
 
+/* Brand/Logo container */
 .brand {
     display: inline-flex;
     align-items: center;
@@ -118,15 +119,18 @@ textarea {
     text-decoration: none;
 }
 
+/* Bold text within the brand logo */
 .brand strong {
     display: block;
     font-size: 1.05rem;
 }
 
+/* Small descriptive text within the brand logo */
 .brand small {
     color: #c8d7eb;
 }
 
+/* Visual mark/icon for the brand */
 .brand-mark {
     width: 44px;
     height: 44px;
@@ -139,12 +143,14 @@ textarea {
     box-shadow: 0 12px 24px rgba(26, 140, 255, 0.3);
 }
 
+/* Main navigation links container */
 .nav {
     display: flex;
     align-items: center;
     gap: 1.2rem;
 }
 
+/* Individual navigation link styling */
 .nav a {
     color: #deebfb;
     text-decoration: none;
@@ -152,16 +158,19 @@ textarea {
     transition: color var(--transition);
 }
 
+/* Hover state for navigation links */
 .nav a:hover {
     color: #ffffff;
 }
 
+/* Container for actions in the header (e.g., buttons) */
 .header-actions {
     display: flex;
     align-items: center;
     gap: 0.75rem;
 }
 
+/* Mobile menu toggle button (hidden on desktop) */
 .menu-toggle {
     display: none;
     width: 48px;
@@ -172,6 +181,7 @@ textarea {
     padding: 0.75rem;
 }
 
+/* Individual bars within the menu toggle icon */
 .menu-toggle span {
     display: block;
     height: 2px;
@@ -179,6 +189,9 @@ textarea {
     margin: 4px 0;
 }
 
+/* --- Buttons & Interactive Elements --- */
+
+/* Language switcher button */
 .lang-toggle {
     border: none;
     border-radius: 999px;
@@ -190,6 +203,12 @@ textarea {
     font-weight: 700;
 }
 
+/* Hover effect for language toggle */
+.lang-toggle:hover {
+    transform: translateY(-1px);
+}
+
+/* Base button component */
 .btn {
     border: none;
     border-radius: 999px;
@@ -203,6 +222,35 @@ textarea {
     font-weight: 700;
 }
 
+/* Hover effect for base buttons */
+.btn:hover {
+    transform: translateY(-1px);
+}
+
+/* Primary action button with gradient and shadow */
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary), #39b4ff);
+    color: white;
+    box-shadow: 0 12px 24px rgba(26, 140, 255, 0.28);
+}
+
+/* Hover state for primary buttons */
+.btn-primary:hover {
+    box-shadow: 0 14px 30px rgba(26, 140, 255, 0.34);
+}
+
+/* Secondary action button with subtle background */
+.btn-secondary {
+    background: rgba(26, 140, 255, 0.12);
+    color: var(--primary-dark);
+}
+
+/* Full-width button modifier */
+.btn-block {
+    width: 100%;
+}
+
+/* Social media link button */
 .social-btn {
     border: none;
     border-radius: 999px;
@@ -213,6 +261,12 @@ textarea {
     border: 1px solid #d5e4f4;
 }
 
+/* Hover effect for social buttons */
+.social-btn:hover {
+    transform: translateY(-1px);
+}
+
+/* Tab navigation button */
 .tab-btn {
     border: none;
     border-radius: 999px;
@@ -224,47 +278,27 @@ textarea {
     font-weight: 700;
 }
 
-.lang-toggle:hover {
-    transform: translateY(-1px);
-}
-
-.btn:hover {
-    transform: translateY(-1px);
-}
-
-.social-btn:hover {
-    transform: translateY(-1px);
-}
-
+/* Hover effect for tab buttons */
 .tab-btn:hover {
     transform: translateY(-1px);
 }
 
-.btn-primary {
+/* Active state for tab buttons */
+.tab-btn.active {
     background: linear-gradient(135deg, var(--primary), #39b4ff);
     color: white;
-    box-shadow: 0 12px 24px rgba(26, 140, 255, 0.28);
 }
 
-.btn-primary:hover {
-    box-shadow: 0 14px 30px rgba(26, 140, 255, 0.34);
-}
+/* --- Hero Section --- */
 
-.btn-secondary {
-    background: rgba(26, 140, 255, 0.12);
-    color: var(--primary-dark);
-}
-
-.btn-block {
-    width: 100%;
-}
-
+/* Main hero section container */
 .hero {
     color: white;
     padding-top: 4.6rem;
     padding-bottom: 6rem;
 }
 
+/* Grid layout for the hero section */
 .hero-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -272,35 +306,7 @@ textarea {
     align-items: center;
 }
 
-.booking-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 2rem;
-    align-items: center;
-}
-
-.auth-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 2rem;
-    align-items: center;
-}
-
-.team-gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 2rem;
-    align-items: center;
-    margin: 2rem 0;
-}
-
-.testimonials-contact-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 2rem;
-    align-items: center;
-}
-
+/* Main heading in the hero section */
 .hero-content h1 {
     margin: 0.35rem 0 1rem;
     line-height: 1.1;
@@ -309,28 +315,88 @@ textarea {
     max-width: 12ch;
 }
 
-.section-heading h2 {
-    margin: 0.35rem 0 1rem;
-    line-height: 1.1;
-    color: #F0F8FF;
-}
-
+/* Paragraph text in the hero section */
 .hero-content p {
     color: #d0def0;
     line-height: 1.8;
     max-width: 64ch;
 }
 
+/* Container for hero action buttons */
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+/* Container for hero statistics */
+.hero-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+/* Individual statistic item */
+.hero-stats article {
+    min-width: 120px;
+}
+
+/* Bold value in hero statistics */
+.hero-stats strong {
+    display: block;
+    font-size: 1.8rem;
+}
+
+/* Label text in hero statistics */
+.hero-stats span {
+    color: #bfd4ee;
+}
+
+/* Promotional badge in the hero section */
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    padding: 0.7rem 1rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.12);
+    margin-bottom: 1.2rem;
+}
+
+/* Heading within hero cards */
+.hero-card h3 {
+    margin-top: 0;
+}
+
+/* --- Section Headings & Typography --- */
+
+/* Container for section titles and descriptions */
+.section-heading {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+/* Left-aligned section heading modifier */
+.section-heading.left {
+    text-align: start;
+}
+
+/* Main heading for sections */
+.section-heading h2 {
+    margin: 0.35rem 0 1rem;
+    line-height: 1.1;
+    color: #F0F8FF;
+}
+
+/* Descriptive paragraph for sections */
 .section-heading p {
     color: #F0F8FF;
     line-height: 1.8;
     max-width: 64ch;
 }
 
-.section-heading.left {
-    text-align: start;
-}
-
+/* Small introductory text above headings */
 .eyebrow {
     display: inline-block;
     padding: 0.5rem 0.9rem;
@@ -341,50 +407,9 @@ textarea {
     letter-spacing: 0.03em;
 }
 
-.hero-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-}
+/* --- Cards & Components --- */
 
-.social-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-}
-
-.team-members {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-}
-
-.hero-stats {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    margin-top: 2rem;
-}
-
-.mini-card-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-}
-
-.hero-stats article {
-    min-width: 120px;
-}
-
-.hero-stats strong {
-    display: block;
-    font-size: 1.8rem;
-}
-
-.hero-stats span {
-    color: #bfd4ee;
-}
-
+/* Glassmorphism card effect */
 .glass-card {
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow);
@@ -393,6 +418,7 @@ textarea {
     border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
+/* General information card */
 .info-card {
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow);
@@ -400,6 +426,18 @@ textarea {
     padding: 1.5rem;
 }
 
+/* Heading within info cards */
+.info-card h3 {
+    margin-top: 0;
+}
+
+/* Paragraph text within info cards */
+.info-card p {
+    color: #86b0fd;
+    line-height: 1.75;
+}
+
+/* Service offering card */
 .service-card {
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow);
@@ -411,213 +449,18 @@ textarea {
     border: 1px solid rgba(16, 35, 60, 0.08);
 }
 
-.form-card {
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow);
-    background: white;
-    padding: 1.5rem;
-    border: 1px solid rgba(16, 35, 60, 0.08);
-}
-
-.auth-card {
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow);
-    background: white;
-    padding: 1.5rem;
-    border: 1px solid rgba(16, 35, 60, 0.08);
-}
-
-.testimonial-card {
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow);
-    background: white;
-    padding: 1.5rem;
-}
-
-.contact-card {
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow);
-    background: white;
-    padding: 1.5rem;
-}
-
-.hero-card h3 {
-    margin-top: 0;
-}
-
-.info-card h3 {
-    margin-top: 0;
-}
-
-.testimonial-card h3 {
-    margin-top: 0;
-}
-
-.contact-card h3 {
-    margin-top: 0;
-}
-
-.form-card h3 {
-    margin-top: 0;
-}
-
-.auth-card h3 {
-    margin-top: 0;
-}
-
-.hero-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.65rem;
-    padding: 0.7rem 1rem;
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.12);
-    margin-bottom: 1.2rem;
-}
-
-.badge-dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: #4df0a3;
-    box-shadow: 0 0 0 6px rgba(77, 240, 163, 0.14);
-}
-
-.feature-list {
-    list-style: none;
-    padding: 0;
-    margin: 1.4rem 0;
-}
-
-.feature-list li {
-    position: relative;
-    padding-left: 1.45rem;
-    margin: 0.75rem 0;
-}
-
-body.rtl .feature-list li {
-    padding-left: 0;
-    padding-right: 1.45rem;
-}
-
-.feature-list li::before {
-    content: "";
-    position: absolute;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: var(--accent);
-    left: 0;
-    top: 0.6rem;
-}
-
-body.rtl .feature-list li::before {
-    left: auto;
-    right: 0;
-}
-
-.mini-card {
-    flex: 1;
-    min-width: 150px;
-    padding: 1rem;
-    border-radius: var(--radius-md);
-    background: rgba(255, 255, 255, 0.08);
-}
-
-.mini-card span {
-    display: block;
-    color: #bed0e8;
-    margin-bottom: 0.3rem;
-}
-
-.section-heading {
-    margin-bottom: 2rem;
-    text-align: center;
-}
-
-.about-grid {
-    display: grid;
-    gap: 1.25rem;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    margin-bottom: 2rem;
-}
-
-.service-grid {
-    display: grid;
-    gap: 1.25rem;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-}
-
-.booking-highlights {
-    display: grid;
-    gap: 1.25rem;
-    margin-top: 1.5rem;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
-.contact-list {
-    display: grid;
-    gap: 1.25rem;
-    list-style: none;
-    padding: 0;
+/* Heading within service cards */
+.service-card h3 {
     margin: 0;
 }
 
-.testimonial-list {
-    display: grid;
-    gap: 1.25rem;
-}
-
-.info-card p {
-    color: #86b0fd;
-    line-height: 1.75;
-}
-
+/* Paragraph text within service cards */
 .service-card p {
     color: #86b0fd;
     line-height: 1.75;
 }
 
-.booking-highlights p {
-    color: #86b0fd;
-    line-height: 1.75;
-}
-
-.contact-list li {
-    color: #86b0fd;
-    line-height: 1.75;
-}
-
-.testimonial-list p {
-    color: #86b0fd;
-    line-height: 1.75;
-}
-
-.team-card p {
-    color: #86b0fd;
-    line-height: 1.75;
-}
-
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1rem;
-}
-
-.gallery-grid img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-    border-radius: var(--radius-md);
-}
-
-.team-members span {
-    padding: 0.55rem 0.85rem;
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.1);
-    color: #e3efff;
-}
-
+/* Top section of a service card (icon/title/price) */
 .service-card-top {
     display: flex;
     align-items: center;
@@ -625,10 +468,7 @@ body.rtl .feature-list li::before {
     gap: 1rem;
 }
 
-.service-card h3 {
-    margin: 0;
-}
-
+/* Category tag for services */
 .service-tag {
     display: inline-flex;
     padding: 0.4rem 0.8rem;
@@ -645,31 +485,311 @@ body.rtl .feature-list li::before {
     font-weight: 700;
 }
 
+/* Price display within service cards */
 .price {
     font-size: 1.6rem;
     color: #2454FF;
 }
 
+/* Testimonial card for user reviews */
+.testimonial-card {
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow);
+    background: white;
+    padding: 1.5rem;
+}
+
+/* Heading within testimonial cards */
+.testimonial-card h3 {
+    margin-top: 0;
+}
+
+/* Contact information card */
+.contact-card {
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow);
+    background: white;
+    padding: 1.5rem;
+}
+
+/* Heading within contact cards */
+.contact-card h3 {
+    margin-top: 0;
+}
+
+/* Small card for quick info */
+.mini-card {
+    flex: 1;
+    min-width: 150px;
+    padding: 1rem;
+    border-radius: var(--radius-md);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+/* Label text within mini cards */
+.mini-card span {
+    display: block;
+    color: #bed0e8;
+    margin-bottom: 0.3rem;
+}
+
+/* Row container for mini cards */
+.mini-card-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+/* Status dot within badges */
+.badge-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #4df0a3;
+    box-shadow: 0 0 0 6px rgba(77, 240, 163, 0.14);
+}
+
+/* --- Lists & Features --- */
+
+/* List of features with custom bullets */
+.feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 1.4rem 0;
+}
+
+/* Individual feature list item */
+.feature-list li {
+    position: relative;
+    padding-left: 1.45rem;
+    margin: 0.75rem 0;
+}
+
+/* RTL adjustment for feature list items */
+body.rtl .feature-list li {
+    padding-left: 0;
+    padding-right: 1.45rem;
+}
+
+/* Custom bullet point for feature lists */
+.feature-list li::before {
+    content: "";
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+    left: 0;
+    top: 0.6rem;
+}
+
+/* RTL adjustment for feature list bullets */
+body.rtl .feature-list li::before {
+    left: auto;
+    right: 0;
+}
+
+/* List of contact details */
+.contact-list {
+    display: grid;
+    gap: 1.25rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Individual contact list item */
+.contact-list li {
+    color: #86b0fd;
+    line-height: 1.75;
+}
+
+/* List of testimonials */
+.testimonial-list {
+    display: grid;
+    gap: 1.25rem;
+}
+
+/* Paragraph text within testimonial lists */
+.testimonial-list p {
+    color: #86b0fd;
+    line-height: 1.75;
+}
+
+/* --- Grids & Galleries --- */
+
+/* Grid layout for the about section */
+.about-grid {
+    display: grid;
+    gap: 1.25rem;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    margin-bottom: 2rem;
+}
+
+/* Grid layout for service cards */
+.service-grid {
+    display: grid;
+    gap: 1.25rem;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+/* Grid layout for booking highlights */
+.booking-highlights {
+    display: grid;
+    gap: 1.25rem;
+    margin-top: 1.5rem;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+/* Paragraph text within booking highlights */
+.booking-highlights p {
+    color: #86b0fd;
+    line-height: 1.75;
+}
+
+/* Individual highlight article */
 .booking-highlights article {
     padding: 1.1rem;
     background: rgba(26, 140, 255, 0.07);
     border-radius: var(--radius-md);
 }
 
+/* Grid layout for booking forms */
+.booking-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem;
+    align-items: center;
+}
+
+/* Grid layout for authentication forms */
+.auth-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem;
+    align-items: center;
+}
+
+/* Grid layout for team and gallery section */
+.team-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem;
+    align-items: center;
+    margin: 2rem 0;
+}
+
+/* Grid layout for testimonials and contact section */
+.testimonials-contact-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem;
+    align-items: center;
+}
+
+/* Grid layout for image galleries */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+/* Image styling within galleries */
+.gallery-grid img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: var(--radius-md);
+}
+
+/* --- Team Section --- */
+
+/* Container for team member tags */
+.team-members {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+/* Individual team member tag */
+.team-members span {
+    padding: 0.55rem 0.85rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #e3efff;
+}
+
+/* Paragraph text within team cards */
+.team-card p {
+    color: #86b0fd;
+    line-height: 1.75;
+}
+
+/* --- Forms & Inputs --- */
+
+/* Card container for forms */
+.form-card {
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow);
+    background: white;
+    padding: 1.5rem;
+    border: 1px solid rgba(16, 35, 60, 0.08);
+}
+
+/* Heading within form cards */
+.form-card h3 {
+    margin-top: 0;
+}
+
+/* Grid layout for form fields */
 .form-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 1rem;
 }
 
+/* Modifier for full-width form fields */
 .full-width {
     grid-column: 1 / -1;
 }
 
+/* Inline form layout modifier */
+.form-inline {
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* Card container for authentication forms */
+.auth-card {
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow);
+    background: white;
+    padding: 1.5rem;
+    border: 1px solid rgba(16, 35, 60, 0.08);
+}
+
+/* Heading within auth cards */
+.auth-card h3 {
+    margin-top: 0;
+}
+
+/* Base authentication form container */
+.auth-form {
+    display: none;
+    gap: 1rem;
+}
+
+/* Active state for authentication forms */
+.auth-form.active {
+    display: grid;
+}
+
+/* Label element for form inputs */
 label {
     display: block;
 }
 
+/* Text span within labels */
 label span {
     display: inline-block;
     margin-bottom: 0.45rem;
@@ -677,6 +797,7 @@ label span {
     color: #17304e;
 }
 
+/* Standard text input styling */
 input {
     width: 100%;
     border: 1px solid #d1dfef;
@@ -686,6 +807,15 @@ input {
     transition: border-color var(--transition), box-shadow var(--transition), background var(--transition);
 }
 
+/* Focus state for text inputs */
+input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(26, 140, 255, 0.12);
+    background: #ffffff;
+}
+
+/* Standard dropdown select styling */
 select {
     width: 100%;
     border: 1px solid #d1dfef;
@@ -695,6 +825,15 @@ select {
     transition: border-color var(--transition), box-shadow var(--transition), background var(--transition);
 }
 
+/* Focus state for dropdown selects */
+select:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(26, 140, 255, 0.12);
+    background: #ffffff;
+}
+
+/* Standard multi-line textarea styling */
 textarea {
     width: 100%;
     border: 1px solid #d1dfef;
@@ -704,20 +843,7 @@ textarea {
     transition: border-color var(--transition), box-shadow var(--transition), background var(--transition);
 }
 
-input:focus {
-    outline: none;
-    border-color: var(--primary);
-    box-shadow: 0 0 0 4px rgba(26, 140, 255, 0.12);
-    background: #ffffff;
-}
-
-select:focus {
-    outline: none;
-    border-color: var(--primary);
-    box-shadow: 0 0 0 4px rgba(26, 140, 255, 0.12);
-    background: #ffffff;
-}
-
+/* Focus state for textareas */
 textarea:focus {
     outline: none;
     border-color: var(--primary);
@@ -725,37 +851,21 @@ textarea:focus {
     background: #ffffff;
 }
 
+/* Container for tabbed navigation in forms */
 .tabs {
     display: flex;
     gap: 0.75rem;
     margin-bottom: 1.2rem;
 }
 
-.tab-btn.active {
-    background: linear-gradient(135deg, var(--primary), #39b4ff);
-    color: white;
-}
-
-.auth-form {
-    display: none;
-    gap: 1rem;
-}
-
-.auth-form.active {
-    display: grid;
-}
-
-.form-inline {
-    display: flex;
-    justify-content: flex-end;
-}
-
+/* Text link styling */
 .text-link {
     color: var(--primary-dark);
     text-decoration: none;
     font-weight: 600;
 }
 
+/* Container for social login/links */
 .social-box {
     margin-top: 1.5rem;
     background: rgba(26, 140, 255, 0.08);
@@ -763,12 +873,16 @@ textarea:focus {
     padding: 1rem;
 }
 
+/* Label text within social boxes */
 .social-box span {
     display: block;
     margin-bottom: 0.8rem;
     font-weight: 700;
 }
 
+/* --- Notifications & Feedback --- */
+
+/* Base toast notification container */
 .toast {
     position: fixed;
     inset-inline-end: 1rem;
@@ -786,19 +900,25 @@ textarea:focus {
     z-index: 1500;
 }
 
+/* Visible state for toast notifications */
 .toast.show {
     transform: translateY(0);
     opacity: 1;
 }
 
+/* Success variant for toast notifications */
 .toast.success {
     background: linear-gradient(135deg, #1e9f69, #38c788);
 }
 
+/* Error variant for toast notifications */
 .toast.error {
     background: linear-gradient(135deg, #d94a4a, #ff6a6a);
 }
 
+/* --- Footer --- */
+
+/* Main footer container */
 .footer {
     background: #081220;
     color: #d3e0f1;
@@ -809,10 +929,14 @@ textarea:focus {
     left: 0;
 }
 
+/* Centered content within the footer */
 .footer-content {
     text-align: center;
 }
 
+/* --- Responsive Media Queries --- */
+
+/* Adjustments for large tablets and small desktops */
 @media (max-width: 992px) {
     .hero-grid {
         grid-template-columns: 1fr;
@@ -841,6 +965,7 @@ textarea:focus {
     }
 }
 
+/* Adjustments for tablets and mobile navigation */
 @media (max-width: 840px) {
     .menu-toggle {
         display: inline-block;
@@ -869,6 +994,7 @@ textarea:focus {
     }
 }
 
+/* Adjustments for small mobile devices */
 @media (max-width: 680px) {
     .section {
         padding: 4rem 0;
