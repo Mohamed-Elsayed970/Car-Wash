@@ -2,29 +2,30 @@
 <html lang="en">
 
 <head>
-    <!-- Essential Meta Information -->
+    <!-- Document Metadata -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ShineHub Car Wash - Login & Register</title>
-    <meta name="description" content="Direct login and registration for ShineHub Car Wash customers." />
+    <title>ShineHub Car Wash - Booking</title>
+    <meta name="description" content="Book your car wash appointment online with ShineHub." />
 
-    <!-- External Font Imports -->
+    <!-- Google Fonts Integration -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
     <!-- Main Stylesheet -->
     <link rel="stylesheet" href="../Stayl/style.css" />
 </head>
 
 <body>
+    <!-- Main Site Wrapper -->
     <div class="site-shell">
-        <!-- Header Section: Branding and Navigation -->
+        
+        <!-- Header & Navigation Section -->
         <header class="header">
             <div class="container nav-bar">
-                <a href="#home" class="brand">
+                <!-- Brand Identity / Logo -->
+                <a href="home.html" class="brand">
                     <span class="brand-mark">S</span>
                     <div>
                         <strong>ShineHub</strong>
@@ -32,12 +33,14 @@
                     </div>
                 </a>
 
+                <!-- Mobile Menu Toggle Button -->
                 <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
                     <span></span>
                     <span></span>
                     <span></span>
                 </button>
 
+                <!-- Main Navigation Links -->
                 <nav class="nav" id="mainNav">
                     <a href="home.html" data-i18n="navHome">Home</a>
                     <a href="About.html" data-i18n="navAbout">About</a>
@@ -47,23 +50,28 @@
                     <a href="contact.html" data-i18n="navContact">Contact</a>
                 </nav>
 
+                <!-- Header Action Buttons (Language & Booking) -->
                 <div class="header-actions">
                     <button class="lang-toggle" id="languageToggle" type="button">AR</button>
                     <a href="booking.html" class="btn btn-primary" data-i18n="bookNow">Book Now</a>
                 </div>
             </div>
         </header>
+
         <!-- Main Booking Section -->
         <section class="section" id="booking">
             <div class="container booking-grid">
+                
                 <!-- Left Column: Booking Information and Highlights -->
                 <div>
                     <div class="section-heading left">
                         <span class="eyebrow" data-i18n="bookingEyebrow">Booking</span>
                         <h2 data-i18n="bookingTitle">Schedule your next wash in a few steps</h2>
-                        <p data-i18n="bookingText">Fill in the form below to request an appointment. Logged-in users can
-                            enjoy faster booking and booking history in future updates.</p>
+                        <p data-i18n="bookingText">
+                            Fill in the form below to request an appointment. Logged-in users can enjoy faster booking and booking history in future updates.
+                        </p>
                     </div>
+                    
                     <!-- Key features/highlights of the booking process -->
                     <div class="booking-highlights">
                         <article>
@@ -72,46 +80,47 @@
                         </article>
                         <article>
                             <h3 data-i18n="bookingPoint2Title">Flexible</h3>
-                            <p data-i18n="bookingPoint2Text">Suitable for standard washes, detailing, and premium
-                                packages.
-                            </p>
+                            <p data-i18n="bookingPoint2Text">Suitable for standard washes, detailing, and premium packages.</p>
                         </article>
                         <article>
                             <h3 data-i18n="bookingPoint3Title">Reliable</h3>
-                            <p data-i18n="bookingPoint3Text">Receive clear success and error feedback after every
-                                action.
-                            </p>
+                            <p data-i18n="bookingPoint3Text">Receive clear success and error feedback after every action.</p>
                         </article>
                     </div>
                 </div>
+
                 <!-- Right Column: Booking Form -->
                 <form class="form-card" id="bookingForm">
                     <!-- Hidden field to specify the action for the backend script -->
                     <input type="hidden" name="action" value="book_service" />
+                    
                     <h3 data-i18n="bookingFormTitle">Book an Appointment</h3>
+                    
                     <div class="form-grid">
                         <!-- Full Name Input -->
                         <label>
                             <span data-i18n="fullNameLabel">Full Name</span>
-                            <input type="text" name="full_name" required data-i18n-placeholder="fullNamePlaceholder"
-                                placeholder="Enter your full name" />
+                            <input type="text" name="full_name" required data-i18n-placeholder="fullNamePlaceholder" placeholder="Enter your full name" />
                         </label>
+                        
+                        <!-- Email Address Input -->
                         <label>
                             <span data-i18n="emailLabel">Email Address</span>
-                            <input type="email" name="email" required data-i18n-placeholder="emailPlaceholder"
-                                placeholder="Enter your email" />
+                            <input type="email" name="email" required data-i18n-placeholder="emailPlaceholder" placeholder="Enter your email" />
                         </label>
+                        
                         <!-- Phone Number Input -->
                         <label>
                             <span data-i18n="phoneLabel">Phone Number</span>
-                            <input type="tel" name="phone" required data-i18n-placeholder="phonePlaceholder"
-                                placeholder="Enter your phone number" />
+                            <input type="tel" name="phone" required data-i18n-placeholder="phonePlaceholder" placeholder="Enter your phone number" />
                         </label>
+                        
+                        <!-- Car Model Input -->
                         <label>
                             <span data-i18n="carModelLabel">Car Model</span>
-                            <input type="text" name="car_model" required data-i18n-placeholder="carModelPlaceholder"
-                                placeholder="Example: Toyota Corolla" />
+                            <input type="text" name="car_model" required data-i18n-placeholder="carModelPlaceholder" placeholder="Example: Toyota Corolla" />
                         </label>
+                        
                         <!-- Service Selection Dropdown -->
                         <label>
                             <span data-i18n="serviceLabel">Service</span>
@@ -124,52 +133,42 @@
                                 <option value="5">Deep Cleaning</option>
                             </select>
                         </label>
+                        
                         <!-- Preferred Date Input -->
                         <label>
                             <span data-i18n="dateLabel">Preferred Date</span>
                             <input type="date" name="booking_date" required />
                         </label>
+                        
                         <!-- Preferred Time Input -->
                         <label>
                             <span data-i18n="timeLabel">Preferred Time</span>
                             <input type="time" name="booking_time" required />
                         </label>
+                        
                         <!-- Additional Notes Textarea (Full Width) -->
                         <label class="full-width">
                             <span data-i18n="notesLabel">Notes</span>
-                            <textarea name="notes" rows="4" data-i18n-placeholder="notesPlaceholder"
-                                placeholder="Any extra requests or vehicle notes"></textarea>
+                            <textarea name="notes" rows="4" data-i18n-placeholder="notesPlaceholder" placeholder="Any extra requests or vehicle notes"></textarea>
                         </label>
                     </div>
+                    
                     <!-- Form Submission Button -->
-                    <button type="submit" class="btn btn-primary btn-block" data-i18n="submitBooking">Submit
-                        Booking</button>
+                    <button type="submit" class="btn btn-primary btn-block" data-i18n="submitBooking">Submit Booking</button>
                 </form>
             </div>
         </section>
 
-
-
-
-
-
-
-
-
-
         <!-- Footer Section -->
         <footer class="footer">
             <div class="container footer-content">
-                <p>© <span id="currentYear"></span> ShineHub. <span data-i18n="footerText">All rights
-                        reserved. Clean
-                        cars, happy customers.</span></p>
+                <p>© <span id="currentYear"></span> ShineHub. <span data-i18n="footerText">All rights reserved. Clean cars, happy customers.</span></p>
             </div>
         </footer>
     </div>
 
-
-    <script src="../Script/script.js"></script>
+    <!-- Main JavaScript Logic -->
+    <script src="../Script/Script.js"></script>
 </body>
-<!-- gioo  done-->
 
 </html>
