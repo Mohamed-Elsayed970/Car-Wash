@@ -2,24 +2,30 @@
 <html lang="en">
 
 <head>
+    <!-- Document Metadata -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ShineHub Car Wash</title>
-    <meta name="description"
-        content="Modern car wash management website with login, registration, services, booking, and bilingual support." />
+    <title>ShineHub Car Wash - Contact & Reviews</title>
+    <meta name="description" content="Get in touch with ShineHub Car Wash and read what our customers have to say." />
+    
+    <!-- Google Fonts Integration -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    
+    <!-- Main Stylesheet -->
     <link rel="stylesheet" href="../Stayl/style.css" />
 </head>
 
 <body>
+    <!-- Main Site Wrapper -->
     <div class="site-shell">
+        
+        <!-- Header & Navigation Section -->
         <header class="header">
             <div class="container nav-bar">
-                <a href="#home" class="brand">
+                <!-- Brand Identity / Logo -->
+                <a href="home.html" class="brand">
                     <span class="brand-mark">S</span>
                     <div>
                         <strong>ShineHub</strong>
@@ -27,12 +33,14 @@
                     </div>
                 </a>
 
+                <!-- Mobile Menu Toggle Button -->
                 <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
                     <span></span>
                     <span></span>
                     <span></span>
                 </button>
 
+                <!-- Main Navigation Links -->
                 <nav class="nav" id="mainNav">
                     <a href="home.html" data-i18n="navHome">Home</a>
                     <a href="About.html" data-i18n="navAbout">About</a>
@@ -42,6 +50,7 @@
                     <a href="contact.html" data-i18n="navContact">Contact</a>
                 </nav>
 
+                <!-- Header Action Buttons (Language & Booking) -->
                 <div class="header-actions">
                     <button class="lang-toggle" id="languageToggle" type="button">AR</button>
                     <a href="booking.html" class="btn btn-primary" data-i18n="bookNow">Book Now</a>
@@ -49,47 +58,63 @@
             </div>
         </header>
 
-    <div class="testimonials-contact-grid">
-        <article class="glass-card testimonial-card">
-            <h3 data-i18n="testimonialTitle">Customer Reviews</h3>
-            <div class="testimonial-list">
-                <blockquote>
-                    <p data-i18n="review1">“Very clean finish, friendly staff, and the booking process was super easy.”
-                    </p>
-                    <footer>— Ahmed K.</footer>
-                </blockquote>
-                <blockquote>
-                    <p data-i18n="review2">“I booked online in less than two minutes and the polishing result was
-                        excellent.”</p>
-                    <footer>— Sarah M.</footer>
-                </blockquote>
+        <!-- Main Content Area: Testimonials and Contact Info -->
+        <main class="section">
+            <div class="container">
+                <div class="testimonials-contact-grid">
+                    <!-- Customer Testimonials Section -->
+                    <article class="glass-card testimonial-card">
+                        <h3 data-i18n="testimonialTitle">Customer Reviews</h3>
+                        <div class="testimonial-list">
+                            <blockquote>
+                                <p data-i18n="review1">“Very clean finish, friendly staff, and the booking process was super easy.”</p>
+                                <footer>— Ahmed K.</footer>
+                            </blockquote>
+                            <blockquote>
+                                <p data-i18n="review2">“I booked online in less than two minutes and the polishing result was excellent.”</p>
+                                <footer>— Sarah M.</footer>
+                            </blockquote>
+                        </div>
+                    </article>
+
+                    <!-- Contact Information Section -->
+                    <article class="glass-card contact-card" id="contact">
+                        <h3 data-i18n="contactTitle">Contact Information</h3>
+                        <ul class="contact-list">
+                            <!-- Address Details -->
+                            <li>
+                                <strong data-i18n="contactAddressLabel">Address:</strong> 
+                                <span data-i18n="contactAddressValue">12 Nile Street, Cairo, Egypt</span>
+                            </li>
+                            <!-- Phone Details -->
+                            <li>
+                                <strong data-i18n="contactPhoneLabel">Phone:</strong> +20 100 123 4567
+                            </li>
+                            <!-- Email Details -->
+                            <li>
+                                <strong data-i18n="contactEmailLabel">Email:</strong> info@shinehubwash.com
+                            </li>
+                            <!-- Working Hours -->
+                            <li>
+                                <strong data-i18n="contactHoursLabel">Hours:</strong> 
+                                <span data-i18n="contactHoursValue">Daily, 8:00 AM to 11:00 PM</span>
+                            </li>
+                        </ul>
+                    </article>
+                </div>
             </div>
-        </article>
+        </main>
 
-        <article class="glass-card contact-card" id="contact">
-            <h3 data-i18n="contactTitle">Contact Information</h3>
-            <ul class="contact-list">
-                <li><strong data-i18n="contactAddressLabel">Address:</strong> <span data-i18n="contactAddressValue">12
-                        Nile Street, Cairo, Egypt</span></li>
-                <li><strong data-i18n="contactPhoneLabel">Phone:</strong> +20 100 123 4567</li>
-                <li><strong data-i18n="contactEmailLabel">Email:</strong> info@shinehubwash.com</li>
-                <li><strong data-i18n="contactHoursLabel">Hours:</strong> <span data-i18n="contactHoursValue">Daily,
-                        8:00 AM to 11:00 PM</span></li>
-            </ul>
-        </article>
-    </div>
-    </div>
-    </section>
-
-    <footer class="footer">
-        <div class="container footer-content">
-            <p>© <span id="currentYear"></span> ShineHub. <span data-i18n="footerText">All rights reserved. Clean cars,
-                    happy customers.</span></p>
-        </div>
-    </footer>
+        <!-- Footer Section -->
+        <footer class="footer">
+            <div class="container footer-content">
+                <p>© <span id="currentYear"></span> ShineHub. <span data-i18n="footerText">All rights reserved. Clean cars, happy customers.</span></p>
+            </div>
+        </footer>
     </div>
 
-    <script src="../Script/script.js"></script>
+    <!-- Main JavaScript Logic -->
+    <script src="../Script/Script.js"></script>
 </body>
 
 </html>
