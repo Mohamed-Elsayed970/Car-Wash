@@ -1,9 +1,19 @@
 <?php
 declare(strict_types=1);
 
+/**
+ * Main Backend Processor for Car Wash Management System.
+ * Handles database connections, user authentication, service retrieval, and bookings.
+ */
+
 session_start();
 header('Content-Type: application/json; charset=utf-8');
 
+/* --- Configuration & Static Data --- */
+
+/**
+ * Database connection configuration.
+ */
 $config = [
     'host' => 'localhost',
     'username' => 'root',
@@ -11,6 +21,9 @@ $config = [
     'database' => 'car_wash_management'
 ];
 
+/**
+ * Fallback services data used when the database is unavailable.
+ */
 $fallbackServices = [
     [
         'id' => 1,
@@ -54,6 +67,15 @@ $fallbackServices = [
     ]
 ];
 
+/* --- Utility Functions --- */
+
+/**
+ * Sends a standardized JSON response and terminates the script.
+ * @param string $status - success or error.
+ * @param string $message - Descriptive message for the user.
+ * @param array $data - Optional data payload.
+ * @param int $code - HTTP response code.
+ */
 function jsonResponse(string $status, string $message, array $data = [], int $code = 200): void
 {
     http_response_code($code);
@@ -65,11 +87,23 @@ function jsonResponse(string $status, string $message, array $data = [], int $co
     exit;
 }
 
+/**
+ * Sanitizes input strings by trimming whitespace.
+ * @param string|null $value - The input value.
+ * @return string - The cleaned string.
+ */
 function cleanInput(?string $value): string
 {
     return trim((string) $value);
 }
 
+/* --- Database Operations --- */
+
+/**
+ * Establishes a connection to the MySQL database.
+ * @param array $config - Database configuration array.
+ * @return mysqli|null - The connection object or null on failure.
+ */
 function connectDatabase(array $config): ?mysqli
 {
     mysqli_report(MYSQLI_REPORT_OFF);
@@ -89,6 +123,13 @@ function connectDatabase(array $config): ?mysqli
     return $connection;
 }
 
+/**
+ * Generates a unique username based on full name and email.
+ * @param mysqli $connection - Active database connection.
+ * @param string $fullName - User's full name.
+ * @param string $email - User's email.
+ * @return string - A unique username.
+ */
 function generateUsername(mysqli $connection, string $fullName, string $email): string
 {
     $base = preg_replace('/[^a-z0-9]+/i', '', strtolower(str_replace(' ', '', $fullName)));
@@ -119,6 +160,12 @@ function generateUsername(mysqli $connection, string $fullName, string $email): 
     }
 }
 
+/**
+ * Fetches active services from the database or returns fallback data.
+ * @param mysqli|null $connection - Active database connection.
+ * @param array $fallbackServices - Static fallback data.
+ * @return array - List of services.
+ */
 function fetchServices(?mysqli $connection, array $fallbackServices): array
 {
     if (!$connection) {
@@ -138,20 +185,30 @@ function fetchServices(?mysqli $connection, array $fallbackServices): array
     return $services ?: $fallbackServices;
 }
 
+/* --- Request Handling --- */
+
 $connection = connectDatabase($config);
 $action = cleanInput($_GET['action'] ?? $_POST['action'] ?? '');
 $method = $_SERVER['REQUEST_METHOD'] ?? 'GET';
 
+// Handle GET requests for loading services
 if ($method === 'GET' && $action === 'services') {
     jsonResponse('success', 'Services loaded successfully.', fetchServices($connection, $fallbackServices));
 }
 
+// Ensure only POST requests proceed for other actions
 if ($method !== 'POST') {
     jsonResponse('error', 'Unsupported request method.', [], 405);
 }
 
+/* --- Action Switcher --- */
+
 switch ($action) {
     case 'register':
+        /**
+         * Handle user registration.
+         * Validates input, checks for existing users, and creates a new account.
+         */
         $fullName = cleanInput($_POST['full_name'] ?? '');
         $email = cleanInput($_POST['email'] ?? '');
         $phone = cleanInput($_POST['phone'] ?? '');
@@ -205,6 +262,10 @@ switch ($action) {
         break;
 
     case 'login':
+        /**
+         * Handle user login.
+         * Verifies credentials and starts a session.
+         */
         $identity = cleanInput($_POST['identity'] ?? '');
         $password = cleanInput($_POST['password'] ?? '');
 
@@ -241,6 +302,10 @@ switch ($action) {
         break;
 
     case 'book_service':
+        /**
+         * Handle service booking.
+         * Validates booking details and saves them to the database.
+         */
         $fullName = cleanInput($_POST['full_name'] ?? '');
         $email = cleanInput($_POST['email'] ?? '');
         $phone = cleanInput($_POST['phone'] ?? '');
@@ -325,3 +390,4 @@ switch ($action) {
     default:
         jsonResponse('error', 'Invalid action.', [], 400);
 }
+?>
