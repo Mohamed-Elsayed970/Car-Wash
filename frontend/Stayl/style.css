@@ -381,6 +381,10 @@ img {
     margin-bottom: 2rem;
     text-align: center;
 }
+.section-heading-auth {
+    margin-bottom: 2rem;
+    text-align: center;
+}
 
 /* Left-aligned section heading modifier */
 .section-heading.left {
@@ -389,9 +393,17 @@ img {
 .section-heading-booking.left {
     text-align: start;
 }
+.section-heading-auth.left {
+    text-align: start;
+}
 
 /* Main heading for sections */
 .section-heading h2 {
+    margin: 0.35rem 0 1rem;
+    line-height: 1.1;
+    color: #F0F8FF;
+}
+.section-heading-auth h2 {
     margin: 0.35rem 0 1rem;
     line-height: 1.1;
     color: #F0F8FF;
@@ -407,6 +419,12 @@ img {
     line-height: 1.8;
     max-width: 64ch;
     margin-left: 250px;
+}
+.section-heading-auth p {
+    color: #F0F8FF;
+    line-height: 1.8;
+    max-width: 64ch;
+    
 }
 .section-heading-booking p {
     color: #F0F8FF;
