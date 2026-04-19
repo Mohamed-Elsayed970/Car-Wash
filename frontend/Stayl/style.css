@@ -243,6 +243,7 @@ img {
 .btn-secondary {
     background: rgba(26, 140, 255, 0.12);
     color: var(--primary-dark);
+    /* margin-top: 20px; */
 }
 
 /* Full-width button modifier */
@@ -376,9 +377,16 @@ img {
     margin-bottom: 2rem;
     text-align: center;
 }
+.section-heading-booking {
+    margin-bottom: 2rem;
+    text-align: center;
+}
 
 /* Left-aligned section heading modifier */
 .section-heading.left {
+    text-align: start;
+}
+.section-heading-booking.left {
     text-align: start;
 }
 
@@ -388,14 +396,23 @@ img {
     line-height: 1.1;
     color: #F0F8FF;
 }
-
+.section-heading-booking h2 {
+    margin: 0.35rem 0 1rem;
+    line-height: 1.1;
+    color: #F0F8FF;
+}
 /* Descriptive paragraph for sections */
 .section-heading p {
     color: #F0F8FF;
     line-height: 1.8;
     max-width: 64ch;
+    margin-left: 250px;
 }
-
+.section-heading-booking p {
+    color: #F0F8FF;
+    line-height: 1.8;
+    max-width: 64ch;
+}
 /* Small introductory text above headings */
 .eyebrow {
     display: inline-block;
