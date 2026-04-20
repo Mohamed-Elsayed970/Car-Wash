@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- شرح تفصيلي: هذه البيانات الأساسية مطلوبة لأي صفحة HTML حتى تعمل بشكل صحيح على المتصفح والموبايل. -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ShineHub Car Wash</title>
+    <meta name="description" content="ShineHub car wash website with services and booking form." />
+
+    <!-- شرح تفصيلي: ممنوع تغيير التصميم, لذلك نحن نستخدم نفس ملف CSS القديم كما هو بدون تعديل شكله. -->
+    <link rel="stylesheet" href="frontend/Stayl/style.css" />
+
+    <!-- شرح تفصيلي: الخطوط دي كانت موجودة في المشروع الأصلي, فبنستخدمها كما هي للحفاظ على نفس الواجهة. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+</head>
+
+<body>
+    <!-- شرح تفصيلي: هذا هو الغلاف الرئيسي لكل محتوى الصفحة. -->
+    <div class="site-shell">
+        <!-- شرح تفصيلي: الهيدر يحتوي على اسم الموقع وروابط التنقل الأساسية فقط. -->
+        <header class="header">
+            <div class="container nav-bar">
+                <a href="index.html" class="brand">
+                    <span class="brand-mark">S</span>
+                    <div>
+                        <strong>ShineHub</strong>
+                        <small>Car Wash & Detailing</small>
+                    </div>
+                </a>
+
+                <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <!-- شرح تفصيلي: الروابط كلها أصبحت تشير فقط إلى index.html أو auth_login.html حسب طلبك. -->
+                <nav class="nav" id="mainNav">
+                    <a href="index.html#home">Home</a>
+                    <a href="index.html#services">Services</a>
+                    <a href="index.html#booking">Booking</a>
+                    <a href="auth_login.html">Login</a>
+                </nav>
+
+                <div class="header-actions">
+                    <a href="auth_login.html" class="btn btn-primary">Login</a>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <!-- شرح تفصيلي: هذا القسم هو أول جزء يراه المستخدم عند فتح الصفحة. -->
+            <section class="hero section" id="home">
+                <div class="container hero-grid">
+                    <div class="hero-content">
+                        <span class="eyebrow">Fast, Clean, Professional</span>
+                        <h1>Give your car the shine it deserves</h1>
+                        <p>
+                            ShineHub helps customers explore services, create accounts, and book car wash appointments in minutes.
+                        </p>
+
+                        <div class="hero-actions">
+                            <a href="#services" class="btn btn-primary">Explore Services</a>
+                            <a href="auth_login.html" class="btn btn-secondary">Create Account</a>
+                        </div>
+
+                        <div class="hero-stats">
+                            <article>
+                                <strong>12+</strong>
+                                <span>Years Experience</span>
+                            </article>
+                            <article>
+                                <strong>5k+</strong>
+                                <span>Happy Customers</span>
+                            </article>
+                            <article>
+                                <strong>20+</strong>
+                                <span>Service Options</span>
+                            </article>
+                        </div>
+                    </div>
+
+                    <div class="hero-card glass-card">
+                        <div class="hero-badge">
+                            <span class="badge-dot"></span>
+                            <span>Open today from 8:00 AM to 11:00 PM</span>
+                        </div>
+
+                        <h3>Easy online booking</h3>
+
+                        <ul class="feature-list">
+                            <li>Choose a service package</li>
+                            <li>Pick your preferred date and time</li>
+                            <li>Track confirmations instantly</li>
+                        </ul>
+
+                        <div class="mini-card-row">
+                            <div class="mini-card">
+                                <span>Most booked</span>
+                                <strong>Premium Wash</strong>
+                            </div>
+                            <div class="mini-card">
+                                <span>Starting from</span>
+                                <strong>15 EGP</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- شرح تفصيلي: هذا القسم يعرض الخدمات. الجافاسكربت سيملأ الكروت من قاعدة البيانات. -->
+            <section class="section alt-section" id="services">
+                <div class="container">
+                    <div class="section-heading">
+                        <span class="eyebrow">Services</span>
+                        <h2>Clear packages, fair prices, professional results</h2>
+                        <p>
+                            Choose from our most requested services. Each option is shown with pricing and a short description.
+                        </p>
+                    </div>
+
+                    <!-- شرح تفصيلي: نترك مكان فارغ للكروت ثم يتم تعبئته تلقائيًا من ملف Script.js بعد قراءة الخدمات من PHP. -->
+                    <div class="service-grid" id="serviceGrid"></div>
+                </div>
+            </section>
+
+            <!-- شرح تفصيلي: هذا هو نموذج الحجز الرئيسي. عند الضغط على Submit يتم إرسال البيانات إلى process_booking.php. -->
+            <section class="section" id="booking">
+                <div class="container booking-grid">
+                    <div>
+                        <div class="section-heading-booking left">
+                            <span class="eyebrow">Booking</span>
+                            <h2>Schedule your next wash in a few steps</h2>
+                            <p>
+                                Fill in the form below to request an appointment. Logged-in users can enjoy faster booking later.
+                            </p>
+                        </div>
+
+                        <div class="booking-highlights">
+                            <article>
+                                <h3>Simple</h3>
+                                <p>Pick a service, date, and time in one place.</p>
+                            </article>
+                            <article>
+                                <h3>Flexible</h3>
+                                <p>Suitable for standard washes, detailing, and premium packages.</p>
+                            </article>
+                            <article>
+                                <h3>Reliable</h3>
+                                <p>Receive clear success and error feedback after every action.</p>
+                            </article>
+                        </div>
+                    </div>
+
+                    <form class="form-card" id="bookingForm" action="backend/process_booking.php" method="POST">
+                        <!-- شرح تفصيلي: هذا الحقل المخفي ليس ضرورياً للـ PHP الحالي ولكنه موجود لتوضيح نوع العملية. -->
+                        <input type="hidden" name="action" value="book_service" />
+
+                        <h3>Book an Appointment</h3>
+                        <div class="form-grid">
+                            <label>
+                                <span>Full Name</span>
+                                <input type="text" name="full_name" required placeholder="Enter your full name" />
+                            </label>
+                            <label>
+                                <span>Email Address</span>
+                                <input type="email" name="email" required placeholder="Enter your email" />
+                            </label>
+                            <label>
+                                <span>Phone Number</span>
+                                <input type="tel" name="phone" required placeholder="Enter your phone number" />
+                            </label>
+                            <label>
+                                <span>Car Model</span>
+                                <input type="text" name="car_model" required placeholder="Example: Toyota Corolla" />
+                            </label>
+                            <label>
+                                <span>Service</span>
+                                <select name="service_id" id="bookingServiceSelect" required>
+                                    <option value="">Choose a service</option>
+                                </select>
+                            </label>
+                            <label>
+                                <span>Preferred Date</span>
+                                <input type="date" name="booking_date" required />
+                            </label>
+                            <label>
+                                <span>Preferred Time</span>
+                                <input type="time" name="booking_time" required />
+                            </label>
+                            <label class="full-width">
+                                <span>Notes</span>
+                                <textarea name="notes" rows="4" placeholder="Any extra requests or vehicle notes"></textarea>
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-block">Submit Booking</button>
+                    </form>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <div class="container footer-content">
+                <p>© <span id="currentYear"></span> ShineHub. <span>All rights reserved. Clean cars, happy customers.</span></p>
+            </div>
+        </footer>
+
+        <!-- شرح تفصيلي: هذا العنصر مخصص لإظهار رسائل النجاح أو الخطأ القادمة من الرابط أو من الجافاسكربت. -->
+        <div class="toast" id="toast"></div>
+    </div>
+
+    <!-- شرح تفصيلي: ملف الجافاسكربت مسؤول عن القائمة الصغيرة ورسائل التنبيه وتحميل الخدمات من قاعدة البيانات. -->
+    <script src="frontend/Script/Script.js"></script>
+</body>
+
+</html>
