@@ -4,6 +4,7 @@
  * Translation Dictionary: Contains all text strings for English and Arabic.
  * Used for multi-language support across the UI.
  */
+/*
 const translations = {
     en: {
         brandTag: "Car Wash & Detailing",
@@ -32,6 +33,13 @@ const translations = {
         miniCard2Label: "Starting from",
         aboutEyebrow: "About Us",
         aboutTitle: "A trusted car wash built on quality and care",
+        aboutText: "ShineHub is a customer-focused car wash dedicated to keeping vehicles clean, protected, and road-ready with reliable service and modern equipment.",
+        visionTitle: "Our Vision",
+        visionText: "To become the most trusted local destination for smart, eco-aware, and detail-driven car care.",
+        missionTitle: "Our Mission",
+        missionText: "To deliver fast service, consistent results, and a smooth digital booking experience for every customer.",
+        goalsTitle: "Future Goals",
+        goalsText: "To expand mobile detailing, loyalty rewards, and advanced paint protection services across more branches.",
         aboutText: "ShineHub is a customer-focused car wash dedicated to keeping vehicles clean, protected, and road-ready with reliable service and modern equipment.",
         visionTitle: "Our Vision",
         visionText: "To become the most trusted local destination for smart, eco-aware, and detail-driven car care.",
@@ -206,20 +214,23 @@ const translations = {
         confirmPasswordPlaceholder: "أعد إدخال كلمة المرور"
     }
 };
+*/
 
 /**
  * Service Labels: Mapping service IDs to bilingual names.
  * Used for populating dropdowns and service cards.
  */
+/*
 const serviceLabels = {
     1: { en: "Exterior Wash", ar: "غسيل خارجي" },
     2: { en: "Interior Cleaning", ar: "تنظيف داخلي" },
     3: { en: "Polishing", ar: "تلميع" }
 };
+*/
 
 /* --- DOM Element Selection --- */
 
-const languageToggle = document.getElementById("languageToggle");
+// const languageToggle = document.getElementById("languageToggle");
 const toast = document.getElementById("toast");
 const menuToggle = document.getElementById("menuToggle");
 const mainNav = document.getElementById("mainNav");
@@ -260,6 +271,7 @@ function activateTab(tabName) {
 
 /* --- Language & Localization --- */
 
+/*
 function setLanguage(lang) {
     const dictionary = translations[lang];
     if (!dictionary) return;
@@ -294,6 +306,7 @@ function setLanguage(lang) {
 
     localStorage.setItem("shinehub-language", lang);
 }
+*/
 
 /* --- Data Fetching & Form Submission --- */
 
@@ -358,40 +371,46 @@ async function loadServices() {
             return;
         }
 
-        const currentLanguage = localStorage.getItem("shinehub-language") || "en";
+        // const currentLanguage = localStorage.getItem("shinehub-language") || "en";
         const grid = document.getElementById("serviceGrid");
         
         if (grid) {
             grid.innerHTML = "";
-            const defaultTags = ["serviceTagPopular", "serviceTagBest", "serviceTagShine", "serviceTagProtect", "serviceTagDeep"];
+            // const defaultTags = ["serviceTagPopular", "serviceTagBest", "serviceTagShine", "serviceTagProtect", "serviceTagDeep"];
 
             result.data.forEach((service, index) => {
                 const article = document.createElement("article");
                 article.className = "service-card";
-                const serviceName = currentLanguage === "ar" ? service.service_name_ar : service.service_name_en;
-                const serviceDescription = currentLanguage === "ar" ? service.description_ar : service.description_en;
-                const tagKey = defaultTags[index] || "serviceTagPopular";
-                const tagText = translations[currentLanguage][tagKey] || translations.en[tagKey];
+                // const serviceName = currentLanguage === "ar" ? service.service_name_ar : service.service_name_en;
+                // const serviceDescription = currentLanguage === "ar" ? service.description_ar : service.description_en;
+                // const tagKey = defaultTags[index] || "serviceTagPopular";
+                // const tagText = translations[currentLanguage][tagKey] || translations.en[tagKey];
+
+                // Modified for disabled translation: using English as default
+                const serviceName = service.service_name_en;
+                const serviceDescription = service.description_en;
 
                 article.innerHTML = `
                     <div class="service-card-top">
-                        <span class="service-tag">${tagText}</span>
+                        <span class="service-tag">Service</span>
                         <h3>${serviceName}</h3>
                     </div>
                     <p>${serviceDescription || ''}</p>
                     <strong class="price">$${Number(service.price).toFixed(0)}</strong>
-                    <button class="btn btn-secondary service-book-btn" data-service-id="${service.service_id}" type="button">${translations[currentLanguage].bookThisService}</button>
+                    <button class="btn btn-secondary service-book-btn" data-service-id="${service.service_id}" type="button">Book Now</button>
                 `;
                 grid.appendChild(article);
             });
         }
 
         if (bookingServiceSelect) {
-            bookingServiceSelect.innerHTML = `<option value="">${translations[currentLanguage].chooseService}</option>`;
+            // bookingServiceSelect.innerHTML = `<option value="">${translations[currentLanguage].chooseService}</option>`;
+            bookingServiceSelect.innerHTML = `<option value="">Choose a service</option>`;
             result.data.forEach((service) => {
                 const option = document.createElement("option");
                 option.value = service.service_id;
-                option.textContent = currentLanguage === "ar" ? service.service_name_ar : service.service_name_en;
+                // option.textContent = currentLanguage === "ar" ? service.service_name_ar : service.service_name_en;
+                option.textContent = service.service_name_en;
                 bookingServiceSelect.appendChild(option);
             });
         }
@@ -402,12 +421,14 @@ async function loadServices() {
 
 /* --- Event Listeners --- */
 
+/*
 languageToggle?.addEventListener("click", () => {
     const current = localStorage.getItem("shinehub-language") || "en";
     const next = current === "en" ? "ar" : "en";
     setLanguage(next);
     loadServices();
 });
+*/
 
 menuToggle?.addEventListener("click", () => {
     if (mainNav) mainNav.classList.toggle("open");
@@ -435,7 +456,7 @@ document.addEventListener("click", (event) => {
         if (bookingSection) {
             bookingSection.scrollIntoView({ behavior: "smooth" });
         } else {
-            window.location.href = `booking.html?id=${serviceId}`;
+            window.location.href = `auth.html?id=${serviceId}`;
         }
     }
 
@@ -447,8 +468,8 @@ document.addEventListener("click", (event) => {
 /* --- App Startup --- */
 
 document.addEventListener("DOMContentLoaded", () => {
-    const preferredLanguage = localStorage.getItem("shinehub-language") || "en";
-    setLanguage(preferredLanguage);
+    // const preferredLanguage = localStorage.getItem("shinehub-language") || "en";
+    // setLanguage(preferredLanguage);
     loadServices();
     
     // Default tab for auth page
