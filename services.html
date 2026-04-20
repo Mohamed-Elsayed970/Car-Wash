@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- شرح تفصيلي: صفحة الخدمات تعرض كل الخدمات القادمة من قاعدة البيانات وتحتفظ بنفس شكل كروت المشروع. -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ShineHub Car Wash - Services</title>
+    <meta name="description" content="Browse ShineHub service packages and prices." />
+    <link rel="stylesheet" href="frontend/Stayl/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="site-shell">
+        <header class="header">
+            <div class="container nav-bar">
+                <a href="index.html" class="brand">
+                    <span class="brand-mark">S</span>
+                    <div>
+                        <strong>ShineHub</strong>
+                        <small>Car Wash & Detailing</small>
+                    </div>
+                </a>
+
+                <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <nav class="nav" id="mainNav">
+                    <a href="index.html">Home</a>
+                    <a href="About.html">About</a>
+                    <a href="services.html">Services</a>
+                    <a href="booking.html">Booking</a>
+                    <a href="auth_login.html">Login</a>
+                    <a href="contact.html">Contact</a>
+                </nav>
+
+                <div class="header-actions">
+                    <a href="booking.html" class="btn btn-primary">Book Now</a>
+                </div>
+            </div>
+        </header>
+
+        <section class="section alt-section" id="services">
+            <div class="container">
+                <div class="section-heading">
+                    <span class="eyebrow">Services</span>
+                    <h2>Clear packages, fair prices, professional results</h2>
+                    <p>
+                        Choose from our most requested services. Each option is shown with pricing and a short description.
+                    </p>
+                </div>
+
+                <!-- شرح تفصيلي: هذا المكان سيُملأ تلقائياً من قاعدة البيانات من خلال JavaScript. -->
+                <div class="service-grid" id="serviceGrid"></div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <div class="container footer-content">
+                <p>© <span id="currentYear"></span> ShineHub. All rights reserved. Clean cars, happy customers.</p>
+            </div>
+        </footer>
+
+        <div class="toast" id="toast"></div>
+    </div>
+
+    <script src="frontend/Script/Script.js"></script>
+</body>
+
+</html>

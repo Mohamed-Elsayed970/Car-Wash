@@ -6,7 +6,7 @@
 session_start();
 require_once __DIR__ . "/connect.php";
 
-// شرح تفصيلي: هذا الجزء مخصص لتحميل الخدمات داخل الصفحة الرئيسية باستخدام fetch من JavaScript.
+// شرح تفصيلي: هذا الجزء مخصص لتحميل الخدمات داخل الصفحات باستخدام fetch من JavaScript.
 if (isset($_GET["action"]) && $_GET["action"] == "get_services") {
     header("Content-Type: application/json; charset=utf-8");
 
@@ -35,9 +35,9 @@ if (isset($_GET["action"]) && $_GET["action"] == "get_services") {
     exit();
 }
 
-// شرح تفصيلي: لو الملف لم يستقبل POST في جزء الحجز, نرجع للصفحة الرئيسية برسالة خطأ.
+// شرح تفصيلي: لو الملف لم يستقبل POST في جزء الحجز, نرجع إلى صفحة الحجز برسالة خطأ.
 if ($_SERVER["REQUEST_METHOD"] != "POST") {
-    header("Location: ../index.html?status=error&message=" . urlencode("Invalid booking request.") . "#booking");
+    header("Location: ../booking.html?status=error&message=" . urlencode("Invalid booking request."));
     exit();
 }
 
@@ -54,13 +54,13 @@ $user_id = isset($_SESSION["user_id"]) ? intval($_SESSION["user_id"]) : null;
 
 // شرح تفصيلي: نتحقق من الحقول الأساسية قبل الحفظ.
 if ($full_name == "" || $email == "" || $phone == "" || $car_model == "" || $service_id <= 0 || $booking_date == "" || $booking_time == "") {
-    header("Location: ../index.html?status=error&message=" . urlencode("Please fill in all booking fields.") . "#booking");
+    header("Location: ../booking.html?status=error&message=" . urlencode("Please fill in all booking fields."));
     exit();
 }
 
 // شرح تفصيلي: نتحقق من صحة البريد الإلكتروني.
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    header("Location: ../index.html?status=error&message=" . urlencode("Please enter a valid email address.") . "#booking");
+    header("Location: ../booking.html?status=error&message=" . urlencode("Please enter a valid email address."));
     exit();
 }
 
@@ -69,7 +69,7 @@ $service_sql = "SELECT service_id FROM services WHERE service_id = ? AND is_acti
 $service_stmt = mysqli_prepare($conn, $service_sql);
 
 if (!$service_stmt) {
-    header("Location: ../index.html?status=error&message=" . urlencode("Database prepare error.") . "#booking");
+    header("Location: ../booking.html?status=error&message=" . urlencode("Database prepare error."));
     exit();
 }
 
@@ -78,7 +78,7 @@ mysqli_stmt_execute($service_stmt);
 $service_result = mysqli_stmt_get_result($service_stmt);
 
 if (!$service_result || mysqli_num_rows($service_result) == 0) {
-    header("Location: ../index.html?status=error&message=" . urlencode("Selected service was not found.") . "#booking");
+    header("Location: ../booking.html?status=error&message=" . urlencode("Selected service was not found."));
     exit();
 }
 
@@ -88,7 +88,7 @@ if ($user_id === null) {
     $insert_stmt = mysqli_prepare($conn, $insert_sql);
 
     if (!$insert_stmt) {
-        header("Location: ../index.html?status=error&message=" . urlencode("Database insert prepare error.") . "#booking");
+        header("Location: ../booking.html?status=error&message=" . urlencode("Database insert prepare error."));
         exit();
     }
 
@@ -98,7 +98,7 @@ if ($user_id === null) {
     $insert_stmt = mysqli_prepare($conn, $insert_sql);
 
     if (!$insert_stmt) {
-        header("Location: ../index.html?status=error&message=" . urlencode("Database insert prepare error.") . "#booking");
+        header("Location: ../booking.html?status=error&message=" . urlencode("Database insert prepare error."));
         exit();
     }
 
@@ -107,10 +107,10 @@ if ($user_id === null) {
 
 // شرح تفصيلي: إذا تم التنفيذ بنجاح فهذا يعني أن الحجز تم حفظه داخل قاعدة البيانات.
 if (mysqli_stmt_execute($insert_stmt)) {
-    header("Location: ../index.html?status=success&message=" . urlencode("Booking saved successfully.") . "#booking");
+    header("Location: ../booking.html?status=success&message=" . urlencode("Booking saved successfully."));
     exit();
 }
 
-header("Location: ../index.html?status=error&message=" . urlencode("Booking failed.") . "#booking");
+header("Location: ../booking.html?status=error&message=" . urlencode("Booking failed."));
 exit();
 ?>

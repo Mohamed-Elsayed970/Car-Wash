@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- شرح تفصيلي: هذه صفحة الحجز المخصصة لإرسال البيانات إلى backend/process_booking.php وحفظها في MySQL. -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ShineHub Car Wash - Booking</title>
+    <meta name="description" content="Book your car wash appointment online with ShineHub." />
+    <link rel="stylesheet" href="frontend/Stayl/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="site-shell">
+        <header class="header">
+            <div class="container nav-bar">
+                <a href="index.html" class="brand">
+                    <span class="brand-mark">S</span>
+                    <div>
+                        <strong>ShineHub</strong>
+                        <small>Car Wash & Detailing</small>
+                    </div>
+                </a>
+
+                <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <nav class="nav" id="mainNav">
+                    <a href="index.html">Home</a>
+                    <a href="About.html">About</a>
+                    <a href="services.html">Services</a>
+                    <a href="booking.html">Booking</a>
+                    <a href="auth_login.html">Login</a>
+                    <a href="contact.html">Contact</a>
+                </nav>
+
+                <div class="header-actions">
+                    <a href="booking.html" class="btn btn-primary">Book Now</a>
+                </div>
+            </div>
+        </header>
+
+        <section class="section" id="booking">
+            <div class="container booking-grid">
+                <div>
+                    <div class="section-heading-booking left">
+                        <span class="eyebrow">Booking</span>
+                        <h2>Schedule your next wash in a few steps</h2>
+                        <p>Fill in the form below to request an appointment. Logged-in users can enjoy faster booking in future updates.</p>
+                    </div>
+
+                    <div class="booking-highlights">
+                        <article>
+                            <h3>Simple</h3>
+                            <p>Pick a service, date, and time in one place.</p>
+                        </article>
+                        <article>
+                            <h3>Flexible</h3>
+                            <p>Suitable for standard washes, detailing, and premium packages.</p>
+                        </article>
+                        <article>
+                            <h3>Reliable</h3>
+                            <p>Receive clear success and error feedback after every action.</p>
+                        </article>
+                    </div>
+                </div>
+
+                <form class="form-card" id="bookingForm" action="backend/process_booking.php" method="POST">
+                    <!-- شرح تفصيلي: هذا الفورم يرسل البيانات مباشرة إلى ملف PHP المسؤول عن حفظ الحجز. -->
+                    <input type="hidden" name="action" value="book_service" />
+                    <h3>Book an Appointment</h3>
+                    <div class="form-grid">
+                        <label>
+                            <span>Full Name</span>
+                            <input type="text" name="full_name" required placeholder="Enter your full name" />
+                        </label>
+                        <label>
+                            <span>Email Address</span>
+                            <input type="email" name="email" required placeholder="Enter your email" />
+                        </label>
+                        <label>
+                            <span>Phone Number</span>
+                            <input type="tel" name="phone" required placeholder="Enter your phone number" />
+                        </label>
+                        <label>
+                            <span>Car Model</span>
+                            <input type="text" name="car_model" required placeholder="Example: Toyota Corolla" />
+                        </label>
+                        <label>
+                            <span>Service</span>
+                            <select name="service_id" id="bookingServiceSelect" required>
+                                <option value="">Choose a service</option>
+                            </select>
+                        </label>
+                        <label>
+                            <span>Preferred Date</span>
+                            <input type="date" name="booking_date" required />
+                        </label>
+                        <label>
+                            <span>Preferred Time</span>
+                            <input type="time" name="booking_time" required />
+                        </label>
+                        <label class="full-width">
+                            <span>Notes</span>
+                            <textarea name="notes" rows="4" placeholder="Any extra requests or vehicle notes"></textarea>
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Submit Booking</button>
+                </form>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <div class="container footer-content">
+                <p>© <span id="currentYear"></span> ShineHub. All rights reserved. Clean cars, happy customers.</p>
+            </div>
+        </footer>
+
+        <div class="toast" id="toast"></div>
+    </div>
+
+    <script src="frontend/Script/Script.js"></script>
+</body>
+
+</html>

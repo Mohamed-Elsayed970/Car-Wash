@@ -2,27 +2,21 @@
 <html lang="en">
 
 <head>
-    <!-- شرح تفصيلي: هذه الإعدادات الأساسية للصفحة حتى تعمل بشكل سليم على جميع الأجهزة. -->
+    <!-- شرح تفصيلي: هذه الصفحة هي البديل النهائي عن auth.html وتحافظ على نفس فكرة Login و Register داخل نفس الكارت. -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ShineHub Car Wash - Login & Register</title>
-    <meta name="description" content="Login and registration page for ShineHub Car Wash." />
-
-    <!-- شرح تفصيلي: نحن نستخدم نفس ملف التصميم القديم بدون أي تغيير في الألوان أو الشكل. -->
+    <meta name="description" content="Login and registration page for ShineHub Car Wash customers." />
     <link rel="stylesheet" href="frontend/Stayl/style.css" />
-
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 </head>
 
 <body>
     <div class="site-shell">
         <header class="header">
             <div class="container nav-bar">
-                <!-- شرح تفصيلي: الشعار يرجع المستخدم دائماً إلى الصفحة الرئيسية index.html. -->
                 <a href="index.html" class="brand">
                     <span class="brand-mark">S</span>
                     <div>
@@ -37,16 +31,17 @@
                     <span></span>
                 </button>
 
-                <!-- شرح تفصيلي: الروابط تم تبسيطها حتى لا يوجد أي انتقال إلى home.html أو auth.html. -->
                 <nav class="nav" id="mainNav">
-                    <a href="index.html#home">Home</a>
-                    <a href="index.html#services">Services</a>
-                    <a href="index.html#booking">Booking</a>
+                    <a href="index.html">Home</a>
+                    <a href="About.html">About</a>
+                    <a href="services.html">Services</a>
+                    <a href="booking.html">Booking</a>
                     <a href="auth_login.html">Login</a>
+                    <a href="contact.html">Contact</a>
                 </nav>
 
                 <div class="header-actions">
-                    <a href="index.html#booking" class="btn btn-primary">Book Now</a>
+                    <a href="booking.html" class="btn btn-primary">Book Now</a>
                 </div>
             </div>
         </header>
@@ -60,14 +55,13 @@
                 </div>
 
                 <div class="auth-card">
-                    <!-- شرح تفصيلي: عند الضغط على Login أو Register نحن فقط نظهر الفورم المناسب في نفس الصفحة. -->
                     <div class="tabs">
                         <button type="button" class="tab-btn active" data-tab="login">Login</button>
                         <button type="button" class="tab-btn" data-tab="register">Register</button>
                     </div>
 
-                    <!-- شرح تفصيلي: هذا فورم تسجيل الدخول. البيانات تذهب إلى process_login.php ثم يرجع المستخدم إلى index.html عند النجاح. -->
                     <form id="loginForm" class="auth-form active" action="backend/process_login.php" method="POST">
+                        <!-- شرح تفصيلي: فورم تسجيل الدخول يرسل البريد وكلمة المرور إلى process_login.php. -->
                         <label>
                             <span>Email</span>
                             <input type="email" name="email" required placeholder="Enter your email" />
@@ -79,8 +73,8 @@
                         <button type="submit" class="btn btn-primary btn-block">Login</button>
                     </form>
 
-                    <!-- شرح تفصيلي: هذا فورم إنشاء الحساب. بعد نجاح التسجيل نرجع لنفس الصفحة ليقوم المستخدم بتسجيل الدخول. -->
                     <form id="registerForm" class="auth-form" action="backend/process_register.php" method="POST">
+                        <!-- شرح تفصيلي: فورم إنشاء الحساب يضيف مستخدم جديد إلى جدول users. -->
                         <label>
                             <span>Full Name</span>
                             <input type="text" name="full_name" required placeholder="Enter your full name" />
@@ -109,14 +103,13 @@
 
         <footer class="footer">
             <div class="container footer-content">
-                <p>© <span id="currentYear"></span> ShineHub. <span>All rights reserved. Clean cars, happy customers.</span></p>
+                <p>© <span id="currentYear"></span> ShineHub. All rights reserved. Clean cars, happy customers.</p>
             </div>
         </footer>
 
         <div class="toast" id="toast"></div>
     </div>
 
-    <!-- شرح تفصيلي: نفس ملف الجافاسكربت هنا أيضاً لأنه مسؤول عن التبويبات ورسائل النجاح والخطأ. -->
     <script src="frontend/Script/Script.js"></script>
 </body>
 
