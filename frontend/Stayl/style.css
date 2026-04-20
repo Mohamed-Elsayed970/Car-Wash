@@ -7,7 +7,7 @@
     --card: rgba(10, 28, 49, 0.82);
     --card-strong: #10233c;
     --surface: #eef4fb;
-    --text: #10233c;
+    --text: #191970;
     --text-light: #f4f8ff;
     --muted: #93a7bf;
     --line: rgba(255, 255, 255, 0.08);
@@ -39,13 +39,11 @@ html {
 body {
     margin: 0;
     font-family: "Inter", "Cairo", sans-serif;
-    background: linear-gradient(
-        135deg,
-        #081220,
-        #0f2036,
-        #00356B,
-        #61a3ee
-    );
+    background: linear-gradient(135deg,
+            #081220,
+            #0f2036,
+            #00356B,
+            #61a3ee);
     color: var(--text);
 }
 
@@ -80,13 +78,11 @@ img {
 
 /* Alternative section background with a consistent gradient */
 .alt-section {
-    background: linear-gradient(
-        135deg,
-        #081220,
-        #0f2036,
-        #00356B,
-        #61a3ee
-    );
+    background: linear-gradient(135deg,
+            #081220,
+            #0f2036,
+            #00356B,
+            #61a3ee);
 }
 
 /* --- Header & Navigation --- */
@@ -377,10 +373,12 @@ img {
     margin-bottom: 2rem;
     text-align: center;
 }
+
 .section-heading-booking {
     margin-bottom: 2rem;
     text-align: center;
 }
+
 .section-heading-auth {
     margin-bottom: 2rem;
     text-align: center;
@@ -390,9 +388,11 @@ img {
 .section-heading.left {
     text-align: start;
 }
+
 .section-heading-booking.left {
     text-align: start;
 }
+
 .section-heading-auth.left {
     text-align: start;
 }
@@ -403,16 +403,19 @@ img {
     line-height: 1.1;
     color: #F0F8FF;
 }
+
 .section-heading-auth h2 {
     margin: 0.35rem 0 1rem;
     line-height: 1.1;
     color: #F0F8FF;
 }
+
 .section-heading-booking h2 {
     margin: 0.35rem 0 1rem;
     line-height: 1.1;
     color: #F0F8FF;
 }
+
 /* Descriptive paragraph for sections */
 .section-heading p {
     color: #F0F8FF;
@@ -420,17 +423,20 @@ img {
     max-width: 64ch;
     margin-left: 250px;
 }
+
 .section-heading-auth p {
     color: #F0F8FF;
     line-height: 1.8;
     max-width: 64ch;
-    
+
 }
+
 .section-heading-booking p {
     color: #F0F8FF;
     line-height: 1.8;
     max-width: 64ch;
 }
+
 /* Small introductory text above headings */
 .eyebrow {
     display: inline-block;
@@ -508,13 +514,11 @@ img {
     display: inline-flex;
     padding: 0.4rem 0.8rem;
     border-radius: 999px;
-    background: linear-gradient(
-        135deg,
-        #081220,
-        #1560BD,
-        #2B4593,
-        #0059CF
-    );
+    background: linear-gradient(135deg,
+            #081220,
+            #1560BD,
+            #2B4593,
+            #0059CF);
     color: #AFDBF5;
     font-size: 0.8rem;
     font-weight: 700;
@@ -678,9 +682,15 @@ body.rtl .feature-list li::before {
 
 /* Paragraph text within booking highlights */
 .booking-highlights p {
-    color: #86b0fd;
+    color: #224C98;
     line-height: 1.75;
 }
+
+.booking-highlights h3 {
+    color: #89CFF0;
+    line-height: 1.75;
+}
+
 
 /* Individual highlight article */
 .booking-highlights article {
@@ -969,6 +979,25 @@ textarea:focus {
     text-align: center;
 }
 
+.glass-card-test {
+    /* 1. خلفية بيضاء شفافة (السر في الرقم 0.2) */
+
+    background: rgba(255, 255, 255, 0.2);
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    width: 250px;
+    color: #fff;
+    height: 100vh;
+
+}
+
 /* --- Responsive Media Queries --- */
 
 /* Adjustments for large tablets and small desktops */
@@ -976,21 +1005,27 @@ textarea:focus {
     .hero-grid {
         grid-template-columns: 1fr;
     }
+
     .booking-grid {
         grid-template-columns: 1fr;
     }
+
     .auth-grid {
         grid-template-columns: 1fr;
     }
+
     .team-gallery-grid {
         grid-template-columns: 1fr;
     }
+
     .testimonials-contact-grid {
         grid-template-columns: 1fr;
     }
+
     .about-grid {
         grid-template-columns: 1fr;
     }
+
     .booking-highlights {
         grid-template-columns: 1fr;
     }
@@ -1038,6 +1073,7 @@ textarea:focus {
     .form-grid {
         grid-template-columns: 1fr;
     }
+
     .gallery-grid {
         grid-template-columns: 1fr;
     }
@@ -1045,20 +1081,26 @@ textarea:focus {
     .service-card-top {
         flex-wrap: wrap;
     }
+
     .nav-bar {
         flex-wrap: wrap;
         padding: 0.75rem 0;
     }
+
     .hero-actions {
         flex-wrap: wrap;
     }
+
     .header-actions {
         flex-wrap: wrap;
     }
+
     .social-buttons {
         flex-wrap: wrap;
     }
+
     .tabs {
         flex-wrap: wrap;
     }
+
 }

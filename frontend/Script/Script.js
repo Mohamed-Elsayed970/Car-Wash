@@ -445,6 +445,8 @@ document.querySelectorAll("#bookingForm, #loginForm, #registerForm").forEach((fo
     });
 });
 
+
+
 document.addEventListener("click", (event) => {
     if (event.target.classList.contains("service-book-btn")) {
         const serviceId = event.target.dataset.serviceId;
@@ -456,7 +458,7 @@ document.addEventListener("click", (event) => {
         if (bookingSection) {
             bookingSection.scrollIntoView({ behavior: "smooth" });
         } else {
-            window.location.href = `auth.html?id=${serviceId}`;
+            window.location.href = `/frontend/pages/login/auth_login.html?id=${serviceId}`;
         }
     }
 
