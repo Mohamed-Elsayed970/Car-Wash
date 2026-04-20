@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Document Metadata -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ShineHub Car Wash</title>
+    <meta name="description" content="Modern car wash management website with login, registration, services, booking, and bilingual support." />
+    
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="../../Stayl/style.css" />
+
+    <!-- Google Fonts Integration -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+    <!-- Main Site Wrapper -->
+    <div class="site-shell">
+        
+        <!-- Header & Navigation Section -->
+        <header class="header">
+            <div class="container nav-bar">
+                <!-- Brand Identity / Logo -->
+                <a href="indxe.html" class="brand">
+                    <span class="brand-mark">S</span>
+                    <div>
+                        <strong>ShineHub</strong>
+                        <small data-i18n="brandTag">Car Wash & Detailing</small>
+                    </div>
+                </a>
+
+                <!-- Mobile Menu Toggle Button -->
+                <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <!-- Main Navigation Links -->
+                <!-- <nav class="nav" id="mainNav">
+                    <a href="home.html" data-i18n="navHome">Home</a>
+                    <a href="About.html" data-i18n="navAbout">About</a>
+                    <a href="services.html" data-i18n="navServices">Services</a>
+                    <a href="booking.html" data-i18n="navBooking">Booking</a>
+                    <a href="auth.html" data-i18n="navLogin">Login</a>
+                    <a href="contact.html" data-i18n="navContact">Contact</a>
+                </nav> -->
+
+                <!-- Header Action Buttons (Language & Booking) -->
+                <div class="header-actions">
+                    <!-- <button class="lang-toggle" id="languageToggle" type="button">AR</button> -->
+                    <a href="auth_login.html" class="btn btn-primary">Login</a>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Page Content -->
+        <main>
+            <!-- Hero Section: Introduction and Call to Action -->
+            <section class="hero section" id="home">
+                <div class="container hero-grid">
+                    
+                    <!-- Hero Text Content -->
+                    <div class="hero-content">
+                        <span class="eyebrow" data-i18n="heroEyebrow">Fast, Clean, Professional</span>
+                        <h1 data-i18n="heroTitle">Give your car the shine it deserves</h1>
+                        <p data-i18n="heroText">
+                            ShineHub helps customers explore services, create accounts, and book car wash appointments in minutes.
+                        </p>
+                        
+                        <!-- Hero Action Buttons -->
+                        <div class="hero-actions">
+                            <a href="#services" class="btn btn-primary" data-i18n="exploreServices">Explore Services</a>
+                            <a href="auth_login.html" class="btn btn-secondary">Create Account</a>
+                        </div>
+
+                        <!-- Business Statistics -->
+                        <div class="hero-stats">
+                            <article>
+                                <strong>12+</strong>
+                                <span data-i18n="statYears">Years Experience</span>
+                            </article>
+                            <article>
+                                <strong>5k+</strong>
+                                <span data-i18n="statCustomers">Happy Customers</span>
+                            </article>
+                            <article>
+                                <strong>20+</strong>
+                                <span data-i18n="statServices">Service Options</span>
+                            </article>
+                        </div>
+                    </div>
+
+                    <!-- Hero Feature Card: Quick Info and Highlights -->
+                    <div class="hero-card glass-card">
+                        <!-- Status Badge -->
+                        <div class="hero-badge">
+                            <span class="badge-dot"></span>
+                            <span data-i18n="heroCardBadge">Open today from 8:00 AM to 11:00 PM</span>
+                        </div>
+                        
+                        <h3 data-i18n="heroCardTitle">Easy online booking</h3>
+                        
+                        <!-- Feature List -->
+                        <ul class="feature-list">
+                            <li data-i18n="heroFeature1">Choose a service package</li>
+                            <li data-i18n="heroFeature2">Pick your preferred date and time</li>
+                            <li data-i18n="heroFeature3">Track confirmations instantly</li>
+                        </ul>
+
+                        <!-- Mini Information Cards -->
+                        <div class="mini-card-row">
+                            <div class="mini-card">
+                                <span data-i18n="miniCard1Label">Most booked</span>
+                                <strong data-i18n="miniCard1Value">Premium Wash</strong>
+                            </div>
+                            <div class="mini-card">
+                                <span data-i18n="miniCard2Label">Starting from</span>
+                                <strong>15 EGP</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+             <section class="section alt-section" id="services">
+            <div class="container">
+                <!-- Section Heading and Description -->
+                <div class="section-heading">
+                    <span class="eyebrow" data-i18n="servicesEyebrow">Services</span>
+                    <h2 data-i18n="servicesTitle">Clear packages, fair prices, professional results</h2>
+                    <p data-i18n="servicesText">
+                        Choose from our most requested services. Each option is shown with pricing and a short
+                        description.
+                    </p>
+                </div>
+
+                <!-- Grid for Service Cards -->
+                <div class="service-grid" id="serviceGrid">
+                    <!-- Service Card: Exterior Wash -->
+                    <article class="service-card">
+                        <div class="service-card-top">
+                            <span class="service-tag" data-i18n="serviceTagPopular">Popular</span>
+                            <h3>Exterior Wash</h3>
+                        </div>
+                        <p>Quick foam wash, rinse, and dry for a fresh exterior finish.</p>
+                        <strong class="price">40 EGP</strong>
+                        <button class="btn btn-secondary service-book-btn" data-service="1" type="button"
+                            data-i18n="bookThisService">Book This Service</button>
+                    </article>
+
+                    <!-- Service Card: Interior Cleaning -->
+                    <article class="service-card">
+                        <div class="service-card-top">
+                            <span class="service-tag" data-i18n="serviceTagBest">Best Value</span>
+                            <h3>Interior Cleaning</h3>
+                        </div>
+                        <p>Vacuuming, dashboard care, floor mat treatment, and dust removal.</p>
+                        <strong class="price">70 EGP</strong>
+                        <button class="btn btn-secondary service-book-btn" data-service="Interior Cleaning"
+                            type="button" data-i18n="bookThisService">Book This Service</button>
+                    </article>
+
+                    <!-- Service Card: Polishing -->
+                    <article class="service-card">
+                        <div class="service-card-top">
+                            <span class="service-tag" data-i18n="serviceTagShine">Premium</span>
+                            <h3>Polishing</h3>
+                        </div>
+                        <p>Paint polishing that restores shine and improves the overall look.</p>
+                        <strong class="price">150 EGP</strong>
+                        <button class="btn btn-secondary service-book-btn" data-service="Polishing" type="button"
+                            data-i18n="bookThisService">Book This Service</button>
+                    </article>
+
+                    <!-- Service Card: Protection Coating -->
+                    <article class="service-card">
+                        <div class="service-card-top">
+                            <span class="service-tag" data-i18n="serviceTagProtect">Protection</span>
+                            <h3>Protection Coating</h3>
+                        </div>
+                        <p>Protective layer against dust, light dirt, and weather exposure.</p>
+                        <strong class="price">250 EGP</strong>
+                        <button class="btn btn-secondary service-book-btn" data-service="Protection Coating"
+                            type="button" data-i18n="bookThisService">Book This Service</button>
+                    </article>
+
+                    <!-- Service Card: Deep Cleaning -->
+                    <article class="service-card">
+                        <div class="service-card-top">
+                            <span class="service-tag" data-i18n="serviceTagDeep">Deep Care</span>
+                            <h3>Deep Cleaning</h3>
+                        </div>
+                        <p>Complete interior and exterior cleaning for vehicles that need full care.</p>
+                        <strong class="price">200 EGP</strong>
+                        <button class="btn btn-secondary service-book-btn" data-service="Deep Cleaning" type="button"
+                            data-i18n="bookThisService">Book This Service</button>
+                    </article>
+                    <!--Service Card : Oil change-->
+                    <article class="service-card">
+                        <div class="service-card-top">
+                            <span class="service-tag">Oil change</span>
+                            <h3>Oil change</h3>
+                        </div>
+                        <p>Engine oil replacement with high-quality oil, oil filter change, and basic engine check for
+                            better performance.</p>
+                        <strong class="price">180 EGP</strong>
+                        <button class="btn btn-secondary service-book-btn" data-service="Deep Cleaning" type="button"
+                            data-i18n="bookThisService">Book This Service</button>
+                    </article>
+                    <!-- Service Card : Engine Check -->
+                    <article class="service-card">
+                        <div class="service-card-top">
+                            <span class="service-tag">Engine Check</span>
+                            <h3>Engine Check</h3>
+                        </div>
+                        <p>Basic diagnostic check to ensure engine performance and detect potential issues early.</p>
+                        <strong class="price">80 EGP</strong>
+                        <button class="btn btn-secondary service-book-btn" data-service="Deep Cleaning" type="button"
+                            data-i18n="bookThisService">Book This Service</button>
+                    </article>
+                    <!-- Service Card : Tire Service -->
+                    <article class="service-card">
+                        <div class="service-card-top">
+                            <span class="service-tag">Tire Service</span>
+                            <h3>Tire Service</h3>
+                        </div>
+                        <p>Tire pressure check, air refill, and quick inspection for safety and balance.</p>
+                        <strong class="price">40 EGP</strong>
+                        <button class="btn btn-secondary service-book-btn" data-service="Deep Cleaning" type="button"
+                            data-i18n="bookThisService">Book This Service</button>
+                    </article>
+                    <!--  Service Card : Battery Check -->
+                    <article class="service-card">
+                        <div class="service-card-top">
+                            <span class="service-tag">Battery Check</span>
+                            <h3>Battery Check</h3>
+                        </div>
+                        <p>Battery testing and cleaning terminals to ensure reliable startup.</p>
+                        <strong class="price">50 EGP</strong>
+                        <button class="btn btn-secondary service-book-btn" data-service="Deep Cleaning" type="button"
+                            data-i18n="bookThisService">Book This Service</button>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        </main>
+
+        <!-- Footer Section -->
+        <footer class="footer">
+            <div class="container footer-content">
+                <p>© <span id="currentYear"></span> ShineHub. <span data-i18n="footerText">All rights reserved. Clean cars, happy customers.</span></p>
+            </div>
+        </footer>
+
+        <!-- Notification Toast Container -->
+        <div class="toast" id="toast"></div>
+    </div>
+
+    <!-- Main JavaScript Logic -->
+    <script src="/frontend/Script/Script.js"></script>
+</body>
+
+</html>
