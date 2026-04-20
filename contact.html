@@ -10,28 +10,9 @@
     <link rel="stylesheet" href="frontend/Stayl/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-    <style>
-        .contact-section { padding: 60px 0; }
-        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 40px; }
-        .contact-info-card { background: linear-gradient(135deg, #f5f7fa 0%, #e9ecef 100%); padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); }
-        .contact-info-item { margin-bottom: 25px; display: flex; align-items: flex-start; gap: 15px; }
-        .contact-info-item:last-child { margin-bottom: 0; }
-        .contact-icon { width: 50px; height: 50px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; font-size: 24px; flex-shrink: 0; }
-        .contact-details h4 { margin: 0 0 5px 0; font-size: 16px; font-weight: 600; color: #2d3748; }
-        .contact-details p { margin: 0; font-size: 14px; color: #718096; line-height: 1.6; }
-        .contact-details a { color: #667eea; text-decoration: none; }
-        .contact-form-wrapper { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); }
-        .contact-form-wrapper h3 { margin-top: 0; margin-bottom: 20px; font-size: 20px; font-weight: 700; color: #2d3748; }
-        .form-group { margin-bottom: 20px; }
-        .form-group label { display: block; margin-bottom: 8px; font-size: 14px; font-weight: 600; color: #2d3748; }
-        .form-group input, .form-group textarea { width: 100%; padding: 12px 15px; border: 1px solid #e2e8f0; border-radius: 8px; font-family: inherit; font-size: 14px; box-sizing: border-box; }
-        .form-group textarea { resize: vertical; min-height: 120px; }
-        .contact-form-wrapper .btn { width: 100%; padding: 12px 20px; font-size: 16px; font-weight: 600; border: none; border-radius: 8px; cursor: pointer; }
-        .map-container { margin-top: 60px; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); height: 400px; }
-        .map-container iframe { width: 100%; height: 100%; border: none; }
-        @media (max-width: 768px) { .contact-grid { grid-template-columns: 1fr; gap: 30px; } .contact-section { padding: 40px 0; } .map-container { height: 300px; } }
-    </style>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet" />
 </head>
 
 <body>
@@ -53,16 +34,17 @@
                 </button>
 
                 <nav class="nav" id="mainNav">
-                    <a href="index.html">Home</a>
+                    <a href="home.html">Home</a>
                     <a href="About.html">About</a>
                     <a href="services.html">Services</a>
                     <a href="booking.html">Booking</a>
-                    <a href="auth_login.html">Login</a>
+                    <!-- <a href="auth_login.html">Login</a> -->
                     <a href="contact.html">Contact</a>
                 </nav>
 
                 <div class="header-actions">
-                    <a href="booking.html" class="btn btn-primary">Book Now</a>
+                    <!-- <a href="booking.html" class="btn btn-primary">Book Now</a> -->
+                    <a href="backend/process_logout.php" id="navLogout" class="btn btn-primary">Logout</a>
                 </div>
             </div>
         </header>
@@ -72,78 +54,34 @@
                 <div class="section-heading">
                     <span class="eyebrow">Get in Touch</span>
                     <h1>Contact ShineHub</h1>
-                    <p>Have questions or feedback? We'd love to hear from you. Reach out to us through any of the methods below.</p>
+                    <p>Have questions or feedback? We'd love to hear from you. Reach out to us through any of the
+                        methods below.</p>
                 </div>
-
-                <div class="contact-grid">
-                    <div>
-                        <div class="contact-info-card">
-                            <div class="contact-info-item">
-                                <div class="contact-icon">📍</div>
-                                <div class="contact-details">
-                                    <h4>Our Location</h4>
-                                    <p>123 Main Street<br>Cairo, Egypt 12345</p>
-                                </div>
-                            </div>
-                            <div class="contact-info-item">
-                                <div class="contact-icon">📞</div>
-                                <div class="contact-details">
-                                    <h4>Phone Number</h4>
-                                    <p><a href="tel:+201001234567">+20 (100) 123-4567</a></p>
-                                </div>
-                            </div>
-                            <div class="contact-info-item">
-                                <div class="contact-icon">✉️</div>
-                                <div class="contact-details">
-                                    <h4>Email Address</h4>
-                                    <p><a href="mailto:info@shinehub.com">info@shinehub.com</a></p>
-                                </div>
-                            </div>
-                            <div class="contact-info-item">
-                                <div class="contact-icon">🕐</div>
-                                <div class="contact-details">
-                                    <h4>Business Hours</h4>
-                                    <p>Monday - Friday: 8:00 AM - 11:00 PM<br>Saturday - Sunday: 9:00 AM - 10:00 PM</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="contact-form-wrapper">
-                        <h3>Send us a Message</h3>
-                        <!-- شرح تفصيلي: الفورم هنا شكلي فقط لأنه غير مطلوب له backend في هذا المشروع. -->
-                        <form>
-                            <div class="form-group">
-                                <label for="contactName">Full Name</label>
-                                <input type="text" id="contactName" name="name" required placeholder="Your full name" />
-                            </div>
-                            <div class="form-group">
-                                <label for="contactEmail">Email Address</label>
-                                <input type="email" id="contactEmail" name="email" required placeholder="your@email.com" />
-                            </div>
-                            <div class="form-group">
-                                <label for="contactPhone">Phone Number</label>
-                                <input type="tel" id="contactPhone" name="phone" placeholder="+20 (100) 123-4567" />
-                            </div>
-                            <div class="form-group">
-                                <label for="contactSubject">Subject</label>
-                                <input type="text" id="contactSubject" name="subject" required placeholder="What is this about?" />
-                            </div>
-                            <div class="form-group">
-                                <label for="contactMessage">Message</label>
-                                <textarea id="contactMessage" name="message" required placeholder="Tell us more about your inquiry..."></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-primary">Send Message</button>
-                        </form>
+            </section>
+             <div class="booking-highlights">
+                        <article>
+                            <h3 style="color: #AFDBF5;">Git Hub</h3>
+                            <p><a href="https://github.com/Mohamed-Elsayed970" style="color: #F0F8FF;">Mohammed Elsayed</a></p>
+                            <p><a href="https://github.com/Youssef-Hussein18" style="color: #F0F8FF;">Youssef-Hussein</a></p>
+                        </article>
+                        <article>
+                            <h3>Phone Number</h3>
+                            <p style="color: #FFD700;">01062323271
+                                <br>
+                                01212682916
+                            </p>
+                        </article>
+                        <article>
+                            <h3>Email Address</h3>
+                            <p style="color: #E0FFFF;">mohammedelseyed9007@gmail.com</p>
+                            <br>
+                            <p style="color: #E0FFFF;">youssefhussein360063@gmail.com</p>
+                        </article>
                     </div>
                 </div>
+            
 
-                <div class="map-container">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.0193638045!2d31.24!3d30.04!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x145840b0e0000001%3A0x0!2sShineHub%20Car%20Wash!5e0!3m2!1sen!2seg!4v1234567890" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
-            </div>
-        </section>
-
+                
         <footer class="footer">
             <div class="container footer-content">
                 <p>© <span id="currentYear"></span> ShineHub. All rights reserved. Clean cars, happy customers.</p>
