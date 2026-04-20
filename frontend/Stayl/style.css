@@ -24,6 +24,9 @@
     --container: min(1140px, calc(100% - 2rem));
     --transition: 0.25s ease;
 }
+#services1{
+    margin-top: 200px;
+}
 
 /* Global box-sizing reset */
 * {

@@ -10,7 +10,9 @@
     <link rel="stylesheet" href="frontend/Stayl/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet" />
 </head>
 
 <body>
@@ -32,16 +34,17 @@
                 </button>
 
                 <nav class="nav" id="mainNav">
-                    <a href="index.html">Home</a>
+                    <a href="home.html">Home</a>
                     <a href="About.html">About</a>
                     <a href="services.html">Services</a>
                     <a href="booking.html">Booking</a>
-                    <a href="auth_login.html">Login</a>
+                    <!-- <a href="auth_login.html">Login</a> -->
                     <a href="contact.html">Contact</a>
                 </nav>
 
                 <div class="header-actions">
-                    <a href="booking.html" class="btn btn-primary">Book Now</a>
+                    <!-- <a href="booking.html" class="btn btn-primary">Book Now</a> -->
+                    <a href="backend/process_logout.php" id="navLogout" class="btn btn-primary">Logout</a>
                 </div>
             </div>
         </header>
@@ -52,7 +55,8 @@
                     <div class="section-heading-booking left">
                         <span class="eyebrow">Booking</span>
                         <h2>Schedule your next wash in a few steps</h2>
-                        <p>Fill in the form below to request an appointment. Logged-in users can enjoy faster booking in future updates.</p>
+                        <p>Fill in the form below to request an appointment. Logged-in users can enjoy faster booking in
+                            future updates.</p>
                     </div>
 
                     <div class="booking-highlights">
@@ -108,7 +112,8 @@
                         </label>
                         <label class="full-width">
                             <span>Notes</span>
-                            <textarea name="notes" rows="4" placeholder="Any extra requests or vehicle notes"></textarea>
+                            <textarea name="notes" rows="4"
+                                placeholder="Any extra requests or vehicle notes"></textarea>
                         </label>
                     </div>
                     <button type="submit" class="btn btn-primary btn-block">Submit Booking</button>

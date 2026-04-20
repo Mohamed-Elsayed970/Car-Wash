@@ -47,11 +47,20 @@ function activateTab(tabName) {
 }
 
 // شرح تفصيلي: نقرأ رسائل النجاح والخطأ القادمة من PHP في الرابط.
+// شرح تفصيلي: نقرأ رسائل النجاح والخطأ، ونحفظ حالة الدخول لو نجح.
 function showMessageFromUrl() {
     const urlParams = new URLSearchParams(window.location.search);
     const status = urlParams.get("status");
     const message = urlParams.get("message");
     const tab = urlParams.get("tab");
+
+    // ===== الجزء الجديد: حفظ حالة تسجيل الدخول أو الخروج =====
+    if (status === "success" && message === "Login successful.") {
+        localStorage.setItem("userToken", "true");
+    } else if (status === "success" && message === "Logged out successfully.") {
+        localStorage.removeItem("userToken"); // مسح الدليل عند تسجيل الخروج
+    }
+    // =========================================================
 
     if (document.getElementById("loginForm")) {
         if (tab === "register") {
@@ -150,8 +159,19 @@ document.querySelectorAll(".tab-btn").forEach(function (button) {
 // ننتقل إلى booking.html ومعنا رقم الخدمة في الرابط.
 document.addEventListener("click", function (event) {
     if (event.target.classList.contains("service-book-btn")) {
-        const serviceId = event.target.dataset.serviceId;
-        window.location.href = "booking.html?service_id=" + serviceId;
+        // فحص تسجيل الدخول
+        const isLoggedIn = localStorage.getItem("userToken");
+
+        if (isLoggedIn) {
+            const serviceId = event.target.dataset.serviceId;
+            window.location.href = "booking.html?service_id=" + serviceId;
+        } else {
+            // تنبيه وتحويل لصفحة تسجيل الدخول
+            showToast("يجب تسجيل الدخول أولاً للحجز.", "error");
+            setTimeout(function() {
+                window.location.href = "auth_login.html?tab=login";
+            }, 2000);
+        }
         return;
     }
 
@@ -164,4 +184,17 @@ document.addEventListener("click", function (event) {
 document.addEventListener("DOMContentLoaded", function () {
     showMessageFromUrl();
     loadServices();
+
+    // إخفاء/إظهار أزرار الـ Nav بناءً على تسجيل الدخول
+    const isLoggedIn = localStorage.getItem("userToken");
+    const navLogin = document.getElementById("navLogin");
+    const navLogout = document.getElementById("navLogout");
+
+    if (isLoggedIn) {
+        if (navLogin) navLogin.style.display = "none";
+        if (navLogout) navLogout.style.display = "inline-block";
+    } else {
+        if (navLogin) navLogin.style.display = "inline-block";
+        if (navLogout) navLogout.style.display = "none";
+    }
 });

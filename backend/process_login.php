@@ -61,6 +61,6 @@ $_SESSION["full_name"] = $user["full_name"];
 $_SESSION["email"] = $user["email"];
 
 // شرح تفصيلي: حسب المطلوب, النجاح يجب أن يحول المستخدم إلى index.html فقط.
-header("Location: ../index.html?status=success&message=" . urlencode("Login successful."));
+header("Location: ../home.html?status=success&message=" . urlencode("Login successful."));
 exit();
 ?>
