@@ -1,0 +1,47 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.6.1 Chrome/142.0.7444.265 Electron/39.8.0 Safari/537.36" version="29.6.1">
+  <diagram name="Page-1" id="vq_gmPZH0hn6iS9dUwKZ">
+    <mxGraphModel dx="1708" dy="944" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="P9uCqqsp1sFo4zJWhrXy-1" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="Customer" vertex="1">
+          <mxGeometry height="54" width="128" x="20" y="101" as="geometry" />
+        </mxCell>
+        <mxCell id="P9uCqqsp1sFo4zJWhrXy-2" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="Admin / Staff" vertex="1">
+          <mxGeometry height="54" width="157" x="863" y="101" as="geometry" />
+        </mxCell>
+        <mxCell id="P9uCqqsp1sFo4zJWhrXy-3" parent="1" style="ellipse;aspect=fixed;strokeWidth=2;whiteSpace=wrap;" value="0.0   &#xa; ShineHub   &#xa; Car Wash System" vertex="1">
+          <mxGeometry height="215" width="215" x="398" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="P9uCqqsp1sFo4zJWhrXy-4" edge="1" parent="1" source="P9uCqqsp1sFo4zJWhrXy-1" style="curved=1;startArrow=none;endArrow=block;exitX=1;exitY=0.28;entryX=0;entryY=0.43;rounded=0;" target="P9uCqqsp1sFo4zJWhrXy-3" value="Booking Info / Service Request">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="273" y="94" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="P9uCqqsp1sFo4zJWhrXy-5" edge="1" parent="1" source="P9uCqqsp1sFo4zJWhrXy-3" style="curved=1;startArrow=none;endArrow=block;exitX=0;exitY=0.57;entryX=1;entryY=0.7;rounded=0;" target="P9uCqqsp1sFo4zJWhrXy-1" value="Booking Confirmation / Invoice">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="273" y="162" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="P9uCqqsp1sFo4zJWhrXy-6" edge="1" parent="1" source="P9uCqqsp1sFo4zJWhrXy-2" style="curved=1;startArrow=none;endArrow=block;exitX=0;exitY=0.73;entryX=1;entryY=0.57;rounded=0;" target="P9uCqqsp1sFo4zJWhrXy-3" value="Manage Services &amp; Inventory">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="738" y="162" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="P9uCqqsp1sFo4zJWhrXy-7" edge="1" parent="1" source="P9uCqqsp1sFo4zJWhrXy-3" style="curved=1;startArrow=none;endArrow=block;exitX=1;exitY=0.43;entryX=0;entryY=0.25;rounded=0;" target="P9uCqqsp1sFo4zJWhrXy-2" value="Operational &amp; Payroll Reports">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="738" y="94" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
