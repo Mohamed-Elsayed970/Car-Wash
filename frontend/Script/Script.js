@@ -1,6 +1,4 @@
-// شرح تفصيلي: هذا الملف مسؤول عن سلوك الواجهة الأمامية فقط.
-// من أهم وظائفه: تشغيل menu toggle في الموبايل, إظهار رسائل النجاح والخطأ,
-// وتحميل الخدمات من قاعدة البيانات, وتحديد الخدمة تلقائياً عند الانتقال لصفحة الحجز.
+
 
 const toast = document.getElementById("toast");
 const menuToggle = document.getElementById("menuToggle");
@@ -9,12 +7,12 @@ const currentYear = document.getElementById("currentYear");
 const bookingServiceSelect = document.getElementById("bookingServiceSelect");
 const serviceGrid = document.getElementById("serviceGrid");
 
-// شرح تفصيلي: نعرض السنة الحالية تلقائياً داخل الفوتر.
+
 if (currentYear) {
     currentYear.textContent = new Date().getFullYear();
 }
 
-// شرح تفصيلي: هذه الدالة تعرض رسالة مؤقتة في أسفل الصفحة.
+
 function showToast(message, type) {
     if (!toast || !message) {
         return;
@@ -32,7 +30,6 @@ function showToast(message, type) {
     }, 3200);
 }
 
-// شرح تفصيلي: هذه الدالة مسؤولة عن التبديل بين Login و Register في صفحة auth_login.html.
 function activateTab(tabName) {
     const tabButtons = document.querySelectorAll(".tab-btn");
     const forms = document.querySelectorAll(".auth-form");
@@ -46,19 +43,18 @@ function activateTab(tabName) {
     });
 }
 
-// شرح تفصيلي: نقرأ رسائل النجاح والخطأ القادمة من PHP في الرابط.
-// شرح تفصيلي: نقرأ رسائل النجاح والخطأ، ونحفظ حالة الدخول لو نجح.
+
 function showMessageFromUrl() {
     const urlParams = new URLSearchParams(window.location.search);
     const status = urlParams.get("status");
     const message = urlParams.get("message");
     const tab = urlParams.get("tab");
 
-    // ===== الجزء الجديد: حفظ حالة تسجيل الدخول أو الخروج =====
+    // =====  حفظ حالة تسجيل الدخول أو الخروج =====
     if (status === "success" && message === "Login successful.") {
         localStorage.setItem("userToken", "true");
     } else if (status === "success" && message === "Logged out successfully.") {
-        localStorage.removeItem("userToken"); // مسح الدليل عند تسجيل الخروج
+        localStorage.removeItem("userToken"); 
     }
     // =========================================================
 
@@ -76,14 +72,12 @@ function showMessageFromUrl() {
     }
 }
 
-// شرح تفصيلي: هذه الدالة تحدد مسار ملف PHP بطريقة تناسب الصفحات الموجودة في جذر المشروع.
+
 function getBookingBackendPath() {
     return "backend/process_booking.php";
 }
 
-// شرح تفصيلي: هذه الدالة تحمل الخدمات من قاعدة البيانات وتستخدمها في:
-// 1) صفحة services.html لعرض الكروت.
-// 2) صفحة booking.html لملء القائمة المنسدلة.
+
 function loadServices() {
     if (!serviceGrid && !bookingServiceSelect) {
         return;
@@ -139,7 +133,7 @@ function loadServices() {
         });
 }
 
-// شرح تفصيلي: هذا الجزء هو الذي يجعل menu toggle يعمل فعلاً في الشاشات الصغيرة.
+
 if (menuToggle) {
     menuToggle.addEventListener("click", function () {
         if (mainNav) {
@@ -148,15 +142,14 @@ if (menuToggle) {
     });
 }
 
-// شرح تفصيلي: عند الضغط على أزرار التبويب داخل صفحة تسجيل الدخول نحول بين الفورمين.
+
 document.querySelectorAll(".tab-btn").forEach(function (button) {
     button.addEventListener("click", function () {
         activateTab(button.dataset.tab);
     });
 });
 
-// شرح تفصيلي: عند الضغط على زر Book This Service في صفحة الخدمات,
-// ننتقل إلى booking.html ومعنا رقم الخدمة في الرابط.
+
 document.addEventListener("click", function (event) {
     if (event.target.classList.contains("service-book-btn")) {
         // فحص تسجيل الدخول
@@ -166,8 +159,8 @@ document.addEventListener("click", function (event) {
             const serviceId = event.target.dataset.serviceId;
             window.location.href = "booking.html?service_id=" + serviceId;
         } else {
-            // تنبيه وتحويل لصفحة تسجيل الدخول
-            showToast("يجب تسجيل الدخول أولاً للحجز.", "error");
+
+            showToast("You must log in first to make a reservation.", "error");
             setTimeout(function() {
                 window.location.href = "auth_login.html?tab=login";
             }, 2000);
@@ -180,12 +173,12 @@ document.addEventListener("click", function (event) {
     }
 });
 
-// شرح تفصيلي: ننفذ الأوامر الأساسية عند اكتمال تحميل الصفحة.
+
 document.addEventListener("DOMContentLoaded", function () {
     showMessageFromUrl();
     loadServices();
 
-    // إخفاء/إظهار أزرار الـ Nav بناءً على تسجيل الدخول
+
     const isLoggedIn = localStorage.getItem("userToken");
     const navLogin = document.getElementById("navLogin");
     const navLogout = document.getElementById("navLogout");
