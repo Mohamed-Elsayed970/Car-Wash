@@ -1,12 +1,10 @@
 <?php
-// شرح تفصيلي: هذا الملف له وظيفتان فقط:
-// 1) عند طلب action=get_services يرجع الخدمات بصيغة JSON للواجهة.
-// 2) عند إرسال نموذج الحجز يقوم بحفظ البيانات داخل جدول bookings.
+// booking flies
 
 session_start();
 require_once __DIR__ . "/connect.php";
 
-// شرح تفصيلي: هذا الجزء مخصص لتحميل الخدمات داخل الصفحات باستخدام fetch من JavaScript.
+//load service by fetch form JS
 if (isset($_GET["action"]) && $_GET["action"] == "get_services") {
     header("Content-Type: application/json; charset=utf-8");
 
@@ -35,13 +33,13 @@ if (isset($_GET["action"]) && $_GET["action"] == "get_services") {
     exit();
 }
 
-// شرح تفصيلي: لو الملف لم يستقبل POST في جزء الحجز, نرجع إلى صفحة الحجز برسالة خطأ.
+// check if booking invalid 
 if ($_SERVER["REQUEST_METHOD"] != "POST") {
     header("Location: ../booking.html?status=error&message=" . urlencode("Invalid booking request."));
     exit();
 }
 
-// شرح تفصيلي: قراءة بيانات الحجز من الفورم.
+// read data in form booking
 $full_name = isset($_POST["full_name"]) ? trim($_POST["full_name"]) : "";
 $email = isset($_POST["email"]) ? trim($_POST["email"]) : "";
 $phone = isset($_POST["phone"]) ? trim($_POST["phone"]) : "";
@@ -52,19 +50,19 @@ $booking_time = isset($_POST["booking_time"]) ? $_POST["booking_time"] : "";
 $notes = isset($_POST["notes"]) ? trim($_POST["notes"]) : "";
 $user_id = isset($_SESSION["user_id"]) ? intval($_SESSION["user_id"]) : null;
 
-// شرح تفصيلي: نتحقق من الحقول الأساسية قبل الحفظ.
+// check all data is true befor saving book
 if ($full_name == "" || $email == "" || $phone == "" || $car_model == "" || $service_id <= 0 || $booking_date == "" || $booking_time == "") {
     header("Location: ../booking.html?status=error&message=" . urlencode("Please fill in all booking fields."));
     exit();
 }
 
-// شرح تفصيلي: نتحقق من صحة البريد الإلكتروني.
+//check email 
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     header("Location: ../booking.html?status=error&message=" . urlencode("Please enter a valid email address."));
     exit();
 }
 
-// شرح تفصيلي: هذا التحقق يتأكد أن الخدمة المختارة موجودة فعلاً ومفعلة داخل جدول services.
+// check service is active or no
 $service_sql = "SELECT service_id FROM services WHERE service_id = ? AND is_active = 1 LIMIT 1";
 $service_stmt = mysqli_prepare($conn, $service_sql);
 
@@ -82,7 +80,7 @@ if (!$service_result || mysqli_num_rows($service_result) == 0) {
     exit();
 }
 
-// شرح تفصيلي: نستخدم نوعين من الإدخال حسب وجود مستخدم مسجل دخول أو لا.
+
 if ($user_id === null) {
     $insert_sql = "INSERT INTO bookings (user_id, service_id, customer_name, customer_email, customer_phone, car_model, booking_date, booking_time, notes) VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?)";
     $insert_stmt = mysqli_prepare($conn, $insert_sql);
@@ -105,7 +103,7 @@ if ($user_id === null) {
     mysqli_stmt_bind_param($insert_stmt, "iisssssss", $user_id, $service_id, $full_name, $email, $phone, $car_model, $booking_date, $booking_time, $notes);
 }
 
-// شرح تفصيلي: إذا تم التنفيذ بنجاح فهذا يعني أن الحجز تم حفظه داخل قاعدة البيانات.
+// booking saved in database 
 if (mysqli_stmt_execute($insert_stmt)) {
     header("Location: ../booking.html?status=success&message=" . urlencode("Booking saved successfully."));
     exit();
