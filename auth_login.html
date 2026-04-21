@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <!-- شرح تفصيلي: هذه الصفحة هي البديل النهائي عن auth.html وتحافظ على نفس فكرة Login و Register داخل نفس الكارت. -->
+    
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ShineHub Car Wash - Login & Register</title>
@@ -61,7 +61,6 @@
                     </div>
 
                     <form id="loginForm" class="auth-form active" action="backend/process_login.php" method="POST">
-                        <!-- شرح تفصيلي: فورم تسجيل الدخول يرسل البريد وكلمة المرور إلى process_login.php. -->
                         <label>
                             <span>Email</span>
                             <input type="email" name="email" required placeholder="Enter your email" />
@@ -74,7 +73,6 @@
                     </form>
 
                     <form id="registerForm" class="auth-form" action="backend/process_register.php" method="POST">
-                        <!-- شرح تفصيلي: فورم إنشاء الحساب يضيف مستخدم جديد إلى جدول users. -->
                         <label>
                             <span>Full Name</span>
                             <input type="text" name="full_name" required placeholder="Enter your full name" />
@@ -103,7 +101,7 @@
 
         <footer class="footer">
             <div class="container footer-content">
-                <p>© <span id="currentYear"></span> ShineHub. All rights reserved. Clean cars, happy customers.</p>
+                <p>© <span id="currentYear"></span> ShineHub.</p>
             </div>
         </footer>
 

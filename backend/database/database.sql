@@ -2,7 +2,6 @@ CREATE DATABASE IF NOT EXISTS shinehub_db;
 USE shinehub_db;
 
 --  Table for 'users'
--- This table stores information about customers who register for the service.
 CREATE TABLE IF NOT EXISTS users (
     user_id INT AUTO_INCREMENT PRIMARY KEY,
     full_name VARCHAR(120) NOT NULL,
@@ -14,7 +13,6 @@ CREATE TABLE IF NOT EXISTS users (
 );
 
 -- Table for 'services'
--- This table lists all the car wash services offered, with details in both English and Arabic.
 CREATE TABLE IF NOT EXISTS services (
     service_id INT AUTO_INCREMENT PRIMARY KEY,
     service_name_en VARCHAR(120) NOT NULL UNIQUE,
@@ -28,7 +26,6 @@ CREATE TABLE IF NOT EXISTS services (
 );
 
 -- Table for 'bookings'
--- This table records all customer appointments for car wash services.
 CREATE TABLE IF NOT EXISTS bookings (
     booking_id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT NULL,
@@ -47,7 +44,6 @@ CREATE TABLE IF NOT EXISTS bookings (
 );
 
 --  Table for 'employees'
--- This table stores information about the staff working at ShineHub.
 CREATE TABLE IF NOT EXISTS employees (
     employee_id INT AUTO_INCREMENT PRIMARY KEY,
     full_name VARCHAR(120) NOT NULL,
@@ -61,7 +57,6 @@ CREATE TABLE IF NOT EXISTS employees (
 );
 
 --  Table for 'payroll'
--- This table tracks salary payments to employees.
 CREATE TABLE IF NOT EXISTS payroll (
     payroll_id INT AUTO_INCREMENT PRIMARY KEY,
     employee_id INT NOT NULL,
@@ -75,7 +70,6 @@ CREATE TABLE IF NOT EXISTS payroll (
 );
 
 --  Table for 'inventory'
--- This table manages the stock of car wash products and supplies.
 CREATE TABLE IF NOT EXISTS inventory (
     item_id INT AUTO_INCREMENT PRIMARY KEY,
     item_name VARCHAR(120) NOT NULL UNIQUE,
@@ -89,7 +83,6 @@ CREATE TABLE IF NOT EXISTS inventory (
 );
 
 -- Initial data for 'services' table
--- These are some default car wash services that ShineHub offers.
 INSERT INTO services
 (service_name_en,  description_en,  price, duration_minutes)
 VALUES

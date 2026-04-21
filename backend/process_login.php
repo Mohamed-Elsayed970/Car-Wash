@@ -1,6 +1,5 @@
 <?php
-// شرح تفصيلي: هذا الملف مسؤول عن استقبال بيانات تسجيل الدخول من auth_login.html
-// ثم التحقق من البريد وكلمة المرور داخل قاعدة البيانات.
+// login file 
 
 session_start();
 require_once __DIR__ . "/connect.php";
