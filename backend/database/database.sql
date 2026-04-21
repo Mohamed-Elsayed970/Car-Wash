@@ -90,13 +90,20 @@ CREATE TABLE IF NOT EXISTS inventory (
 
 -- Initial data for 'services' table
 -- These are some default car wash services that ShineHub offers.
-INSERT INTO services (service_name_en, service_name_ar, description_en, description_ar, price, duration_minutes)
-VALUES
-    ('Exterior Wash', 'غسيل خارجي', 'Quick foam wash, rinse, and drying for the outside body of the car.', 'غسيل سريع بالرغوة ثم شطف وتجفيف للهيكل الخارجي للسيارة.', 15.00, 25),
-    ('Interior Cleaning', 'تنظيف داخلي', 'Vacuuming, dashboard cleaning, glass wiping, and floor mat care.', 'تنظيف داخلي يشمل الشفط وتنظيف التابلوه والزجاج والعناية بالأرضيات.', 20.00, 35),
-    ('Polishing', 'تلميع', 'Paint polishing to restore gloss and improve the car appearance.', 'تلميع للطلاء لاستعادة اللمعان وتحسين مظهر السيارة.', 35.00, 50),
-    ('Protection Coating', 'طبقة حماية', 'Adds a protective layer against dust, light dirt, and weather effects.', 'إضافة طبقة حماية ضد الأتربة والأوساخ الخفيفة وتأثيرات الطقس.', 45.00, 60),
-    ('Deep Cleaning', 'تنظيف عميق', 'Complete interior and exterior detailing for a full refresh.', 'تنظيف تفصيلي داخلي وخارجي كامل لاستعادة النظافة الكاملة.', 60.00, 90)
+INSERT INTO services (name, description, price) VALUES
+('Exterior Wash', 'Car exterior cleaning', 40),
+('Interior Cleaning', 'Full interior cleaning', 70),
+('Polishing', 'Paint polishing service', 150),
+('Protection Coating', 'Paint protection layer', 250),
+('Deep Cleaning', 'Complete deep cleaning inside and outside', 200),
+('Oil Change', 'Engine oil and filter replacement', 180),
+('Engine Check', 'Quick engine diagnostic check', 60),
+('Battery Check', 'Battery inspection service', 35),
+('Tire Service', 'Tire pressure check and inspection', 25),
+('Headlight Restoration', 'Restore headlight clarity', 120),
+('Engine Cleaning', 'Engine bay cleaning service', 100),
+('Full Detailing', 'Full car detailing service', 400),
+('Paint Correction', 'Remove minor scratches', 300);
 ON DUPLICATE KEY UPDATE
     price = VALUES(price),
     duration_minutes = VALUES(duration_minutes),
