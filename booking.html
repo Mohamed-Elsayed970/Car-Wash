@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-    <!-- شرح تفصيلي: هذه صفحة الحجز المخصصة لإرسال البيانات إلى backend/process_booking.php وحفظها في MySQL. -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ShineHub Car Wash - Booking</title>
@@ -77,7 +76,6 @@
                 </div>
 
                 <form class="form-card" id="bookingForm" action="backend/process_booking.php" method="POST">
-                    <!-- شرح تفصيلي: هذا الفورم يرسل البيانات مباشرة إلى ملف PHP المسؤول عن حفظ الحجز. -->
                     <input type="hidden" name="action" value="book_service" />
                     <h3>Book an Appointment</h3>
                     <div class="form-grid">
@@ -124,7 +122,11 @@
 
         <footer class="footer">
             <div class="container footer-content">
+<<<<<<< HEAD
                 <p>© <span id="currentYear"></span> ShineHub. All rights reserved. Clean cars.</p>
+=======
+                <p>© <span id="currentYear"></span> ShineHub.</p>
+>>>>>>> b5c68392163bcaed3b0262a61a7a724e6e2d72f4
             </div>
         </footer>
 

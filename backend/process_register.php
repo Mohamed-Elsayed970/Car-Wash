@@ -1,47 +1,46 @@
 <?php
-// شرح تفصيلي: هذا الملف مسؤول عن إنشاء حساب جديد للمستخدم.
-// بعد نجاح التسجيل نرجع المستخدم إلى auth_login.html حتى يسجل الدخول بالحساب الجديد.
+// create now account
 
 require_once __DIR__ . "/connect.php";
 
-// شرح تفصيلي: نسمح فقط بطلبات POST القادمة من الفورم.
+// request from post only 
 if ($_SERVER["REQUEST_METHOD"] != "POST") {
     header("Location: ../auth_login.html?status=error&message=" . urlencode("Invalid request method."));
     exit();
 }
 
-// شرح تفصيلي: نقرأ البيانات من الفورم ونزيل أي مسافات غير مهمة.
+// read all data 
 $full_name = isset($_POST["full_name"]) ? trim($_POST["full_name"]) : "";
 $email = isset($_POST["email"]) ? trim($_POST["email"]) : "";
 $phone = isset($_POST["phone"]) ? trim($_POST["phone"]) : "";
 $password = isset($_POST["password"]) ? $_POST["password"] : "";
 $confirm_password = isset($_POST["confirm_password"]) ? $_POST["confirm_password"] : "";
 
-// شرح تفصيلي: نتحقق أن كل الحقول الأساسية موجودة.
+// check if all data true
 if ($full_name == "" || $email == "" || $phone == "" || $password == "" || $confirm_password == "") {
     header("Location: ../auth_login.html?status=error&message=" . urlencode("Please fill in all fields.") . "&tab=register");
     exit();
 }
 
-// شرح تفصيلي: نتحقق من صيغة البريد الإلكتروني.
+// check email is valid
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     header("Location: ../auth_login.html?status=error&message=" . urlencode("Please enter a valid email address.") . "&tab=register");
     exit();
 }
 
-// شرح تفصيلي: هذا الشرط يمنع كلمات المرور الضعيفة جداً.
+// length of the password
 if (strlen($password) < 6) {
     header("Location: ../auth_login.html?status=error&message=" . urlencode("Password must be at least 6 characters.") . "&tab=register");
     exit();
 }
 
-// شرح تفصيلي: لازم كلمة المرور وتأكيدها يكونوا متساويين قبل الحفظ.
+// check if pass == confirm
 if ($password != $confirm_password) {
     header("Location: ../auth_login.html?status=error&message=" . urlencode("Passwords do not match.") . "&tab=register");
     exit();
 }
 
-// شرح تفصيلي: نتحقق هل البريد الإلكتروني مسجل مسبقاً أم لا.
+// check if email is already registered
 $check_sql = "SELECT user_id FROM users WHERE email = ? LIMIT 1";
 $check_stmt = mysqli_prepare($conn, $check_sql);
 
@@ -59,10 +58,10 @@ if ($check_result && mysqli_num_rows($check_result) > 0) {
     exit();
 }
 
-// شرح تفصيلي: نقوم بتشفير كلمة المرور قبل تخزينها في قاعدة البيانات.
+// set pass into password_hash befor saved in database
 $password_hash = password_hash($password, PASSWORD_DEFAULT);
 
-// شرح تفصيلي: نضيف المستخدم الجديد إلى جدول users.
+// add all data in table users
 $insert_sql = "INSERT INTO users (full_name, email, phone, password_hash) VALUES (?, ?, ?, ?)";
 $insert_stmt = mysqli_prepare($conn, $insert_sql);
 

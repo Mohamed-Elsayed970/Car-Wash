@@ -2,11 +2,10 @@ CREATE DATABASE IF NOT EXISTS shinehub_db;
 USE shinehub_db;
 
 --  Table for 'users'
--- This table stores information about customers who register for the service.
 CREATE TABLE IF NOT EXISTS users (
     user_id INT AUTO_INCREMENT PRIMARY KEY,
     full_name VARCHAR(120) NOT NULL,
-    username VARCHAR(80) UNIQUE,
+   
     email VARCHAR(120) NOT NULL UNIQUE,
     phone VARCHAR(30) NOT NULL,
     password_hash VARCHAR(255) NOT NULL,
@@ -14,13 +13,12 @@ CREATE TABLE IF NOT EXISTS users (
 );
 
 -- Table for 'services'
--- This table lists all the car wash services offered, with details in both English and Arabic.
 CREATE TABLE IF NOT EXISTS services (
     service_id INT AUTO_INCREMENT PRIMARY KEY,
     service_name_en VARCHAR(120) NOT NULL UNIQUE,
-    service_name_ar VARCHAR(120) NOT NULL,
+    
     description_en TEXT NOT NULL,
-    description_ar TEXT NOT NULL,
+   
     price DECIMAL(10,2) NOT NULL,
     duration_minutes INT NOT NULL,
     is_active TINYINT(1) DEFAULT 1,
@@ -28,7 +26,6 @@ CREATE TABLE IF NOT EXISTS services (
 );
 
 -- Table for 'bookings'
--- This table records all customer appointments for car wash services.
 CREATE TABLE IF NOT EXISTS bookings (
     booking_id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT NULL,
@@ -47,7 +44,6 @@ CREATE TABLE IF NOT EXISTS bookings (
 );
 
 --  Table for 'employees'
--- This table stores information about the staff working at ShineHub.
 CREATE TABLE IF NOT EXISTS employees (
     employee_id INT AUTO_INCREMENT PRIMARY KEY,
     full_name VARCHAR(120) NOT NULL,
@@ -61,7 +57,6 @@ CREATE TABLE IF NOT EXISTS employees (
 );
 
 --  Table for 'payroll'
--- This table tracks salary payments to employees.
 CREATE TABLE IF NOT EXISTS payroll (
     payroll_id INT AUTO_INCREMENT PRIMARY KEY,
     employee_id INT NOT NULL,
@@ -75,7 +70,6 @@ CREATE TABLE IF NOT EXISTS payroll (
 );
 
 --  Table for 'inventory'
--- This table manages the stock of car wash products and supplies.
 CREATE TABLE IF NOT EXISTS inventory (
     item_id INT AUTO_INCREMENT PRIMARY KEY,
     item_name VARCHAR(120) NOT NULL UNIQUE,
@@ -89,44 +83,43 @@ CREATE TABLE IF NOT EXISTS inventory (
 );
 
 -- Initial data for 'services' table
--- These are some default car wash services that ShineHub offers.
 INSERT INTO services
-(service_name_en, service_name_ar, description_en, description_ar, price, duration_minutes)
+(service_name_en,  description_en,  price, duration_minutes)
 VALUES
 
-('Exterior Wash','Exterior Wash','Car exterior cleaning','Car exterior cleaning',40,30),
+('Exterior Wash','Car exterior cleaning',40,30),
 
-('Interior Cleaning','Interior Cleaning','Full interior cleaning','Full interior cleaning',70,45),
+('Interior Cleaning','Full interior cleaning',70,45),
 
-('Polishing','Polishing','Paint polishing service','Paint polishing service',150,60),
+('Polishing','Paint polishing service',150,60),
 
-('Protection Coating','Protection Coating','Paint protection layer','Paint protection layer',250,90),
+('Protection Coating','Paint protection layer',250,90),
 
-('Deep Cleaning','Deep Cleaning','Complete deep cleaning inside and outside','Complete deep cleaning inside and outside',200,90),
+('Deep Cleaning','Complete deep cleaning inside and outside',,200,90),
 
-('Oil Change','Oil Change','Engine oil and filter replacement','Engine oil and filter replacement',180,40),
+('Oil Change','Engine oil and filter replacement',180,40),
 
-('Engine Check','Engine Check','Quick engine diagnostic check','Quick engine diagnostic check',60,20),
+('Engine Check','Quick engine diagnostic check',60,20),
 
-('Battery Check','Battery Check','Battery inspection service','Battery inspection service',35,15),
+('Battery Check','Battery inspection service',35,15),
 
-('Tire Service','Tire Service','Tire pressure check and inspection','Tire pressure check and inspection',25,15),
+('Tire Service','Tire pressure check and inspection',25,15),
 
-('Headlight Restoration','Headlight Restoration','Restore headlight clarity','Restore headlight clarity',120,45),
+('Headlight Restoration','Restore headlight clarity',120,45),
 
-('Engine Cleaning','Engine Cleaning','Engine bay cleaning service','Engine bay cleaning service',100,45),
+('Engine Cleaning','Engine bay cleaning service',100,45),
 
-('Wax Protection','Wax Protection','Wax layer protection for paint','Wax layer protection for paint',90,40),
+('Wax Protection','Wax layer protection for paint',90,40),
 
-('Full Detailing','Full Detailing','Full car detailing service','Full car detailing service',400,180),
+('Full Detailing','Full car detailing service',400,180),
 
-('Paint Correction','Paint Correction','Remove minor scratches','Remove minor scratches',300,120),
+('Paint Correction','Remove minor scratches',300,120),
 
-('Ceramic Coating','Ceramic Coating','Long-term paint protection','Long-term paint protection',1200,240)
+('Ceramic Coating','Long-term paint protection',1200,240)
 
 ON DUPLICATE KEY UPDATE
 price = VALUES(price),
 duration_minutes = VALUES(duration_minutes),
 description_en = VALUES(description_en),
-description_ar = VALUES(description_ar);
+
 
