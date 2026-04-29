@@ -86,6 +86,7 @@ CREATE TABLE inventory (
     updated_at DATETIME DEFAULT GETDATE()
 );
 
+--DML
 
 INSERT INTO services (service_name_en, description_en, price, duration_minutes, is_active)
 VALUES

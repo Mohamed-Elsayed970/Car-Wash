@@ -1,0 +1,40 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.6.1 Chrome/142.0.7444.265 Electron/39.8.0 Safari/537.36" version="29.6.1">
+  <diagram name="Page-1" id="JAHA3UolaB10-UF-pmio">
+    <mxGraphModel dx="1142" dy="770" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="p0" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#0050ef;fontColor=#ffffff;strokeColor=#001DBC;fontStyle=1;fontSize=14;" value="ShineHub System" vertex="1">
+          <mxGeometry height="100" width="160" x="340" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#2a6df1;fontColor=#ffffff;strokeColor=#001DBC;" value="Customer" vertex="1">
+          <mxGeometry height="60" width="120" x="60" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#a200ff;fontColor=#ffffff;strokeColor=#6a00ff;" value="Staff" vertex="1">
+          <mxGeometry height="60" width="120" x="660" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#00a65a;fontColor=#ffffff;strokeColor=#008a00;" value="Admin" vertex="1">
+          <mxGeometry height="60" width="120" x="60" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f0a30a;fontColor=#ffffff;strokeColor=#bd7000;" value="Suppliers" vertex="1">
+          <mxGeometry height="60" width="120" x="660" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="f1" edge="1" parent="1" source="e1" style="endArrow=classic;html=1;dashed=1;exitX=1;exitY=1;entryX=0;entryY=0;" target="p0" value="+ Booking Info&#xa;+ Payment&#xa;- Confirmation">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f2" edge="1" parent="1" source="e2" style="endArrow=classic;html=1;dashed=1;exitX=0;exitY=1;entryX=1;entryY=0;" target="p0" value="+ Work Status&#xa;- Salary Info">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f3" edge="1" parent="1" source="e3" style="endArrow=classic;html=1;dashed=1;exitX=1;exitY=0;entryX=0;entryY=1;" target="p0" value="+ Service Prices&#xa;- System Reports">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f4" edge="1" parent="1" source="e4" style="endArrow=classic;html=1;dashed=1;exitX=0;exitY=0;entryX=1;entryY=1;" target="p0" value="+ Items Info&#xa;- Orders">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="legend" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;" value="+ = In to system | - = Out of system" vertex="1">
+          <mxGeometry height="30" width="300" x="270" y="520" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
